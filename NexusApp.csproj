@@ -52,8 +52,12 @@
   <ItemGroup>
     <Compile Include="clsBlocNotas.cs" />
     <Compile Include="clsDocumentos.cs" />
+    <Compile Include="clsEstatusAvance.cs" />
     <Compile Include="clsNotas.cs" />
     <Compile Include="Clases\ClsConexion.cs" />
+    <Compile Include="clsPrioridad.cs" />
+    <Compile Include="clsProyectos.cs" />
+    <Compile Include="clsTareas.cs" />
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
