@@ -2,11 +2,156 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
 
 namespace NexusApp
 {
-    internal class clsProyectos
+    internal class clsProyectos : ClsConexion
     {
+        public int proyecto_id { get; set; }
+        public int usuario_id { get; set; }
+        public string tituloProyecto { get; set; }
+        public int estatus_id { get; set; }
+        public int prioridad_id { get; set; }
+        public DateTime fechaCreacion { get; set; }
+        public DateTime fechaLimite { get; set; }
+        public DateTime fechaFin { get; set; }
+
+        public void InsertarProyecto()
+        {
+            try
+            {
+                GetConnection();
+                string query = "INSERT INTO proyectos (usuario_id, tituloProyecto) VALUES (@usuario_id, @tituloProyecto)";
+                using (SqlCommand cmd = new SqlCommand(query, objConnection))
+                {
+                    cmd.Parameters.AddWithValue("@id", proyecto_id);
+                    cmd.Parameters.AddWithValue("@tituloProyecto", tituloProyecto);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error... " + ex.ToString());
+            }
+            finally
+            {
+                objConnection.Close();
+            }
+        }
+
+        public void ActualizarTituloProyecto()
+        {
+            try
+            {
+                GetConnection();
+                string query = "UPDATE proyectos SET tituloProyecto = @tituloProyecto";
+                using (SqlCommand cmd = new SqlCommand(query, objConnection))
+                {
+                    cmd.Parameters.AddWithValue("@tituloProyecto", tituloProyecto);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error... " + ex.ToString());
+            }
+            finally
+            {
+                objConnection.Close();
+            }
+        }
+        public void ActualizarEstatusProyecto()
+        {
+            try
+            {
+                GetConnection();
+                string query = "UPDATE proyectos SET estatus_id = @estatus_id";
+                using (SqlCommand cmd = new SqlCommand(query, objConnection))
+                {
+                    cmd.Parameters.AddWithValue("@estatus_id", estatus_id);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error... " + ex.ToString());
+            }
+            finally
+            {
+                objConnection.Close();
+            }
+        }
+        public void ActualizarPrioridadProyecto()
+        {
+            try
+            {
+                GetConnection();
+                string query = "UPDATE proyectos SET prioridad_id = @prioridad_id";
+                using (SqlCommand cmd = new SqlCommand(query, objConnection))
+                {
+                    cmd.Parameters.AddWithValue("@prioridad_id", prioridad_id);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error... " + ex.ToString());
+            }
+            finally
+            {
+                objConnection.Close();
+            }
+        }
+        public void ActualizarFechaLimiteProyecto()
+        {
+            try
+            {
+                GetConnection();
+                string query = "UPDATE proyectos SET fechaLimite = @fechaLimite";
+                using (SqlCommand cmd = new SqlCommand(query, objConnection))
+                {
+                    cmd.Parameters.AddWithValue("@fechaLimite", fechaLimite);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error... " + ex.ToString());
+            }
+            finally
+            {
+                objConnection.Close();
+            }
+        }
+        public void ActualizarFechaFinProyecto()
+        {
+            try
+            {
+                GetConnection();
+                string query = "UPDATE proyectos SET fechaFin = GETDATE()";
+                using (SqlCommand cmd = new SqlCommand(query, objConnection))
+                {
+                    cmd.Parameters.AddWithValue("@fechaLimite", fechaLimite);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error... " + ex.ToString());
+            }
+            finally
+            {
+                objConnection.Close();
+            }
+        }
     }
 }
