@@ -50,7 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClsConexion.cs" />
+    <Compile Include="Clases\ClsConexion.cs" />
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
