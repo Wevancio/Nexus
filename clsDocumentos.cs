@@ -21,8 +21,7 @@ namespace NexusApp
             try
             {
                 GetConnection();
-                string query = "INSERT INTO Documentos (Usuario_ID, Titulo, URL, FechaSubida) " +
-                               "VALUES (@uID, @tit, @url, GETDATE())";
+                string query = "INSERT INTO Documentos (usuario_id, tituloDocumento, urlDoc, fechaSubida) VALUES (@uID, @tit, @url, GETDATE())";
                 SqlCommand cmd = new SqlCommand(query, objConnection);
 
                 cmd.Parameters.AddWithValue("@uID", objeto.Usuario_ID);

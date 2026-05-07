@@ -17,7 +17,7 @@ namespace NexusApp
             try
             {
                 GetConnection();
-                string query = "INSERT INTO Notas (Bloc_ID, Contenido) VALUES (@bloc, @cont)";
+                string query = "INSERT INTO Notas (bloc_id, tituloNota, fechaCreacion, contenido) VALUES (@bloc, @tit, GETDATE(), @cont)";
                 SqlCommand cmd = new SqlCommand(query, objConnection);
 
                 cmd.Parameters.AddWithValue("@bloc", objeto.Bloc_ID);
@@ -52,7 +52,7 @@ namespace NexusApp
             try
             {
                 GetConnection();
-                string query = "UPDATE Notas SET Contenido = @cont WHERE Nota_ID = @id";
+                string query = "UPDATE Notas SET tituloNota = @tit, contenido = @cont, fechaModificacion = GETDATE() WHERE nota_id = @id";
                 SqlCommand cmd = new SqlCommand(query, objConnection);
                 cmd.Parameters.AddWithValue("@cont", objeto.Contenido);
                 cmd.Parameters.AddWithValue("@id", objeto.Nota_ID);

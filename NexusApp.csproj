@@ -50,11 +50,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BlocNotas.cs" />
+    <Compile Include="clsBlocNotas.cs" />
     <Compile Include="ClsConexion.cs" />
     <Compile Include="clsDocumentos.cs" />
     <Compile Include="clsNotas.cs" />
-    <Compile Include="Documentos.cs" />
     <Compile Include="Clases\ClsConexion.cs" />
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -68,7 +67,6 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="Notas.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmLogin.resx">

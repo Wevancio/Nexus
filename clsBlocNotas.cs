@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 
 namespace NexusApp
 {
-    internal class BlocNotas : ClsConexion
+    internal class clsBlocNotas : ClsConexion
     {
         public int Bloc_ID { get; set; }
         public int ID_Usuario { get; set; }
         public string TituloBloc { get; set; }
 
-        public void Insertar(BlocNotas objeto)
+        public void Insertar(clsBlocNotas objeto)
         {
             try
             {
                 GetConnection();
-                string query = "INSERT INTO BlocNotas (ID_Usuario, TituloBloc) VALUES (@user, @titulo)";
+                string query = "INSERT INTO BlocNotas (usuario_id, tituloBloc) VALUES (@user, @titulo)";
                 SqlCommand cmd = new SqlCommand(query, objConnection);
 
                 cmd.Parameters.AddWithValue("@user", objeto.ID_Usuario);
@@ -33,12 +33,12 @@ namespace NexusApp
             }
         }
 
-        public void Editar(BlocNotas objeto)
+        public void Editar(clsBlocNotas objeto)
         {
             try
             {
                 GetConnection();
-                string query = "UPDATE BlocNotas SET TituloBloc = @titulo WHERE Bloc_ID = @id";
+                string query = "UPDATE BlocNotas SET tituloBloc = @titulo WHERE bloc_id = @id";
                 SqlCommand cmd = new SqlCommand(query, objConnection);
 
                 cmd.Parameters.AddWithValue("@titulo", objeto.TituloBloc);
