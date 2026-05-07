@@ -50,6 +50,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clsBlocNotas.cs" />
+    <Compile Include="ClsConexion.cs" />
+    <Compile Include="clsDocumentos.cs" />
+    <Compile Include="clsNotas.cs" />
     <Compile Include="Clases\ClsConexion.cs" />
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
