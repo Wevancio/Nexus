@@ -51,7 +51,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsBlocNotas.cs" />
-    <Compile Include="ClsConexion.cs" />
     <Compile Include="clsDocumentos.cs" />
     <Compile Include="clsNotas.cs" />
     <Compile Include="Clases\ClsConexion.cs" />
