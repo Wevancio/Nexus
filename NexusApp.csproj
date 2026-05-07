@@ -55,6 +55,7 @@
     <Compile Include="clsDocumentos.cs" />
     <Compile Include="clsNotas.cs" />
     <Compile Include="Documentos.cs" />
+    <Compile Include="Clases\ClsConexion.cs" />
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
