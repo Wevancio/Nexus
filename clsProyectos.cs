@@ -48,10 +48,11 @@ namespace NexusApp
             try
             {
                 GetConnection();
-                string query = "UPDATE proyectos SET tituloProyecto = @tituloProyecto";
+                string query = "UPDATE proyectos SET tituloProyecto = @tituloProyecto WHERE proyecto_id = @proyecto_id";
                 using (SqlCommand cmd = new SqlCommand(query, objConnection))
                 {
                     cmd.Parameters.AddWithValue("@tituloProyecto", tituloProyecto);
+                    cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
 
                     cmd.ExecuteNonQuery();
                 }
@@ -71,10 +72,11 @@ namespace NexusApp
             try
             {
                 GetConnection();
-                string query = "UPDATE proyectos SET estatus_id = @estatus_id";
+                string query = "UPDATE proyectos SET estatus_id = @estatus_id WHERE proyecto_id = @proyecto_id";
                 using (SqlCommand cmd = new SqlCommand(query, objConnection))
                 {
                     cmd.Parameters.AddWithValue("@estatus_id", estatus_id);
+                    cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
 
                     cmd.ExecuteNonQuery();
                 }
@@ -94,10 +96,11 @@ namespace NexusApp
             try
             {
                 GetConnection();
-                string query = "UPDATE proyectos SET prioridad_id = @prioridad_id";
+                string query = "UPDATE proyectos SET prioridad_id = @prioridad_id WHERE proyecto_id = @proyecto_id";
                 using (SqlCommand cmd = new SqlCommand(query, objConnection))
                 {
                     cmd.Parameters.AddWithValue("@prioridad_id", prioridad_id);
+                    cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
 
                     cmd.ExecuteNonQuery();
                 }
@@ -117,10 +120,11 @@ namespace NexusApp
             try
             {
                 GetConnection();
-                string query = "UPDATE proyectos SET fechaLimite = @fechaLimite";
+                string query = "UPDATE proyectos SET fechaLimite = @fechaLimite WHERE proyecto_id = @proyecto_id";
                 using (SqlCommand cmd = new SqlCommand(query, objConnection))
                 {
                     cmd.Parameters.AddWithValue("@fechaLimite", fechaLimite);
+                    cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
 
                     cmd.ExecuteNonQuery();
                 }
@@ -140,10 +144,11 @@ namespace NexusApp
             try
             {
                 GetConnection();
-                string query = "UPDATE proyectos SET fechaFin = GETDATE()";
+                string query = "UPDATE proyectos SET fechaFin = GETDATE() WHERE proyecto_id = @proyecto_id";
                 using (SqlCommand cmd = new SqlCommand(query, objConnection))
                 {
                     cmd.Parameters.AddWithValue("@fechaLimite", fechaLimite);
+                    cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
 
                     cmd.ExecuteNonQuery();
                 }
