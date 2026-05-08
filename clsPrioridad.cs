@@ -8,5 +8,9 @@ namespace NexusApp
 {
     internal class clsPrioridad
     {
+        public int prioridad_id { get; set; }
+        public string prioridad { get; set; }
+
+
     }
 }

@@ -8,5 +8,7 @@ namespace NexusApp
 {
     internal class clsEstatusAvance
     {
+        public int estatus_id { get; set; }
+        public string estatus { get; set; }
     }
 }
