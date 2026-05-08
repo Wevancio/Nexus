@@ -50,14 +50,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="clsBlocNotas.cs" />
-    <Compile Include="clsDocumentos.cs" />
-    <Compile Include="clsEstatusAvance.cs" />
-    <Compile Include="clsNotas.cs" />
+    <Compile Include="Clases\clsBlocNotas.cs" />
+    <Compile Include="Clases\clsDocumentos.cs" />
+    <Compile Include="Clases\clsEstatusAvance.cs" />
+    <Compile Include="Clases\clsNotas.cs" />
     <Compile Include="Clases\ClsConexion.cs" />
-    <Compile Include="clsPrioridad.cs" />
-    <Compile Include="clsProyectos.cs" />
-    <Compile Include="clsTareas.cs" />
+    <Compile Include="Clases\clsPrioridad.cs" />
+    <Compile Include="Clases\clsProyectoDocumento.cs" />
+    <Compile Include="Clases\clsProyectos.cs" />
+    <Compile Include="Clases\clsTareaDocumento.cs" />
+    <Compile Include="Clases\clsTareas.cs" />
+    <Compile Include="Clases\clsUsuarios.cs" />
+    <Compile Include="Clases\frmUsuarios.cs" />
+    <Compile Include="Forms\frmDocumentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDocumentos.Designer.cs">
+      <DependentUpon>frmDocumentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmUsurios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmUsurios.Designer.cs">
+      <DependentUpon>frmUsurios.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +88,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\frmUsurios.resx">
+      <DependentUpon>frmUsurios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -101,5 +120,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
