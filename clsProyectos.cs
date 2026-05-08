@@ -27,7 +27,7 @@ namespace NexusApp
                 string query = "INSERT INTO proyectos (usuario_id, tituloProyecto) VALUES (@usuario_id, @tituloProyecto)";
                 using (SqlCommand cmd = new SqlCommand(query, objConnection))
                 {
-                    cmd.Parameters.AddWithValue("@id", proyecto_id);
+                    cmd.Parameters.AddWithValue("@usuario_id", proyecto_id);
                     cmd.Parameters.AddWithValue("@tituloProyecto", tituloProyecto);
 
                     cmd.ExecuteNonQuery();
@@ -65,6 +65,7 @@ namespace NexusApp
                 objConnection.Close();
             }
         }
+
         public void ActualizarEstatusProyecto()
         {
             try
@@ -87,6 +88,7 @@ namespace NexusApp
                 objConnection.Close();
             }
         }
+
         public void ActualizarPrioridadProyecto()
         {
             try
@@ -109,6 +111,7 @@ namespace NexusApp
                 objConnection.Close();
             }
         }
+
         public void ActualizarFechaLimiteProyecto()
         {
             try
@@ -131,6 +134,7 @@ namespace NexusApp
                 objConnection.Close();
             }
         }
+
         public void ActualizarFechaFinProyecto()
         {
             try
