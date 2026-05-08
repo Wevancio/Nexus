@@ -126,6 +126,7 @@ namespace NexusApp
                 using (SqlCommand cmd = new SqlCommand(query, objConnection))
                 {
                     cmd.Parameters.AddWithValue("@estatus_id", estatus_id);
+                    cmd.Parameters.AddWithValue("@tarea_id", tarea_id);
 
                     cmd.ExecuteNonQuery();
                 }
@@ -149,6 +150,7 @@ namespace NexusApp
                 using (SqlCommand cmd = new SqlCommand(query, objConnection))
                 {
                     cmd.Parameters.AddWithValue("@prioridad_id", prioridad_id);
+                    cmd.Parameters.AddWithValue("@tarea_id", tarea_id);
 
                     cmd.ExecuteNonQuery();
                 }
@@ -172,6 +174,7 @@ namespace NexusApp
                 using (SqlCommand cmd = new SqlCommand(query, objConnection))
                 {
                     cmd.Parameters.AddWithValue("@fechaLimite", fechaLimite);
+                    cmd.Parameters.AddWithValue("@tarea_id", tarea_id);
 
                     cmd.ExecuteNonQuery();
                 }
@@ -195,6 +198,7 @@ namespace NexusApp
                 using (SqlCommand cmd = new SqlCommand(query, objConnection))
                 {
                     cmd.Parameters.AddWithValue("@fechaLimite", fechaLimite);
+                    cmd.Parameters.AddWithValue("@tarea_id", tarea_id);
 
                     cmd.ExecuteNonQuery();
                 }
