@@ -16,6 +16,7 @@ namespace NexusApp.Clases
         public string email { get; set; }
         public string contrasena { get; set; }
         public string username { get; set; }
+        public int tipoUsuario_id { get; set; }
         public DateTime fechaCreacion { get; set; }
 
         // Método para registrar un nuevo usuario
@@ -25,12 +26,13 @@ namespace NexusApp.Clases
             {
                 GetConnection();
 
-                string query = "INSERT INTO usuarios (email, contrasena, username) VALUES (@email, @contrasena, @username)";
+                string query = "INSERT INTO usuarios (email, contrasena, username, tipoUsuario_id) VALUES (@email, @contrasena, @username, @tipoUsuario_id)";
                 using (SqlCommand cmd = new SqlCommand(query, objConnection))
                 {
                     cmd.Parameters.AddWithValue("@email", email);
                     cmd.Parameters.AddWithValue("@contrasena", contrasena);
                     cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue("@tipoUsuario_id", tipoUsuario_id);
 
                     cmd.ExecuteNonQuery();
                 }

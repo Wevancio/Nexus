@@ -44,6 +44,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.lblHeaderTareas = new System.Windows.Forms.Label();
+            this.lblAdminControl = new System.Windows.Forms.Label();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -221,11 +222,24 @@
             this.lblHeaderTareas.TabIndex = 12;
             this.lblHeaderTareas.Text = "Lista de Tareas";
             // 
+            // lblAdminControl
+            // 
+            this.lblAdminControl.AutoSize = true;
+            this.lblAdminControl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblAdminControl.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAdminControl.ForeColor = System.Drawing.Color.MediumBlue;
+            this.lblAdminControl.Location = new System.Drawing.Point(947, 24);
+            this.lblAdminControl.Name = "lblAdminControl";
+            this.lblAdminControl.Size = new System.Drawing.Size(133, 21);
+            this.lblAdminControl.TabIndex = 4;
+            this.lblAdminControl.Text = "Admin Control";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1339, 649);
+            this.Controls.Add(this.lblAdminControl);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.label1);
@@ -262,5 +276,6 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.Label lblAdminControl;
     }
 }
