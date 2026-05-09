@@ -25,7 +25,7 @@ namespace NexusApp
             objUsuarios.email = txtEmailRegistro.Text;
             objUsuarios.contrasena = txtContrasenaRegistro.Text;
             objUsuarios.username = txtUsernameRegistro.Text;
-            objUsuarios.tipoUsuario_id = 1;
+            objUsuarios.tipoUsuario_id = 0;
 
             objUsuarios.InsertarUsuario();
 

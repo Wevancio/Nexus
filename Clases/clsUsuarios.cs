@@ -36,6 +36,7 @@ namespace NexusApp.Clases
 
                     cmd.ExecuteNonQuery();
                     objConnection.Close();
+                    MessageBox.Show("Usuario agregado con éxito!");
                 }
             }
             catch (Exception ex)
