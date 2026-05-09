@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NexusApp.Clases;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,5 +18,20 @@ namespace NexusApp
             InitializeComponent();
         }
 
+        private void btnLogRegistro_Click(object sender, EventArgs e)
+        {
+            clsUsuarios objUsuarios = new clsUsuarios();
+
+            objUsuarios.email = txtEmailRegistro.Text;
+            objUsuarios.contrasena = txtContrasenaRegistro.Text;
+            objUsuarios.username = txtUsernameRegistro.Text;
+            objUsuarios.tipoUsuario_id = 1;
+
+            objUsuarios.InsertarUsuario();
+
+            Form frmMain = new frmMain();
+            frmMain.ShowDialog();
+            this.Hide();
+        }
     }
 }

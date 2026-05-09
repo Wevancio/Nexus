@@ -35,16 +35,14 @@ namespace NexusApp.Clases
                     cmd.Parameters.AddWithValue("@tipoUsuario_id", tipoUsuario_id);
 
                     cmd.ExecuteNonQuery();
+                    objConnection.Close();
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Ha ocurrido un error... " + ex.ToString());
             }
-            finally
-            {
-                objConnection.Close();
-            }
+
         }
 
    

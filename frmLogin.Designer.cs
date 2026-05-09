@@ -32,22 +32,22 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.txtEmailLogin = new System.Windows.Forms.TextBox();
             this.gBxRegistro = new System.Windows.Forms.GroupBox();
-            this.gBxLogin = new System.Windows.Forms.GroupBox();
-            this.lblContraseña = new System.Windows.Forms.Label();
-            this.txtContraseñaLogin = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtContraseñaRegistro = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtEmailRegistro = new System.Windows.Forms.TextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblUsername = new System.Windows.Forms.Label();
             this.txtUsernameRegistro = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnLogRegistro = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtContrasenaRegistro = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtEmailRegistro = new System.Windows.Forms.TextBox();
+            this.gBxLogin = new System.Windows.Forms.GroupBox();
+            this.lblContraseña = new System.Windows.Forms.Label();
+            this.txtContrasenaLogin = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gBxRegistro.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.gBxLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // lblEmail
@@ -83,9 +83,9 @@
             this.gBxRegistro.Controls.Add(this.pictureBox2);
             this.gBxRegistro.Controls.Add(this.lblUsername);
             this.gBxRegistro.Controls.Add(this.txtUsernameRegistro);
-            this.gBxRegistro.Controls.Add(this.button1);
+            this.gBxRegistro.Controls.Add(this.btnLogRegistro);
             this.gBxRegistro.Controls.Add(this.label1);
-            this.gBxRegistro.Controls.Add(this.txtContraseñaRegistro);
+            this.gBxRegistro.Controls.Add(this.txtContrasenaRegistro);
             this.gBxRegistro.Controls.Add(this.label2);
             this.gBxRegistro.Controls.Add(this.txtEmailRegistro);
             this.gBxRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -96,10 +96,83 @@
             this.gBxRegistro.TabStop = false;
             this.gBxRegistro.Text = "Regístrate";
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(23, 45);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(530, 123);
+            this.pictureBox2.TabIndex = 6;
+            this.pictureBox2.TabStop = false;
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.Location = new System.Drawing.Point(36, 363);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(174, 20);
+            this.lblUsername.TabIndex = 11;
+            this.lblUsername.Text = "Nombre de usuario:";
+            // 
+            // txtUsernameRegistro
+            // 
+            this.txtUsernameRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsernameRegistro.Location = new System.Drawing.Point(40, 396);
+            this.txtUsernameRegistro.Name = "txtUsernameRegistro";
+            this.txtUsernameRegistro.Size = new System.Drawing.Size(323, 27);
+            this.txtUsernameRegistro.TabIndex = 12;
+            // 
+            // btnLogRegistro
+            // 
+            this.btnLogRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogRegistro.Location = new System.Drawing.Point(109, 458);
+            this.btnLogRegistro.Name = "btnLogRegistro";
+            this.btnLogRegistro.Size = new System.Drawing.Size(170, 43);
+            this.btnLogRegistro.TabIndex = 10;
+            this.btnLogRegistro.Text = "Entrar";
+            this.btnLogRegistro.UseVisualStyleBackColor = true;
+            this.btnLogRegistro.Click += new System.EventHandler(this.btnLogRegistro_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(36, 270);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(111, 20);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Contraseña:";
+            // 
+            // txtContrasenaRegistro
+            // 
+            this.txtContrasenaRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContrasenaRegistro.Location = new System.Drawing.Point(40, 314);
+            this.txtContrasenaRegistro.Name = "txtContrasenaRegistro";
+            this.txtContrasenaRegistro.Size = new System.Drawing.Size(323, 27);
+            this.txtContrasenaRegistro.TabIndex = 9;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(36, 199);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(171, 20);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Correo electrónico:";
+            // 
+            // txtEmailRegistro
+            // 
+            this.txtEmailRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEmailRegistro.Location = new System.Drawing.Point(40, 232);
+            this.txtEmailRegistro.Name = "txtEmailRegistro";
+            this.txtEmailRegistro.Size = new System.Drawing.Size(323, 27);
+            this.txtEmailRegistro.TabIndex = 7;
+            // 
             // gBxLogin
             // 
             this.gBxLogin.Controls.Add(this.lblContraseña);
-            this.gBxLogin.Controls.Add(this.txtContraseñaLogin);
+            this.gBxLogin.Controls.Add(this.txtContrasenaLogin);
             this.gBxLogin.Controls.Add(this.pictureBox1);
             this.gBxLogin.Controls.Add(this.lblEmail);
             this.gBxLogin.Controls.Add(this.btnLogin);
@@ -122,13 +195,13 @@
             this.lblContraseña.TabIndex = 4;
             this.lblContraseña.Text = "Contraseña:";
             // 
-            // txtContraseñaLogin
+            // txtContrasenaLogin
             // 
-            this.txtContraseñaLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContraseñaLogin.Location = new System.Drawing.Point(25, 396);
-            this.txtContraseñaLogin.Name = "txtContraseñaLogin";
-            this.txtContraseñaLogin.Size = new System.Drawing.Size(323, 27);
-            this.txtContraseñaLogin.TabIndex = 5;
+            this.txtContrasenaLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContrasenaLogin.Location = new System.Drawing.Point(25, 396);
+            this.txtContrasenaLogin.Name = "txtContrasenaLogin";
+            this.txtContrasenaLogin.Size = new System.Drawing.Size(323, 27);
+            this.txtContrasenaLogin.TabIndex = 5;
             // 
             // pictureBox1
             // 
@@ -137,78 +210,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(170, 170);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(36, 270);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(111, 20);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Contraseña:";
-            // 
-            // txtContraseñaRegistro
-            // 
-            this.txtContraseñaRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContraseñaRegistro.Location = new System.Drawing.Point(40, 314);
-            this.txtContraseñaRegistro.Name = "txtContraseñaRegistro";
-            this.txtContraseñaRegistro.Size = new System.Drawing.Size(323, 27);
-            this.txtContraseñaRegistro.TabIndex = 9;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(36, 199);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(171, 20);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Correo electrónico:";
-            // 
-            // txtEmailRegistro
-            // 
-            this.txtEmailRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEmailRegistro.Location = new System.Drawing.Point(40, 232);
-            this.txtEmailRegistro.Name = "txtEmailRegistro";
-            this.txtEmailRegistro.Size = new System.Drawing.Size(323, 27);
-            this.txtEmailRegistro.TabIndex = 7;
-            // 
-            // lblUsername
-            // 
-            this.lblUsername.AutoSize = true;
-            this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.Location = new System.Drawing.Point(36, 363);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(174, 20);
-            this.lblUsername.TabIndex = 11;
-            this.lblUsername.Text = "Nombre de usuario:";
-            // 
-            // txtUsernameRegistro
-            // 
-            this.txtUsernameRegistro.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsernameRegistro.Location = new System.Drawing.Point(40, 396);
-            this.txtUsernameRegistro.Name = "txtUsernameRegistro";
-            this.txtUsernameRegistro.Size = new System.Drawing.Size(323, 27);
-            this.txtUsernameRegistro.TabIndex = 12;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(109, 458);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(170, 43);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Entrar";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Location = new System.Drawing.Point(23, 45);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(530, 123);
-            this.pictureBox2.TabIndex = 6;
-            this.pictureBox2.TabStop = false;
             // 
             // frmLogin
             // 
@@ -222,10 +223,10 @@
             this.Text = "frmLogin";
             this.gBxRegistro.ResumeLayout(false);
             this.gBxRegistro.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.gBxLogin.ResumeLayout(false);
             this.gBxLogin.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -239,14 +240,14 @@
         private System.Windows.Forms.GroupBox gBxLogin;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblContraseña;
-        private System.Windows.Forms.TextBox txtContraseñaLogin;
+        private System.Windows.Forms.TextBox txtContrasenaLogin;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtContraseñaRegistro;
+        private System.Windows.Forms.TextBox txtContrasenaRegistro;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtEmailRegistro;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.TextBox txtUsernameRegistro;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnLogRegistro;
     }
 }
