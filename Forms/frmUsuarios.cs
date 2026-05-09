@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace NexusApp.Forms
 {
-    public partial class frmUsurios : Form
+    public partial class frmUsuarios : Form
     {
-        public frmUsurios()
+        public frmUsuarios()
         {
             InitializeComponent();
         }

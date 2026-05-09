@@ -1,6 +1,6 @@
 ﻿namespace NexusApp.Forms
 {
-    partial class frmUsurios
+    partial class frmUsuarios
     {
         /// <summary>
         /// Required designer variable.
