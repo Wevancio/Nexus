@@ -29,7 +29,7 @@ namespace NexusApp
 
             objUsuarios.InsertarUsuario();
 
-            Form frmMain = new frmMain();
+            Form frmMain = new frmMain(txtUsernameRegistro.Text);
             frmMain.ShowDialog();
             this.Hide();
         }

@@ -47,6 +47,34 @@ namespace NexusApp.Clases
             }
 
         }
+
+        public void GetUsuario_ID()
+        {
+            try
+            {
+                GetConnection();
+
+                string query = "SELECT usuario_id FROM usuarios WHERE username = @username";
+                using (SqlCommand cmd = new SqlCommand(query, objConnection))
+                {
+                    cmd.Parameters.AddWithValue("@username", username);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            usuario_id = Convert.ToInt32(reader["usuario_id"]);
+                        }
+                    }
+                    objConnection.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error... " + ex.ToString());
+            }
+        }
+
         // Método para actualizar todos los datos del usuario a la vez
         public void ActualizarUsuario()
         {

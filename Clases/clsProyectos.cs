@@ -5,6 +5,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace NexusApp
 {
@@ -19,6 +20,8 @@ namespace NexusApp
         public DateTime fechaLimite { get; set; }
         public DateTime fechaFin { get; set; }
 
+        DataTable dtProyectos = new DataTable();
+
         public void InsertarProyecto()
         {
             try
@@ -27,7 +30,7 @@ namespace NexusApp
                 string query = "INSERT INTO proyectos (usuario_id, tituloProyecto) VALUES (@usuario_id, @tituloProyecto)";
                 using (SqlCommand cmd = new SqlCommand(query, objConnection))
                 {
-                    cmd.Parameters.AddWithValue("@usuario_id", proyecto_id);
+                    cmd.Parameters.AddWithValue("@usuario_id", usuario_id);
                     cmd.Parameters.AddWithValue("@tituloProyecto", tituloProyecto);
 
                     cmd.ExecuteNonQuery();
@@ -41,6 +44,36 @@ namespace NexusApp
             {
                 objConnection.Close();
             }
+        }
+
+        public DataTable GetProyectos()
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                GetConnection();
+                // Seleccionamos los campos. 
+                string query = "SELECT * FROM proyectos WHERE usuario_id = @usuario_id";
+
+                using (SqlCommand cmd = new SqlCommand(query, objConnection))
+                {
+                    cmd.Parameters.AddWithValue("@usuario_id", usuario_id);
+
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar proyectos: " + ex.ToString());
+            }
+            finally
+            {
+                objConnection.Close();
+            }
+            return dt;
         }
 
         public void ActualizarTituloProyecto()
