@@ -14,6 +14,7 @@ namespace NexusApp
     public partial class frmMain : Form
     {
         string usuarioRef;
+
         public frmMain(string usuario)
         {
             InitializeComponent();
@@ -28,6 +29,19 @@ namespace NexusApp
 
         }
 
+        public void NuevoProyecto()
+        {
+            clsProyectos objProyectos = new clsProyectos();
+            clsUsuarios objUsuarios = new clsUsuarios();
+            objUsuarios.username = usuarioRef;
+            objUsuarios.GetUsuario_ID();
+
+            objProyectos.tituloProyecto = txtTituloProyecto.Text;
+            objProyectos.usuario_id = objUsuarios.usuario_id;
+            objProyectos.InsertarProyecto();
+            dgvProyectos.DataSource = objProyectos.GetProyectos();
+        }
+
         private void lblAdminControl_Click(object sender, EventArgs e)
         {
 
@@ -35,18 +49,30 @@ namespace NexusApp
 
         private void txtTituloProyecto_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter && !string.IsNullOrEmpty(txtTituloProyecto.Text))
+            if (e.KeyCode == Keys.Enter && !string.IsNullOrWhiteSpace(txtTituloProyecto.Text))
             {
-                clsProyectos objProyectos = new clsProyectos();
-                clsUsuarios objUsuarios = new clsUsuarios();
-                objUsuarios.username = usuarioRef;
-                objUsuarios.GetUsuario_ID();
-
-                objProyectos.tituloProyecto = txtTituloProyecto.Text;
-                objProyectos.usuario_id = objUsuarios.usuario_id;
-                objProyectos.InsertarProyecto();
-                dgvProyectos.DataSource = objProyectos.GetProyectos();
+                NuevoProyecto();
             }
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            NuevoProyecto();
+        }
+
+        private void dgvProyectos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //if (e.RowIndex == 0) Agregar filtro para poder modificar únicamente columnas DateTime
+            try
+            {
+                DateTime fecha = mCalendarProyectos.SelectionStart;
+                dgvProyectos.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = fecha;
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+
+            }
+
         }
     }
 }
