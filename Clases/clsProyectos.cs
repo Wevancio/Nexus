@@ -22,7 +22,7 @@ namespace NexusApp
 
         DataTable dtProyectos = new DataTable();
 
-        public void InsertarProyecto()
+        public void InsertarProyectoRegParcial()
         {
             try
             {
@@ -32,6 +32,33 @@ namespace NexusApp
                 {
                     cmd.Parameters.AddWithValue("@usuario_id", usuario_id);
                     cmd.Parameters.AddWithValue("@tituloProyecto", tituloProyecto);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error... " + ex.ToString());
+            }
+            finally
+            {
+                objConnection.Close();
+            }
+        }
+
+        public void InsertarProyectoRegTotal()
+        {
+            try
+            {
+                GetConnection();
+                string query = "INSERT INTO proyectos (usuario_id, tituloProyecto, estatus_id, prioridad_id, fechaLimite) VALUES (@usuario_id, @tituloProyecto, @estatus_id, @prioridad_id, @fechaLimite)";
+                using (SqlCommand cmd = new SqlCommand(query, objConnection))
+                {
+                    cmd.Parameters.AddWithValue("@usuario_id", usuario_id);
+                    cmd.Parameters.AddWithValue("@tituloProyecto", tituloProyecto);
+                    cmd.Parameters.AddWithValue("@estatus_id", estatus_id);
+                    cmd.Parameters.AddWithValue("@prioridad_id", prioridad_id);
+                    cmd.Parameters.AddWithValue("@fechaLimite", fechaLimite);
 
                     cmd.ExecuteNonQuery();
                 }

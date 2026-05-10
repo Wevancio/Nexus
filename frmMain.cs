@@ -38,6 +38,12 @@ namespace NexusApp
             dgvProyectos.AutoGenerateColumns = false;
             dgvProyectos.Columns.Clear();
 
+            //Creación columna proyecto_id
+            DataGridViewTextBoxColumn colProid = new DataGridViewTextBoxColumn();
+            colProid.Name = "proyecto_id";
+            colProid.HeaderText = "Proyecto ID";
+            colProid.DataPropertyName = "proyecto_id";
+
             //Creación columna titulo
             DataGridViewTextBoxColumn colTitulo = new DataGridViewTextBoxColumn();
             colTitulo.Name = "tituloProyecto";
@@ -93,6 +99,8 @@ namespace NexusApp
             // O para fecha y hora:
             // dataGridView1.Columns["NombreColumnaFecha"].DefaultCellStyle.Format = "dd/MM/yyyy HH:mm:ss";
 
+            dgvProyectos.Columns.Add(colProid);
+            dgvProyectos.Columns["proyecto_id"].Visible = false;
             dgvProyectos.Columns.Add(colTitulo);
             dgvProyectos.Columns.Add(cmbEstatus);
             dgvProyectos.Columns.Add(cmbPrioridad);
@@ -104,7 +112,7 @@ namespace NexusApp
             dgvProyectos.Columns["fechaCreacion"].DefaultCellStyle.Format = "dd/MM/yyyy";
         }
 
-        public void NuevoProyecto()
+        public void NuevoProyecto(int tipoReg)
         {
             clsProyectos objProyectos = new clsProyectos();
             clsUsuarios objUsuarios = new clsUsuarios();
@@ -113,7 +121,26 @@ namespace NexusApp
 
             objProyectos.tituloProyecto = txtTituloProyecto.Text;
             objProyectos.usuario_id = objUsuarios.usuario_id;
-            objProyectos.InsertarProyecto();
+            switch (tipoReg)
+            {
+                case 0:
+                    objProyectos.InsertarProyectoRegParcial();
+                    break;
+                case 1:
+                    try
+                    {
+                        objProyectos.tituloProyecto = dgvProyectos.CurrentRow.Cells["tituloProyecto"].Value.ToString();
+                        objProyectos.estatus_id = Convert.ToInt32(dgvProyectos.CurrentRow.Cells["estatus_id"].Value);
+                        objProyectos.prioridad_id = Convert.ToInt32(dgvProyectos.CurrentRow.Cells["prioridad_id"].Value);
+                        objProyectos.fechaLimite = Convert.ToDateTime(dgvProyectos.CurrentRow.Cells["fechaLimite"].Value);
+                        objProyectos.InsertarProyectoRegTotal();
+                    }
+                    catch (InvalidCastException)
+                    {
+                        MessageBox.Show("Asegúrese de llenar todos los campos correctamente para poder crear un nuevo proyecto", "¡ESPERA!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                    break;
+            }
             dgvProyectos.DataSource = objProyectos.GetProyectos();
         }
 
@@ -126,18 +153,18 @@ namespace NexusApp
         {
             if (e.KeyCode == Keys.Enter && !string.IsNullOrWhiteSpace(txtTituloProyecto.Text))
             {
-                NuevoProyecto();
+                NuevoProyecto(0);
             }
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private void btnAgregarProyecto_Click(object sender, EventArgs e)
         {
-            NuevoProyecto();
+            NuevoProyecto(1);
         }
 
         private void dgvProyectos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == 5 || e.ColumnIndex == 4)
+            if (e.ColumnIndex == 5 || e.ColumnIndex == 6)
             {
                 try
                 {
@@ -151,7 +178,7 @@ namespace NexusApp
             }
         }
 
-        private void btnModificar_Click(object sender, EventArgs e)
+        private void btnModificarProyecto_Click(object sender, EventArgs e)
         {
             // Validamos que haya una fila seleccionada en el DataGridView
             if (dgvProyectos.SelectedRows.Count > 0)
@@ -167,10 +194,10 @@ namespace NexusApp
                 objProyectos.prioridad_id = Convert.ToInt32(dgvProyectos.CurrentRow.Cells["prioridad_id"].Value);
                 objProyectos.fechaLimite = Convert.ToDateTime(dgvProyectos.CurrentRow.Cells["fechaLimite"].Value);
                 objProyectos.fechaFin = Convert.ToDateTime(dgvProyectos.CurrentRow.Cells["fechaFin"].Value);
-                
+                objProyectos.ActualizarProyecto();
 
                 MessageBox.Show("Proyecto actualizado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                // Actualizar la tabla
+                objProyectos.GetProyectos();// Actualizar la tabla
             }
             else
             {

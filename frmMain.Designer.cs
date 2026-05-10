@@ -30,16 +30,18 @@
         {
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.mCalendarTareas = new System.Windows.Forms.MonthCalendar();
+            this.mCalendarProyectos = new System.Windows.Forms.MonthCalendar();
             this.txtTituloProyecto = new System.Windows.Forms.TextBox();
             this.lblNuevoProyecto = new System.Windows.Forms.Label();
             this.lblHeaderTareas = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnEliminarTareaProyecto = new System.Windows.Forms.Button();
+            this.btnModificarTareaProyecto = new System.Windows.Forms.Button();
+            this.btnAgregarTareaProyecto = new System.Windows.Forms.Button();
             this.dgvTareas = new System.Windows.Forms.DataGridView();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnModificar = new System.Windows.Forms.Button();
-            this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnEliminarProyecto = new System.Windows.Forms.Button();
+            this.btnModificarProyecto = new System.Windows.Forms.Button();
+            this.btnAgregarProyecto = new System.Windows.Forms.Button();
             this.dgvProyectos = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -47,8 +49,6 @@
             this.lblUsername = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblAdminControl = new System.Windows.Forms.Label();
-            this.mCalendarProyectos = new System.Windows.Forms.MonthCalendar();
-            this.mCalendarTareas = new System.Windows.Forms.MonthCalendar();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTareas)).BeginInit();
@@ -76,13 +76,13 @@
             this.tabPage1.Controls.Add(this.txtTituloProyecto);
             this.tabPage1.Controls.Add(this.lblNuevoProyecto);
             this.tabPage1.Controls.Add(this.lblHeaderTareas);
-            this.tabPage1.Controls.Add(this.button1);
-            this.tabPage1.Controls.Add(this.button2);
-            this.tabPage1.Controls.Add(this.button3);
+            this.tabPage1.Controls.Add(this.btnEliminarTareaProyecto);
+            this.tabPage1.Controls.Add(this.btnModificarTareaProyecto);
+            this.tabPage1.Controls.Add(this.btnAgregarTareaProyecto);
             this.tabPage1.Controls.Add(this.dgvTareas);
-            this.tabPage1.Controls.Add(this.btnEliminar);
-            this.tabPage1.Controls.Add(this.btnModificar);
-            this.tabPage1.Controls.Add(this.btnAgregar);
+            this.tabPage1.Controls.Add(this.btnEliminarProyecto);
+            this.tabPage1.Controls.Add(this.btnModificarProyecto);
+            this.tabPage1.Controls.Add(this.btnAgregarProyecto);
             this.tabPage1.Controls.Add(this.dgvProyectos);
             this.tabPage1.Location = new System.Drawing.Point(4, 33);
             this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -92,6 +92,20 @@
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Proyectos";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // mCalendarTareas
+            // 
+            this.mCalendarTareas.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mCalendarTareas.Location = new System.Drawing.Point(963, 399);
+            this.mCalendarTareas.Name = "mCalendarTareas";
+            this.mCalendarTareas.TabIndex = 16;
+            // 
+            // mCalendarProyectos
+            // 
+            this.mCalendarProyectos.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mCalendarProyectos.Location = new System.Drawing.Point(964, 75);
+            this.mCalendarProyectos.Name = "mCalendarProyectos";
+            this.mCalendarProyectos.TabIndex = 15;
             // 
             // txtTituloProyecto
             // 
@@ -121,38 +135,38 @@
             this.lblHeaderTareas.TabIndex = 12;
             this.lblHeaderTareas.Text = "Lista de Tareas";
             // 
-            // button1
+            // btnEliminarTareaProyecto
             // 
-            this.button1.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(1198, 619);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(114, 39);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Eliminar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnEliminarTareaProyecto.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarTareaProyecto.Location = new System.Drawing.Point(1198, 619);
+            this.btnEliminarTareaProyecto.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEliminarTareaProyecto.Name = "btnEliminarTareaProyecto";
+            this.btnEliminarTareaProyecto.Size = new System.Drawing.Size(114, 39);
+            this.btnEliminarTareaProyecto.TabIndex = 11;
+            this.btnEliminarTareaProyecto.Text = "Eliminar";
+            this.btnEliminarTareaProyecto.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnModificarTareaProyecto
             // 
-            this.button2.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(1059, 619);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(114, 39);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "Modificar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnModificarTareaProyecto.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarTareaProyecto.Location = new System.Drawing.Point(1059, 619);
+            this.btnModificarTareaProyecto.Margin = new System.Windows.Forms.Padding(4);
+            this.btnModificarTareaProyecto.Name = "btnModificarTareaProyecto";
+            this.btnModificarTareaProyecto.Size = new System.Drawing.Size(114, 39);
+            this.btnModificarTareaProyecto.TabIndex = 10;
+            this.btnModificarTareaProyecto.Text = "Modificar";
+            this.btnModificarTareaProyecto.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btnAgregarTareaProyecto
             // 
-            this.button3.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(920, 619);
-            this.button3.Margin = new System.Windows.Forms.Padding(4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(114, 39);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "Agregar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnAgregarTareaProyecto.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarTareaProyecto.Location = new System.Drawing.Point(920, 619);
+            this.btnAgregarTareaProyecto.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAgregarTareaProyecto.Name = "btnAgregarTareaProyecto";
+            this.btnAgregarTareaProyecto.Size = new System.Drawing.Size(114, 39);
+            this.btnAgregarTareaProyecto.TabIndex = 9;
+            this.btnAgregarTareaProyecto.Text = "Agregar";
+            this.btnAgregarTareaProyecto.UseVisualStyleBackColor = true;
             // 
             // dgvTareas
             // 
@@ -165,40 +179,40 @@
             this.dgvTareas.Size = new System.Drawing.Size(872, 265);
             this.dgvTareas.TabIndex = 8;
             // 
-            // btnEliminar
+            // btnEliminarProyecto
             // 
-            this.btnEliminar.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Location = new System.Drawing.Point(1198, 295);
-            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(114, 39);
-            this.btnEliminar.TabIndex = 7;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminarProyecto.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarProyecto.Location = new System.Drawing.Point(1198, 295);
+            this.btnEliminarProyecto.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEliminarProyecto.Name = "btnEliminarProyecto";
+            this.btnEliminarProyecto.Size = new System.Drawing.Size(114, 39);
+            this.btnEliminarProyecto.TabIndex = 7;
+            this.btnEliminarProyecto.Text = "Eliminar";
+            this.btnEliminarProyecto.UseVisualStyleBackColor = true;
             // 
-            // btnModificar
+            // btnModificarProyecto
             // 
-            this.btnModificar.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificar.Location = new System.Drawing.Point(1059, 295);
-            this.btnModificar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(114, 39);
-            this.btnModificar.TabIndex = 6;
-            this.btnModificar.Text = "Modificar";
-            this.btnModificar.UseVisualStyleBackColor = true;
-            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            this.btnModificarProyecto.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarProyecto.Location = new System.Drawing.Point(1059, 295);
+            this.btnModificarProyecto.Margin = new System.Windows.Forms.Padding(4);
+            this.btnModificarProyecto.Name = "btnModificarProyecto";
+            this.btnModificarProyecto.Size = new System.Drawing.Size(114, 39);
+            this.btnModificarProyecto.TabIndex = 6;
+            this.btnModificarProyecto.Text = "Modificar";
+            this.btnModificarProyecto.UseVisualStyleBackColor = true;
+            this.btnModificarProyecto.Click += new System.EventHandler(this.btnModificarProyecto_Click);
             // 
-            // btnAgregar
+            // btnAgregarProyecto
             // 
-            this.btnAgregar.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.Location = new System.Drawing.Point(920, 295);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(114, 39);
-            this.btnAgregar.TabIndex = 5;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            this.btnAgregarProyecto.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarProyecto.Location = new System.Drawing.Point(920, 295);
+            this.btnAgregarProyecto.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAgregarProyecto.Name = "btnAgregarProyecto";
+            this.btnAgregarProyecto.Size = new System.Drawing.Size(114, 39);
+            this.btnAgregarProyecto.TabIndex = 5;
+            this.btnAgregarProyecto.Text = "Agregar";
+            this.btnAgregarProyecto.UseVisualStyleBackColor = true;
+            this.btnAgregarProyecto.Click += new System.EventHandler(this.btnAgregarProyecto_Click);
             // 
             // dgvProyectos
             // 
@@ -218,7 +232,7 @@
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Size = new System.Drawing.Size(1333, 557);
+            this.tabPage2.Size = new System.Drawing.Size(1333, 669);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Tareas";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -229,7 +243,7 @@
             this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage3.Size = new System.Drawing.Size(1333, 557);
+            this.tabPage3.Size = new System.Drawing.Size(1333, 669);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Bloques de Notas";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -277,20 +291,6 @@
             this.lblAdminControl.Text = "Admin Control";
             this.lblAdminControl.Click += new System.EventHandler(this.lblAdminControl_Click);
             // 
-            // mCalendarProyectos
-            // 
-            this.mCalendarProyectos.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mCalendarProyectos.Location = new System.Drawing.Point(964, 75);
-            this.mCalendarProyectos.Name = "mCalendarProyectos";
-            this.mCalendarProyectos.TabIndex = 15;
-            // 
-            // mCalendarTareas
-            // 
-            this.mCalendarTareas.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mCalendarTareas.Location = new System.Drawing.Point(963, 399);
-            this.mCalendarTareas.Name = "mCalendarTareas";
-            this.mCalendarTareas.TabIndex = 16;
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -326,13 +326,13 @@
         private System.Windows.Forms.Label lblUsername;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridView dgvProyectos;
-        private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.Button btnEliminarProyecto;
+        private System.Windows.Forms.Button btnModificarProyecto;
+        private System.Windows.Forms.Button btnAgregarProyecto;
         private System.Windows.Forms.Label lblHeaderTareas;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnEliminarTareaProyecto;
+        private System.Windows.Forms.Button btnModificarTareaProyecto;
+        private System.Windows.Forms.Button btnAgregarTareaProyecto;
         private System.Windows.Forms.DataGridView dgvTareas;
         private System.Windows.Forms.Label lblAdminControl;
         private System.Windows.Forms.TextBox txtTituloProyecto;
