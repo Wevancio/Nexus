@@ -8,7 +8,7 @@ using System.Data.SqlClient;
 
 namespace NexusApp
 {
-    internal class clsProyectos : ClsConexion
+    internal class clsProyectos : clsConexion
     {
         public int proyecto_id { get; set; }
         public int usuario_id { get; set; }

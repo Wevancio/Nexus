@@ -54,7 +54,7 @@
     <Compile Include="Clases\clsDocumentos.cs" />
     <Compile Include="Clases\clsEstatusAvance.cs" />
     <Compile Include="Clases\clsNotas.cs" />
-    <Compile Include="Clases\ClsConexion.cs" />
+    <Compile Include="Clases\clsConexion.cs" />
     <Compile Include="Clases\clsPrioridad.cs" />
     <Compile Include="Clases\clsProyectoDocumento.cs" />
     <Compile Include="Clases\clsProyectos.cs" />
@@ -87,6 +87,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\frmDocumentos.resx">
+      <DependentUpon>frmDocumentos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmUsuarios.resx">
       <DependentUpon>frmUsuarios.cs</DependentUpon>
     </EmbeddedResource>

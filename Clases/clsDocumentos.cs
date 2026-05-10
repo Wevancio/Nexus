@@ -9,7 +9,7 @@ using System.Xml.Linq;
 
 namespace NexusApp
 {
-    internal class clsDocumentos : ClsConexion
+    internal class clsDocumentos : clsConexion
     {
         public int Documento_ID { get; set; }
         public int Usuario_ID { get; set; }

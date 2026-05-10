@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NexusApp
 {
-    internal class clsNotas : ClsConexion
+    internal class clsNotas : clsConexion
     {
         public int Nota_ID { get; set; }
         public int Bloc_ID { get; set; }

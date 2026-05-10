@@ -41,6 +41,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.cmbTipoUsuario = new System.Windows.Forms.ComboBox();
+            this.lblTipoUsuario = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTablaUsuarios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -60,6 +62,7 @@
             this.btnAgregar.TabIndex = 2;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnModificar
             // 
@@ -69,6 +72,7 @@
             this.btnModificar.TabIndex = 3;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnEliminar
             // 
@@ -78,6 +82,7 @@
             this.btnEliminar.TabIndex = 4;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // txtUsuarioID
             // 
@@ -152,11 +157,33 @@
             this.label5.TabIndex = 13;
             this.label5.Text = "Registro Usuarios";
             // 
-            // frmUsurios
+            // cmbTipoUsuario
+            // 
+            this.cmbTipoUsuario.FormattingEnabled = true;
+            this.cmbTipoUsuario.Items.AddRange(new object[] {
+            "Administrador",
+            "Usuario"});
+            this.cmbTipoUsuario.Location = new System.Drawing.Point(634, 63);
+            this.cmbTipoUsuario.Name = "cmbTipoUsuario";
+            this.cmbTipoUsuario.Size = new System.Drawing.Size(121, 21);
+            this.cmbTipoUsuario.TabIndex = 14;
+            // 
+            // lblTipoUsuario
+            // 
+            this.lblTipoUsuario.AutoSize = true;
+            this.lblTipoUsuario.Location = new System.Drawing.Point(631, 47);
+            this.lblTipoUsuario.Name = "lblTipoUsuario";
+            this.lblTipoUsuario.Size = new System.Drawing.Size(67, 13);
+            this.lblTipoUsuario.TabIndex = 15;
+            this.lblTipoUsuario.Text = "Tipo Usuario";
+            // 
+            // frmUsuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(787, 329);
+            this.Controls.Add(this.lblTipoUsuario);
+            this.Controls.Add(this.cmbTipoUsuario);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -170,8 +197,9 @@
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.dgvTablaUsuarios);
-            this.Name = "frmUsurios";
+            this.Name = "frmUsuarios";
             this.Text = "Usuarios";
+            this.Load += new System.EventHandler(this.frmUsuarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTablaUsuarios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -193,5 +221,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cmbTipoUsuario;
+        private System.Windows.Forms.Label lblTipoUsuario;
     }
 }

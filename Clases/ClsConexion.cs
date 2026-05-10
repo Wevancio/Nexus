@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace NexusApp
 {
-    internal class ClsConexion
+    internal class clsConexion
     {
         protected SqlConnection objConnection;
         protected SqlCommand objCommand;

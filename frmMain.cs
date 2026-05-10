@@ -16,5 +16,10 @@ namespace NexusApp
         {
             InitializeComponent();
         }
+
+        private void lblAdminControl_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

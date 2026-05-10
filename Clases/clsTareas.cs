@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace NexusApp
 {
-    internal class clsTareas : ClsConexion
+    internal class clsTareas : clsConexion
     {
         public int tarea_id { get; set; }
         public int proyecto_id { get; set; }
