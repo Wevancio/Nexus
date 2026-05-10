@@ -76,6 +76,62 @@ namespace NexusApp
             return dt;
         }
 
+        public DataTable GetEstatus()
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                GetConnection();
+                // Seleccionamos los campos. 
+                string query = "SELECT * FROM estatus";
+
+                using (SqlCommand cmd = new SqlCommand(query, objConnection))
+                {
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar Estatus: " + ex.ToString());
+            }
+            finally
+            {
+                objConnection.Close();
+            }
+            return dt;
+        }
+
+        public DataTable GetPrioridad()
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                GetConnection();
+                // Seleccionamos los campos. 
+                string query = "SELECT * FROM prioridad";
+
+                using (SqlCommand cmd = new SqlCommand(query, objConnection))
+                {
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar Prioridad: " + ex.ToString());
+            }
+            finally
+            {
+                objConnection.Close();
+            }
+            return dt;
+        }
+
         public void ActualizarTituloProyecto()
         {
             try

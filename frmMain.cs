@@ -27,6 +27,29 @@ namespace NexusApp
             objProyectos.usuario_id = objUsuarios.usuario_id;
             dgvProyectos.DataSource = objProyectos.GetProyectos();
 
+            DataTable dtEstatus = objProyectos.GetEstatus();
+            DataGridViewComboBoxColumn cmbEstatus = new DataGridViewComboBoxColumn();
+            cmbEstatus.Name = "estatus_id";
+            cmbEstatus.HeaderText = "Estatus";
+            cmbEstatus.DataSource = dtEstatus;
+            cmbEstatus.DisplayMember = "estatus";
+            cmbEstatus.ValueMember = "estatus_id";
+
+            int ind = dgvProyectos.Columns["estatus_id"].Index;
+            dgvProyectos.Columns.Remove("estatus_id");
+            dgvProyectos.Columns.Insert(ind, cmbEstatus);
+
+            DataTable dtPrioridad = objProyectos.GetPrioridad();
+            DataGridViewComboBoxColumn cmbPrioridad = new DataGridViewComboBoxColumn();
+            cmbPrioridad.Name = "prioridad_id";
+            cmbPrioridad.HeaderText = "Prioridad";
+            cmbPrioridad.DataSource = dtPrioridad;
+            cmbPrioridad.DisplayMember = "prioridad";
+            cmbPrioridad.ValueMember = "prioridad_id";
+
+            int indP = dgvProyectos.Columns["prioridad_id"].Index;
+            dgvProyectos.Columns.Remove("prioridad_id");
+            dgvProyectos.Columns.Insert(indP, cmbPrioridad);
         }
 
         public void NuevoProyecto()
@@ -62,17 +85,18 @@ namespace NexusApp
 
         private void dgvProyectos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //if (e.RowIndex == 0) Agregar filtro para poder modificar únicamente columnas DateTime
-            try
+            if (e.RowIndex == 3 || e.RowIndex == 4 || e.RowIndex == 6 || e.RowIndex == 7)
             {
-                DateTime fecha = mCalendarProyectos.SelectionStart;
-                dgvProyectos.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = fecha;
-            }
-            catch (ArgumentOutOfRangeException)
-            {
+                try
+                {
+                    DateTime fecha = mCalendarProyectos.SelectionStart;
+                    dgvProyectos.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = fecha;
+                }
+                catch (ArgumentOutOfRangeException)
+                {
 
+                }
             }
-
         }
     }
 }
