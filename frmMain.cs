@@ -281,10 +281,15 @@ namespace NexusApp
                 objProyectos.estatus_id = Convert.ToInt32(dgvProyectos.CurrentRow.Cells["estatus_id"].Value);
                 objProyectos.prioridad_id = Convert.ToInt32(dgvProyectos.CurrentRow.Cells["prioridad_id"].Value);
                 objProyectos.fechaLimite = Convert.ToDateTime(dgvProyectos.CurrentRow.Cells["fechaLimite"].Value);
-                objProyectos.fechaFin = Convert.ToDateTime(dgvProyectos.CurrentRow.Cells["fechaFin"].Value);
+                //objProyectos.fechaFin = Convert.ToDateTime(dgvProyectos.CurrentRow.Cells["fechaFin"].Value);
                 objProyectos.ActualizarProyecto();
 
                 MessageBox.Show("Proyecto actualizado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                clsUsuarios objUsuarios = new clsUsuarios();
+                objUsuarios.username = usuarioRef;
+                objUsuarios.GetUsuario_ID();
+
+                objProyectos.usuario_id = objUsuarios.usuario_id;
                 dgvProyectos.DataSource = objProyectos.GetProyectos();// Actualizar la tabla
             }
             else
@@ -305,7 +310,7 @@ namespace NexusApp
             objTareas.usuario_id = objUsuarios.usuario_id;
             try
             {
-                objTareas.proyecto_id = Convert.ToInt32(dgvProyectos.Rows[0].Cells[0].Value);
+                objTareas.proyecto_id = Convert.ToInt32(dgvProyectos.CurrentRow.Cells["proyecto_id"].Value);
                 objTareas.tituloTarea = dgvTareas.CurrentRow.Cells["tituloTarea"].Value.ToString();
                 objTareas.estatus_id = Convert.ToInt32(dgvTareas.CurrentRow.Cells["estatus_id"].Value);
                 objTareas.prioridad_id = Convert.ToInt32(dgvTareas.CurrentRow.Cells["prioridad_id"].Value);
@@ -346,6 +351,7 @@ namespace NexusApp
                 objTareas.tarea_id = Convert.ToInt32(dgvTareas.CurrentRow.Cells["tarea_id"].Value);
 
                 // Asignamos los nuevos valores de los TextBoxes
+                objTareas.proyecto_id = Convert.ToInt32(dgvProyectos.CurrentRow.Cells["proyecto_id"].Value);
                 objTareas.tituloTarea = dgvTareas.CurrentRow.Cells["tituloTarea"].Value.ToString();
                 objTareas.estatus_id = Convert.ToInt32(dgvTareas.CurrentRow.Cells["estatus_id"].Value);
                 objTareas.prioridad_id = Convert.ToInt32(dgvTareas.CurrentRow.Cells["prioridad_id"].Value);
@@ -353,6 +359,11 @@ namespace NexusApp
                 objTareas.ActualizarTareaDependiente();
 
                 MessageBox.Show("Tarea actualizada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                clsUsuarios objUsuarios = new clsUsuarios();
+                objUsuarios.username = usuarioRef;
+                objUsuarios.GetUsuario_ID();
+
+                objTareas.usuario_id = objUsuarios.usuario_id;
                 dgvTareas.DataSource = objTareas.GetTareasDependientes();// Actualizar la tabla
             }
             else
@@ -375,6 +386,11 @@ namespace NexusApp
                 objTareas.EliminarTarea();
 
                 MessageBox.Show("Tarea eliminada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                clsUsuarios objUsuarios = new clsUsuarios();
+                objUsuarios.username = usuarioRef;
+                objUsuarios.GetUsuario_ID();
+
+                objTareas.usuario_id = objUsuarios.usuario_id;
                 dgvTareas.DataSource = objTareas.GetTareasDependientes();// Actualizar la tabla
             }
             else
@@ -397,12 +413,44 @@ namespace NexusApp
                 objProyectos.EliminarProyecto();
 
                 MessageBox.Show("Proyecto eliminada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                dgvTareas.DataSource = objProyectos.GetProyectos();// Actualizar la tabla
+                clsUsuarios objUsuarios = new clsUsuarios();
+                objUsuarios.username = usuarioRef;
+                objUsuarios.GetUsuario_ID();
+
+                objProyectos.usuario_id = objUsuarios.usuario_id;
+                dgvProyectos.DataSource = objProyectos.GetProyectos();// Actualizar la tabla
             }
             else
             {
                 MessageBox.Show("Por favor, seleccione toda la fila del proyecto que desea eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void dgvProyectos_SelectionChanged(object sender, EventArgs e)
+        {
+            int cantRows = rowCant;
+            clsUsuarios objUsuarios = new clsUsuarios();
+            objUsuarios.username = usuarioRef;
+            objUsuarios.GetUsuario_ID();
+
+            clsProyectos objProyectos = new clsProyectos();
+            objProyectos.usuario_id = objUsuarios.usuario_id;
+            clsTareas objTareas = new clsTareas();
+            objTareas.usuario_id = objUsuarios.usuario_id;
+
+            if (cantRows > 0)
+            {
+                try
+                {
+                    objTareas.proyecto_id = Convert.ToInt32(dgvProyectos.CurrentRow.Cells["proyecto_id"].Value);
+                    dgvTareas.DataSource = objTareas.GetTareasDependientes();
+                }
+                catch (InvalidCastException)
+                {
+
+                }
+            }
+            //dgvTareas.Columns["fechaCreacion"].DefaultCellStyle.Format = "dd/MM/yyyy";
         }
     }
 }

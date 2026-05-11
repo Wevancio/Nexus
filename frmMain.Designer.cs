@@ -230,6 +230,7 @@
             this.dgvProyectos.Size = new System.Drawing.Size(872, 265);
             this.dgvProyectos.TabIndex = 0;
             this.dgvProyectos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProyectos_CellClick);
+            this.dgvProyectos.SelectionChanged += new System.EventHandler(this.dgvProyectos_SelectionChanged);
             // 
             // tabPage2
             // 

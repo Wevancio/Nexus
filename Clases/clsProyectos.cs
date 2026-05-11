@@ -164,14 +164,14 @@ namespace NexusApp
             try
             {
                 GetConnection();
-                string query = "UPDATE proyectos SET tituloProyecto = @tituloProyecto, estatus_id = @estatus_id, prioridad_id = @prioridad_id, fechaLimite = @fechaLimite, fechaFin = @fechaFin WHERE proyecto_id = @proyecto_id";
+                string query = "UPDATE proyectos SET tituloProyecto = @tituloProyecto, estatus_id = @estatus_id, prioridad_id = @prioridad_id, fechaLimite = @fechaLimite WHERE proyecto_id = @proyecto_id";
                 using (SqlCommand cmd = new SqlCommand(query, objConnection))
                 {
                     cmd.Parameters.AddWithValue("@tituloProyecto", tituloProyecto);
                     cmd.Parameters.AddWithValue("@estatus_id", estatus_id);
                     cmd.Parameters.AddWithValue("@prioridad_id", prioridad_id);
                     cmd.Parameters.AddWithValue("@fechaLimite", fechaLimite);
-                    cmd.Parameters.AddWithValue("@fechaFin", fechaFin);
+                    //cmd.Parameters.AddWithValue("@fechaFin", fechaFin);
                     cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
 
                     cmd.ExecuteNonQuery();
