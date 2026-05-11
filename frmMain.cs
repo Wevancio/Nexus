@@ -752,7 +752,7 @@ namespace NexusApp
                 {
                     objProyectos.proyecto_id = Convert.ToInt32(dgvProyectos.CurrentRow.Cells["proyecto_id"].Value);
                     objProyectos.estatus_id = Convert.ToInt32(dgvProyectos.CurrentRow.Cells["estatus_id"].Value);
-                    objProyectos.InsertarFechaFinProyecto();
+                    objProyectos.ActualizarFechaFinProyecto();
 
                     clsUsuarios objUsuarios = new clsUsuarios();
                     objUsuarios.username = usuarioRef;
@@ -773,6 +773,52 @@ namespace NexusApp
 
                     objProyectos.usuario_id = objUsuarios.usuario_id;
                     dgvProyectos.DataSource = objProyectos.GetProyectos();// Actualizar la tabla
+                }
+            }
+        }
+
+        private void dgvTareas_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+            if (dgvTareas.IsCurrentCellDirty)
+            {
+                dgvTareas.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            }
+        }
+
+        private void dgvTareas_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            clsTareas objTareas = new clsTareas();
+            if (e.RowIndex >= 0 && dgvTareas.Columns[e.ColumnIndex].Name == "estatus_id")
+            {
+                int estadoID = Convert.ToInt32(dgvTareas.Rows[e.RowIndex].Cells["estatus_id"].Value);
+
+                if (estadoID == 3)
+                {
+                    objTareas.proyecto_id = Convert.ToInt32(dgvProyectos.CurrentRow.Cells["proyecto_id"].Value);
+                    objTareas.tarea_id = Convert.ToInt32(dgvTareas.CurrentRow.Cells["tarea_id"].Value);
+                    objTareas.estatus_id = Convert.ToInt32(dgvTareas.CurrentRow.Cells["estatus_id"].Value);
+                    objTareas.ActualizarFechaFinTarea();
+
+                    clsUsuarios objUsuarios = new clsUsuarios();
+                    objUsuarios.username = usuarioRef;
+                    objUsuarios.GetUsuario_ID();
+
+                    objTareas.usuario_id = objUsuarios.usuario_id;
+                    dgvTareas.DataSource = objTareas.GetTareasDependientes();// Actualizar la tabla
+                }
+                else if (estadoID != 3 && Convert.ToDateTime(dgvTareas.CurrentRow.Cells["fechaFin"].Value) != null)
+                {
+                    objTareas.proyecto_id = Convert.ToInt32(dgvProyectos.CurrentRow.Cells["proyecto_id"].Value);
+                    objTareas.tarea_id = Convert.ToInt32(dgvTareas.CurrentRow.Cells["tarea_id"].Value);
+                    objTareas.estatus_id = Convert.ToInt32(dgvTareas.CurrentRow.Cells["estatus_id"].Value);
+                    objTareas.LimpiarFechaFinTarea();
+
+                    clsUsuarios objUsuarios = new clsUsuarios();
+                    objUsuarios.username = usuarioRef;
+                    objUsuarios.GetUsuario_ID();
+
+                    objTareas.usuario_id = objUsuarios.usuario_id;
+                    dgvTareas.DataSource = objTareas.GetTareasDependientes();// Actualizar la tabla
                 }
             }
         }

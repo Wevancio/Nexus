@@ -287,10 +287,34 @@ namespace NexusApp
             try
             {
                 GetConnection();
-                string query = "UPDATE tareas SET fechaFin = GETDATE() WHERE tarea_id = @tarea_id";
+                string query = "UPDATE tareas SET estatus_id = @estatus_id, fechaFin = GETDATE() WHERE tarea_id = @tarea_id";
                 using (SqlCommand cmd = new SqlCommand(query, objConnection))
                 {
-                    cmd.Parameters.AddWithValue("@fechaLimite", fechaLimite);
+                    cmd.Parameters.AddWithValue("@estatus_id", estatus_id);
+                    cmd.Parameters.AddWithValue("@tarea_id", tarea_id);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error... " + ex.ToString());
+            }
+            finally
+            {
+                objConnection.Close();
+            }
+        }
+
+        public void LimpiarFechaFinTarea()
+        {
+            try
+            {
+                GetConnection();
+                string query = "UPDATE tareas SET estatus_id = @estatus_id, fechaFin = NULL WHERE tarea_id = @tarea_id";
+                using (SqlCommand cmd = new SqlCommand(query, objConnection))
+                {
+                    cmd.Parameters.AddWithValue("@estatus_id", estatus_id);
                     cmd.Parameters.AddWithValue("@tarea_id", tarea_id);
 
                     cmd.ExecuteNonQuery();

@@ -223,6 +223,8 @@
             this.dgvTareas.Size = new System.Drawing.Size(872, 265);
             this.dgvTareas.TabIndex = 8;
             this.dgvTareas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTareas_CellClick);
+            this.dgvTareas.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTareas_CellValueChanged);
+            this.dgvTareas.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvTareas_CurrentCellDirtyStateChanged);
             // 
             // btnEliminarProyecto
             // 

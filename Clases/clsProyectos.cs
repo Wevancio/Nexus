@@ -283,7 +283,7 @@ namespace NexusApp
             }
         }
 
-        public void InsertarFechaFinProyecto()
+        public void ActualizarFechaFinProyecto()
         {
             try
             {
