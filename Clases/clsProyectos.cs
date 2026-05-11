@@ -283,15 +283,39 @@ namespace NexusApp
             }
         }
 
-        public void ActualizarFechaFinProyecto()
+        public void InsertarFechaFinProyecto()
         {
             try
             {
                 GetConnection();
-                string query = "UPDATE proyectos SET fechaFin = GETDATE() WHERE proyecto_id = @proyecto_id";
+                string query = "UPDATE proyectos SET estatus_id = @estatus_id, fechaFin = GETDATE() WHERE proyecto_id = @proyecto_id";
                 using (SqlCommand cmd = new SqlCommand(query, objConnection))
                 {
-                    cmd.Parameters.AddWithValue("@fechaLimite", fechaLimite);
+                    cmd.Parameters.AddWithValue("@estatus_id", estatus_id);
+                    cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error... " + ex.ToString());
+            }
+            finally
+            {
+                objConnection.Close();
+            }
+        }
+
+        public void LimpiarFechaFinProyecto()
+        {
+            try
+            {
+                GetConnection();
+                string query = "UPDATE proyectos SET estatus_id = @estatus_id, fechaFin = NULL WHERE proyecto_id = @proyecto_id";
+                using (SqlCommand cmd = new SqlCommand(query, objConnection))
+                {
+                    cmd.Parameters.AddWithValue("@estatus_id", estatus_id);
                     cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
 
                     cmd.ExecuteNonQuery();

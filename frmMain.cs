@@ -732,5 +732,49 @@ namespace NexusApp
                 MessageBox.Show("Por favor, selecciona un Bloc de la lista.");
             }
         }
+
+        private void dgvProyectos_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+            if (dgvProyectos.IsCurrentCellDirty)
+            {
+                dgvProyectos.CommitEdit(DataGridViewDataErrorContexts.Commit);
+            }
+        }
+
+        private void dgvProyectos_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            clsProyectos objProyectos = new clsProyectos();
+            if (e.RowIndex >= 0 && dgvProyectos.Columns[e.ColumnIndex].Name == "estatus_id")
+            {
+                int estadoID = Convert.ToInt32(dgvProyectos.Rows[e.RowIndex].Cells["estatus_id"].Value);
+
+                if (estadoID == 3)
+                {
+                    objProyectos.proyecto_id = Convert.ToInt32(dgvProyectos.CurrentRow.Cells["proyecto_id"].Value);
+                    objProyectos.estatus_id = Convert.ToInt32(dgvProyectos.CurrentRow.Cells["estatus_id"].Value);
+                    objProyectos.InsertarFechaFinProyecto();
+
+                    clsUsuarios objUsuarios = new clsUsuarios();
+                    objUsuarios.username = usuarioRef;
+                    objUsuarios.GetUsuario_ID();
+
+                    objProyectos.usuario_id = objUsuarios.usuario_id;
+                    dgvProyectos.DataSource = objProyectos.GetProyectos();// Actualizar la tabla
+                }
+                else if (estadoID != 3 && Convert.ToDateTime(dgvProyectos.CurrentRow.Cells["fechaFin"].Value) != null)
+                {
+                    objProyectos.proyecto_id = Convert.ToInt32(dgvProyectos.CurrentRow.Cells["proyecto_id"].Value);
+                    objProyectos.estatus_id = Convert.ToInt32(dgvProyectos.CurrentRow.Cells["estatus_id"].Value);
+                    objProyectos.LimpiarFechaFinProyecto();
+
+                    clsUsuarios objUsuarios = new clsUsuarios();
+                    objUsuarios.username = usuarioRef;
+                    objUsuarios.GetUsuario_ID();
+
+                    objProyectos.usuario_id = objUsuarios.usuario_id;
+                    dgvProyectos.DataSource = objProyectos.GetProyectos();// Actualizar la tabla
+                }
+            }
+        }
     }
 }
