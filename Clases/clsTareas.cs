@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -21,17 +22,81 @@ namespace NexusApp
         public DateTime fechaLimite { get; set; }
         public DateTime fechaFin {  get; set; }
 
+        public DataTable GetTareasIndependientes()
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                GetConnection();
+                // Seleccionamos los campos. 
+                string query = "SELECT * FROM tareas WHERE usuario_id = @usuario_id";
+
+                using (SqlCommand cmd = new SqlCommand(query, objConnection))
+                {
+                    cmd.Parameters.AddWithValue("@usuario_id", usuario_id);
+
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar tareas: " + ex.ToString());
+            }
+            finally
+            {
+                objConnection.Close();
+            }
+            return dt;
+        }
+
+        public DataTable GetTareasDependientes()
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                GetConnection();
+                // Seleccionamos los campos. 
+                string query = "SELECT * FROM tareas WHERE usuario_id = @usuario_id AND proyecto_id = @proyecto_id";
+
+                using (SqlCommand cmd = new SqlCommand(query, objConnection))
+                {
+                    cmd.Parameters.AddWithValue("@usuario_id", usuario_id);
+                    cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
+
+                    using (SqlDataAdapter da = new SqlDataAdapter(cmd))
+                    {
+                        da.Fill(dt);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar tareas: " + ex.ToString());
+            }
+            finally
+            {
+                objConnection.Close();
+            }
+            return dt;
+        }
+
         public void InsertarTareaDependiente()
         {
             try
             {
                 GetConnection();
-                string query = "INSERT INTO tareas (proyecto_id, usuario_id, tituloTarea) VALUES (@proyecto_id, @usuario_id, @tituloTarea)";
+                string query = "INSERT INTO tareas (proyecto_id, usuario_id, tituloTarea, estatus_id, prioridad_id, fechaLimite) VALUES (@proyecto_id, @usuario_id, @tituloTarea, @estatus_id, @prioridad_id, @fechaLimite)";
                 using (SqlCommand cmd = new SqlCommand(query, objConnection))
                 {
                     cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
                     cmd.Parameters.AddWithValue("@usuario_id", usuario_id);
                     cmd.Parameters.AddWithValue("@tituloTarea", tituloTarea);
+                    cmd.Parameters.AddWithValue("@estatus_id", estatus_id);
+                    cmd.Parameters.AddWithValue("@prioridad_id", prioridad_id);
+                    cmd.Parameters.AddWithValue("@fechaLimite", fechaLimite);
 
                     cmd.ExecuteNonQuery();
                 }
@@ -45,6 +110,7 @@ namespace NexusApp
                 objConnection.Close();
             }
         }
+
         public void InsertarTareaIndependiente()
         {
             try

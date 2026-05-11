@@ -156,6 +156,7 @@
             this.btnModificarTareaProyecto.TabIndex = 10;
             this.btnModificarTareaProyecto.Text = "Modificar";
             this.btnModificarTareaProyecto.UseVisualStyleBackColor = true;
+            this.btnModificarTareaProyecto.Click += new System.EventHandler(this.btnModificarTareaProyecto_Click);
             // 
             // btnAgregarTareaProyecto
             // 
@@ -167,6 +168,7 @@
             this.btnAgregarTareaProyecto.TabIndex = 9;
             this.btnAgregarTareaProyecto.Text = "Agregar";
             this.btnAgregarTareaProyecto.UseVisualStyleBackColor = true;
+            this.btnAgregarTareaProyecto.Click += new System.EventHandler(this.btnAgregarTareaProyecto_Click);
             // 
             // dgvTareas
             // 
@@ -178,6 +180,7 @@
             this.dgvTareas.RowTemplate.Height = 24;
             this.dgvTareas.Size = new System.Drawing.Size(872, 265);
             this.dgvTareas.TabIndex = 8;
+            this.dgvTareas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTareas_CellClick);
             // 
             // btnEliminarProyecto
             // 

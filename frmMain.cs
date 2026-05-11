@@ -14,6 +14,7 @@ namespace NexusApp
     public partial class frmMain : Form
     {
         string usuarioRef;
+        int rowCant = 0;
 
         public frmMain(string usuario)
         {
@@ -21,10 +22,11 @@ namespace NexusApp
             usuarioRef = usuario;
             lblUsername.Text = usuario;
 
-            ModificarColumnas(usuarioRef);
+            ModificarColumnasVistaProyectos(usuarioRef);
+            ModificarColumnasVistaTareas(usuarioRef, rowCant);
         }
 
-        public void ModificarColumnas(string usuario)
+        public void ModificarColumnasVistaProyectos(string usuario)
         {
             clsUsuarios objUsuarios = new clsUsuarios();
             objUsuarios.username = usuario;
@@ -110,6 +112,92 @@ namespace NexusApp
 
             dgvProyectos.DataSource = objProyectos.GetProyectos();
             dgvProyectos.Columns["fechaCreacion"].DefaultCellStyle.Format = "dd/MM/yyyy";
+            rowCant = dgvProyectos.RowCount;
+        }
+
+        public void ModificarColumnasVistaTareas(string usuario, int cantRows)
+        {
+            //Creacino de objUsuario para definir par+ametro usuario
+            clsUsuarios objUsuarios = new clsUsuarios();
+            objUsuarios.username = usuario;
+            objUsuarios.GetUsuario_ID();
+
+            //Igualacion en parametro usuario_id
+            clsTareas objTareas = new clsTareas();
+            objTareas.usuario_id = objUsuarios.usuario_id;
+
+            clsProyectos objProyectos1 = new clsProyectos();
+
+
+            DataTable dtEstatus = objProyectos1.GetEstatus();
+
+            dgvTareas.AutoGenerateColumns = false;
+            dgvTareas.Columns.Clear();
+
+            //Creación columna proyecto_id
+            DataGridViewTextBoxColumn colTareaid = new DataGridViewTextBoxColumn();
+            colTareaid.Name = "tarea_id";
+            colTareaid.HeaderText = "Tarea ID";
+            colTareaid.DataPropertyName = "tarea_id";
+
+            //Creación columna titulo
+            DataGridViewTextBoxColumn colTitulo = new DataGridViewTextBoxColumn();
+            colTitulo.Name = "tituloTarea";
+            colTitulo.HeaderText = "Tarea";
+            colTitulo.DataPropertyName = "tituloTarea";
+
+            //Creación columna comboEstatus
+            DataGridViewComboBoxColumn cmbEstatus = new DataGridViewComboBoxColumn();
+            cmbEstatus.Name = "estatus_id";
+            cmbEstatus.HeaderText = "Estatus";
+            cmbEstatus.DataSource = dtEstatus;
+            cmbEstatus.DisplayMember = "estatus";
+            cmbEstatus.ValueMember = "estatus_id";
+            cmbEstatus.DataPropertyName = "estatus_id";
+
+            DataTable dtPrioridad = objProyectos1.GetPrioridad();
+            DataGridViewComboBoxColumn cmbPrioridad = new DataGridViewComboBoxColumn();
+            cmbPrioridad.Name = "prioridad_id";
+            cmbPrioridad.HeaderText = "Prioridad";
+            cmbPrioridad.DataSource = dtPrioridad;
+            cmbPrioridad.DisplayMember = "prioridad";
+            cmbPrioridad.ValueMember = "prioridad_id";
+            cmbPrioridad.DataPropertyName = "prioridad_id";
+
+            //Creación columna fechaCreacion
+            DataGridViewTextBoxColumn colFechaCreacion = new DataGridViewTextBoxColumn();
+            colFechaCreacion.Name = "fechaCreacion";
+            colFechaCreacion.HeaderText = "Fecha Creacion";
+            colFechaCreacion.DataPropertyName = "fechaCreacion";
+
+            //dgvProyectos.Columns["fechaCreacion"].DefaultCellStyle.Format = "dd/MM/yyyy";
+
+            DataGridViewTextBoxColumn colFechaLimite = new DataGridViewTextBoxColumn();
+            colFechaLimite.Name = "fechaLimite";
+            colFechaLimite.HeaderText = "Fecha Limite";
+            colFechaLimite.DataPropertyName = "fechaLimite";
+            //dgvProyectos.Columns["fechaLimite"].DefaultCellStyle.Format = "dd/MM/yyyy";
+
+            DataGridViewTextBoxColumn colFechaFin = new DataGridViewTextBoxColumn();
+            colFechaFin.Name = "fechaFin";
+            colFechaFin.HeaderText = "Fecha Fin";
+            colFechaFin.DataPropertyName = "fechaFin";
+
+            dgvTareas.Columns.Add(colTareaid);
+            dgvTareas.Columns["tarea_id"].Visible = false;
+            dgvTareas.Columns.Add(colTitulo);
+            dgvTareas.Columns.Add(cmbEstatus);
+            dgvTareas.Columns.Add(cmbPrioridad);
+            dgvTareas.Columns.Add(colFechaCreacion);
+            dgvTareas.Columns.Add(colFechaLimite);
+            dgvTareas.Columns.Add(colFechaFin);
+
+            if (cantRows > 0)
+            {
+                objTareas.proyecto_id = Convert.ToInt32(dgvProyectos.Rows[0].Cells[0].Value);
+                dgvTareas.DataSource = objTareas.GetTareasDependientes();
+            }
+            dgvTareas.Columns["fechaCreacion"].DefaultCellStyle.Format = "dd/MM/yyyy";
         }
 
         public void NuevoProyecto(int tipoReg)
@@ -203,6 +291,53 @@ namespace NexusApp
             {
                 MessageBox.Show("Por favor, seleccione toda la fila del usuario que desea modificar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+        }
+
+        private void btnAgregarTareaProyecto_Click(object sender, EventArgs e)
+        {
+            //Creaci[on de objUsuario para definir parámetro usuario
+            clsUsuarios objUsuarios = new clsUsuarios();
+            objUsuarios.username = usuarioRef;
+            objUsuarios.GetUsuario_ID();
+
+            //Igualación en parámetro usuario_id
+            clsTareas objTareas = new clsTareas();
+            objTareas.usuario_id = objUsuarios.usuario_id;
+            try
+            {
+                objTareas.proyecto_id = Convert.ToInt32(dgvProyectos.Rows[0].Cells[0].Value);
+                objTareas.tituloTarea = dgvTareas.CurrentRow.Cells["tituloTarea"].Value.ToString();
+                objTareas.estatus_id = Convert.ToInt32(dgvTareas.CurrentRow.Cells["estatus_id"].Value);
+                objTareas.prioridad_id = Convert.ToInt32(dgvTareas.CurrentRow.Cells["prioridad_id"].Value);
+                objTareas.fechaLimite = Convert.ToDateTime(dgvTareas.CurrentRow.Cells["fechaLimite"].Value);
+                objTareas.InsertarTareaDependiente();
+            }
+            catch (InvalidCastException)
+            {
+                MessageBox.Show("Asegúrese de llenar todos los campos correctamente para poder crear un nuevo proyecto", "¡ESPERA!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+        }
+
+        private void dgvTareas_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 5 || e.ColumnIndex == 6)
+            {
+                try
+                {
+                    DateTime fecha = mCalendarTareas.SelectionStart;
+                    dgvTareas.Rows[e.RowIndex].Cells[e.ColumnIndex].Value = fecha;
+                }
+                catch (ArgumentOutOfRangeException)
+                {
+
+                }
+            }
+        }
+
+        private void btnModificarTareaProyecto_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
