@@ -46,26 +46,39 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.dgvDocumentos = new System.Windows.Forms.DataGridView();
+            this.btnEliminarDocs = new System.Windows.Forms.Button();
+            this.btnModificarDocs = new System.Windows.Forms.Button();
+            this.btnAgregarDocs = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtUrlDoc = new System.Windows.Forms.TextBox();
+            this.txtTituloDoc = new System.Windows.Forms.TextBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.cmbBloques = new System.Windows.Forms.ComboBox();
             this.btnEliminarNota = new System.Windows.Forms.Button();
             this.btnModificarNota = new System.Windows.Forms.Button();
             this.btnAgregarNota = new System.Windows.Forms.Button();
             this.dgvNotas = new System.Windows.Forms.DataGridView();
             this.rtxtContenido = new System.Windows.Forms.RichTextBox();
-            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtTitulo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblAdminControl = new System.Windows.Forms.Label();
-            this.cmbBlocs = new System.Windows.Forms.ComboBox();
+            this.dgvBlocs = new System.Windows.Forms.DataGridView();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTareas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProyectos)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDocumentos)).BeginInit();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNotas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBlocs)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -259,6 +272,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.dgvBlocs);
             this.tabPage3.Location = new System.Drawing.Point(4, 33);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage3.Name = "tabPage3";
@@ -270,6 +284,14 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.dgvDocumentos);
+            this.tabPage4.Controls.Add(this.btnEliminarDocs);
+            this.tabPage4.Controls.Add(this.btnModificarDocs);
+            this.tabPage4.Controls.Add(this.btnAgregarDocs);
+            this.tabPage4.Controls.Add(this.label4);
+            this.tabPage4.Controls.Add(this.label3);
+            this.tabPage4.Controls.Add(this.txtUrlDoc);
+            this.tabPage4.Controls.Add(this.txtTituloDoc);
             this.tabPage4.Location = new System.Drawing.Point(4, 33);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
@@ -278,15 +300,88 @@
             this.tabPage4.Text = "Documentos";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // dgvDocumentos
+            // 
+            this.dgvDocumentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDocumentos.Location = new System.Drawing.Point(59, 128);
+            this.dgvDocumentos.Name = "dgvDocumentos";
+            this.dgvDocumentos.RowHeadersWidth = 51;
+            this.dgvDocumentos.RowTemplate.Height = 24;
+            this.dgvDocumentos.Size = new System.Drawing.Size(884, 493);
+            this.dgvDocumentos.TabIndex = 11;
+            this.dgvDocumentos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDocumentos_CellClick);
+            // 
+            // btnEliminarDocs
+            // 
+            this.btnEliminarDocs.Location = new System.Drawing.Point(834, 41);
+            this.btnEliminarDocs.Name = "btnEliminarDocs";
+            this.btnEliminarDocs.Size = new System.Drawing.Size(109, 38);
+            this.btnEliminarDocs.TabIndex = 10;
+            this.btnEliminarDocs.Text = "Eliminar";
+            this.btnEliminarDocs.UseVisualStyleBackColor = true;
+            this.btnEliminarDocs.Click += new System.EventHandler(this.btnEliminarDocs_Click);
+            // 
+            // btnModificarDocs
+            // 
+            this.btnModificarDocs.Location = new System.Drawing.Point(706, 41);
+            this.btnModificarDocs.Name = "btnModificarDocs";
+            this.btnModificarDocs.Size = new System.Drawing.Size(122, 38);
+            this.btnModificarDocs.TabIndex = 9;
+            this.btnModificarDocs.Text = "Modificar";
+            this.btnModificarDocs.UseVisualStyleBackColor = true;
+            this.btnModificarDocs.Click += new System.EventHandler(this.btnModificarDocs_Click);
+            // 
+            // btnAgregarDocs
+            // 
+            this.btnAgregarDocs.Location = new System.Drawing.Point(591, 41);
+            this.btnAgregarDocs.Name = "btnAgregarDocs";
+            this.btnAgregarDocs.Size = new System.Drawing.Size(109, 38);
+            this.btnAgregarDocs.TabIndex = 7;
+            this.btnAgregarDocs.Text = "Agregar";
+            this.btnAgregarDocs.UseVisualStyleBackColor = true;
+            this.btnAgregarDocs.Click += new System.EventHandler(this.btnAgregarDocs_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(55, 69);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(54, 24);
+            this.label4.TabIndex = 3;
+            this.label4.Text = "URL";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(55, 29);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(66, 24);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Titulo";
+            // 
+            // txtUrlDoc
+            // 
+            this.txtUrlDoc.Location = new System.Drawing.Point(148, 66);
+            this.txtUrlDoc.Name = "txtUrlDoc";
+            this.txtUrlDoc.Size = new System.Drawing.Size(401, 34);
+            this.txtUrlDoc.TabIndex = 1;
+            // 
+            // txtTituloDoc
+            // 
+            this.txtTituloDoc.Location = new System.Drawing.Point(148, 26);
+            this.txtTituloDoc.Name = "txtTituloDoc";
+            this.txtTituloDoc.Size = new System.Drawing.Size(401, 34);
+            this.txtTituloDoc.TabIndex = 0;
+            // 
             // tabPage5
             // 
-            this.tabPage5.Controls.Add(this.cmbBlocs);
+            this.tabPage5.Controls.Add(this.cmbBloques);
             this.tabPage5.Controls.Add(this.btnEliminarNota);
             this.tabPage5.Controls.Add(this.btnModificarNota);
             this.tabPage5.Controls.Add(this.btnAgregarNota);
             this.tabPage5.Controls.Add(this.dgvNotas);
             this.tabPage5.Controls.Add(this.rtxtContenido);
-            this.tabPage5.Controls.Add(this.txtNombre);
+            this.tabPage5.Controls.Add(this.txtTitulo);
             this.tabPage5.Controls.Add(this.label2);
             this.tabPage5.Location = new System.Drawing.Point(4, 33);
             this.tabPage5.Name = "tabPage5";
@@ -295,6 +390,14 @@
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Notas";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // cmbBloques
+            // 
+            this.cmbBloques.FormattingEnabled = true;
+            this.cmbBloques.Location = new System.Drawing.Point(979, 69);
+            this.cmbBloques.Name = "cmbBloques";
+            this.cmbBloques.Size = new System.Drawing.Size(225, 32);
+            this.cmbBloques.TabIndex = 7;
             // 
             // btnEliminarNota
             // 
@@ -343,12 +446,12 @@
             this.rtxtContenido.TabIndex = 2;
             this.rtxtContenido.Text = "";
             // 
-            // txtNombre
+            // txtTitulo
             // 
-            this.txtNombre.Location = new System.Drawing.Point(257, 69);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(240, 34);
-            this.txtNombre.TabIndex = 1;
+            this.txtTitulo.Location = new System.Drawing.Point(257, 69);
+            this.txtTitulo.Name = "txtTitulo";
+            this.txtTitulo.Size = new System.Drawing.Size(240, 34);
+            this.txtTitulo.TabIndex = 1;
             // 
             // label2
             // 
@@ -402,13 +505,15 @@
             this.lblAdminControl.Text = "Admin Control";
             this.lblAdminControl.Click += new System.EventHandler(this.lblAdminControl_Click);
             // 
-            // cmbBlocs
+            // dgvBlocs
             // 
-            this.cmbBlocs.FormattingEnabled = true;
-            this.cmbBlocs.Location = new System.Drawing.Point(979, 69);
-            this.cmbBlocs.Name = "cmbBlocs";
-            this.cmbBlocs.Size = new System.Drawing.Size(225, 32);
-            this.cmbBlocs.TabIndex = 7;
+            this.dgvBlocs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvBlocs.Location = new System.Drawing.Point(5, 50);
+            this.dgvBlocs.Name = "dgvBlocs";
+            this.dgvBlocs.RowHeadersWidth = 51;
+            this.dgvBlocs.RowTemplate.Height = 24;
+            this.dgvBlocs.Size = new System.Drawing.Size(240, 150);
+            this.dgvBlocs.TabIndex = 0;
             // 
             // frmMain
             // 
@@ -429,10 +534,15 @@
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTareas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProyectos)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDocumentos)).EndInit();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNotas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvBlocs)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -464,12 +574,21 @@
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.TextBox txtTitulo;
         private System.Windows.Forms.RichTextBox rtxtContenido;
         private System.Windows.Forms.Button btnEliminarNota;
         private System.Windows.Forms.Button btnModificarNota;
         private System.Windows.Forms.Button btnAgregarNota;
         private System.Windows.Forms.DataGridView dgvNotas;
-        private System.Windows.Forms.ComboBox cmbBlocs;
+        private System.Windows.Forms.ComboBox cmbBloques;
+        private System.Windows.Forms.TextBox txtUrlDoc;
+        private System.Windows.Forms.TextBox txtTituloDoc;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnEliminarDocs;
+        private System.Windows.Forms.Button btnModificarDocs;
+        private System.Windows.Forms.Button btnAgregarDocs;
+        private System.Windows.Forms.DataGridView dgvDocumentos;
+        private System.Windows.Forms.DataGridView dgvBlocs;
     }
 }

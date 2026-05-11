@@ -1,4 +1,5 @@
-﻿using System.Data.SqlClient;
+﻿using System.Data;
+using System.Data.SqlClient;
 
 namespace NexusApp
 {
@@ -36,6 +37,22 @@ namespace NexusApp
                 cmd.Parameters.AddWithValue("@id", objeto.bloc_id);
 
                 cmd.ExecuteNonQuery();
+            }
+            finally { objConnection.Close(); }
+        }
+        public DataTable GetTodosLosBlocs(int idUsuario)
+        {
+            try
+            {
+                GetConnection();
+                string query = "SELECT bloc_id, tituloBloc FROM BlocNotas WHERE usuario_id = @user";
+                SqlCommand cmd = new SqlCommand(query, objConnection);
+                cmd.Parameters.AddWithValue("@user", idUsuario);
+
+                SqlDataAdapter adp = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+                return dt;
             }
             finally { objConnection.Close(); }
         }

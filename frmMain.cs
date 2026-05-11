@@ -25,7 +25,7 @@ namespace NexusApp
             ModificarColumnasVistaProyectos(usuarioRef);
             ModificarColumnasVistaTareas(usuarioRef, rowCant);
 
-            
+
             ModificarColumnasVistaBlocs(usuarioRef);
             ModificarColumnasVistaDocumentos(usuarioRef);
             LlenarComboBlocs();
@@ -124,7 +124,8 @@ namespace NexusApp
             clsUsuarios objUsuarios = new clsUsuarios { username = usuario };
             objUsuarios.GetUsuario_ID();
 
-            clsBlocNotasDAL objBloc = new clsBlocNotasDAL();
+            clsBlocNotas objBloc = new clsBlocNotas();
+            objBloc.usuario_id = objUsuarios.usuario_id;
 
             dgvBlocs.AutoGenerateColumns = false;
             dgvBlocs.Columns.Clear();
@@ -144,14 +145,16 @@ namespace NexusApp
             dgvBlocs.Columns.Add(colId);
             dgvBlocs.Columns.Add(colTitulo);
 
-            dgvBlocs.DataSource = objBloc.Listar(objUsuarios.usuario_id);
+            dgvBlocs.DataSource = objBloc.GetTodosLosBlocs(objUsuarios.usuario_id);
         }
         public void ModificarColumnasVistaDocumentos(string usuario)
         {
-            clsUsuarios objUsuarios = new clsUsuarios { username = usuario };
+            clsUsuarios objUsuarios = new clsUsuarios();
+            objUsuarios.username = usuario;
             objUsuarios.GetUsuario_ID();
 
-            clsDocumentosDAL objDoc = new clsDocumentosDAL();
+            clsDocumentos objDocumentos = new clsDocumentos();
+            objDocumentos.usuario_id = objUsuarios.usuario_id;
 
             dgvDocumentos.AutoGenerateColumns = false;
             dgvDocumentos.Columns.Clear();
@@ -161,7 +164,7 @@ namespace NexusApp
             dgvDocumentos.Columns.Add(new DataGridViewTextBoxColumn { Name = "urlDoc", HeaderText = "Enlace / Ruta", DataPropertyName = "urlDoc", Width = 250 });
             dgvDocumentos.Columns.Add(new DataGridViewTextBoxColumn { Name = "fechaSubida", HeaderText = "Fecha", DataPropertyName = "fechaSubida" });
 
-            dgvDocumentos.DataSource = objDoc.ListarPorUsuario(objUsuarios.usuario_id);
+            dgvDocumentos.DataSource = objDocumentos.GetDocumentos();
             dgvDocumentos.Columns["fechaSubida"].DefaultCellStyle.Format = "dd/MM/yyyy";
         }
         public void ModificarColumnasVistaTareas(string usuario, int cantRows)
@@ -504,17 +507,16 @@ namespace NexusApp
 
         private void btnAgregarNota_Click(object sender, EventArgs e)
         {
-            Nota nueva = new Nota();
+            clsNotas nueva = new clsNotas();
             nueva.bloc_id = int.Parse(cmbBloques.SelectedValue.ToString());
             nueva.tituloNota = txtTitulo.Text;
-            nueva.contenido = txtContenido.Text;
+            nueva.contenido = rtxtContenido.Text;
 
             clsNotas db = new clsNotas();
             db.Guardar(nueva);
 
             MessageBox.Show("¡Nota guardada con éxito!");
-            RefrescarGrid();
-            objetoNota.bloc_id = Convert.ToInt32(cmbBloques.SelectedValue);
+            nueva.bloc_id = Convert.ToInt32(cmbBloques.SelectedValue);
         }
         public void LlenarComboBlocs()
         {
@@ -527,26 +529,133 @@ namespace NexusApp
 
             cmbBloques.DataSource = dt;
             cmbBloques.DisplayMember = "tituloBloc"; // El nombre que verá el usuario
-            cmbBloques.ValueMember = "bloc_id";      // El ID real para la base de datos
+            cmbBloques.ValueMember = "bloc_id";      // El ID real para la base de datos 
         }
         private void btnModificarNota_Click(object sender, EventArgs e)
         {
             if (dgvNotas.SelectedRows.Count > 0)
             {
-                Nota notaEditada = new Nota();
-                notaEditada.nota_id = Convert.ToInt32(dgvNotas.CurrentRow.Cells["nota_id"].Value);
-                notaEditada.tituloNota = txtTituloNota.Text; // El TextBox de tu diseño
-                notaEditada.contenido = txtContenidoNota.Text; // El área blanca grande
+                clsNotas nota = new clsNotas();
 
-                clsNotas db = new clsNotas();
-                db.Editar(notaEditada);
+                // 2. Llenamos los datos (asegúrate que los nombres de los TXT sean correctos)
+                nota.nota_id = Convert.ToInt32(dgvNotas.CurrentRow.Cells["nota_id"].Value);
+                nota.tituloNota = txtTitulo.Text;
+                nota.contenido = rtxtContenido.Text;
+
+                nota.Editar(nota);
 
                 MessageBox.Show("Nota actualizada correctamente.", "Nexus", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                RefrescarGridNotas(); // Método para recargar la lista
+
+                // 4. Refrescar la lista (usando el combo de blocs)
+                int idBlocActual = Convert.ToInt32(cmbBloques.SelectedValue);
+                dgvNotas.DataSource = nota.Listar(idBlocActual);
             }
             else
             {
-                MessageBox.Show("Por favor, selecciona una nota de la lista para modificar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Por favor, selecciona una nota de la lista.");
+            }
+        }
+    
+    public void ModificarColumnasVistasDocumentos(string usuario)
+        {
+            clsUsuarios objUsuarios = new clsUsuarios();
+            objUsuarios.username = usuario;
+            objUsuarios.GetUsuario_ID();
+
+            clsDocumentos objDocumentos = new clsDocumentos();
+            objDocumentos.usuario_id = objUsuarios.usuario_id;
+
+            dgvDocumentos.AutoGenerateColumns = false;
+            dgvDocumentos.Columns.Clear();
+
+            DataGridViewTextBoxColumn colId = new DataGridViewTextBoxColumn();
+            colId.Name = "documento_id";
+            colId.DataPropertyName = "documento_id";
+            colId.Visible = false;
+
+            DataGridViewTextBoxColumn colTitulo = new DataGridViewTextBoxColumn();
+            colTitulo.Name = "tituloDocumento";
+            colTitulo.HeaderText = "Nombre del Archivo";
+            colTitulo.DataPropertyName = "tituloDocumento";
+            colTitulo.Width = 200;
+
+            DataGridViewTextBoxColumn colUrl = new DataGridViewTextBoxColumn();
+            colUrl.Name = "urlDoc";
+            colUrl.HeaderText = "Enlace / Ruta";
+            colUrl.DataPropertyName = "urlDoc";
+            colUrl.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            dgvDocumentos.Columns.Add(colId);
+            dgvDocumentos.Columns.Add(colTitulo);
+            dgvDocumentos.Columns.Add(colUrl);
+
+            dgvDocumentos.DataSource = objDocumentos.GetDocumentos();
+        }
+
+        private void btnAgregarDocs_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtTituloDoc.Text) && !string.IsNullOrWhiteSpace(txtUrlDoc.Text))
+            {
+                clsUsuarios objU = new clsUsuarios { username = usuarioRef };
+                objU.GetUsuario_ID();
+
+                clsDocumentos nuevoDoc = new clsDocumentos();
+                nuevoDoc.usuario_id = objU.usuario_id;
+                nuevoDoc.tituloDocumento = txtTituloDoc.Text;
+                nuevoDoc.urlDoc = txtUrlDoc.Text;
+
+                nuevoDoc.Insertar(); // Método que debes crear en tu clase DAL
+
+                ModificarColumnasVistaDocumentos(usuarioRef); // Refrescar tabla
+                txtTituloDoc.Clear();
+                txtUrlDoc.Clear();
+            }
+        }
+
+        private void btnEliminarDocs_Click(object sender, EventArgs e)
+        {
+            if (dgvDocumentos.SelectedRows.Count > 0)
+            {
+                int id = Convert.ToInt32(dgvDocumentos.CurrentRow.Cells["documento_id"].Value);
+                clsDocumentos obj = new clsDocumentos();
+                obj.Eliminar(id);
+
+                ModificarColumnasVistaDocumentos(usuarioRef);
+            }
+        }
+
+        private void btnModificarDocs_Click(object sender, EventArgs e)
+        {
+            if (dgvDocumentos.SelectedRows.Count > 0)
+            {
+                clsDocumentos doc = new clsDocumentos();
+
+                doc.documento_id = Convert.ToInt32(dgvDocumentos.CurrentRow.Cells["documento_id"].Value);
+
+                doc.tituloDocumento = txtTituloDoc.Text;
+                doc.urlDoc = txtUrlDoc.Text;
+
+                doc.Editar(doc);
+
+                MessageBox.Show("Documento actualizado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                ModificarColumnasVistaDocumentos(usuarioRef);
+
+                txtTituloDoc.Clear();
+                txtUrlDoc.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecciona el documento que deseas modificar de la lista.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void dgvDocumentos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                txtTituloDoc.Text = dgvDocumentos.CurrentRow.Cells["tituloDocumento"].Value.ToString();
+                txtUrlDoc.Text = dgvDocumentos.CurrentRow.Cells["urlDoc"].Value.ToString();
             }
         }
     }

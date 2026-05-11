@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace NexusApp
@@ -36,7 +37,6 @@ namespace NexusApp
                 string query = "UPDATE Notas SET tituloNota = @tit, contenido = @cont, fechaModificacion = GETDATE() WHERE nota_id = @id";
                 SqlCommand cmd = new SqlCommand(query, objConnection);
 
-                // Agregado @tit que faltaba
                 cmd.Parameters.AddWithValue("@tit", objeto.tituloNota);
                 cmd.Parameters.AddWithValue("@cont", objeto.contenido);
                 cmd.Parameters.AddWithValue("@id", objeto.nota_id);
@@ -44,6 +44,25 @@ namespace NexusApp
                 cmd.ExecuteNonQuery();
             }
             finally { objConnection.Close(); }
+        }
+        public DataTable Listar(int idBloc)
+        {
+            try
+            {
+                GetConnection();
+                string query = "SELECT nota_id, tituloNota, contenido, fechaCreacion FROM Notas WHERE bloc_id = @id";
+                SqlCommand cmd = new SqlCommand(query, objConnection);
+                cmd.Parameters.AddWithValue("@id", idBloc);
+
+                SqlDataAdapter adp = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                adp.Fill(dt);
+                return dt;
+            }
+            finally
+            {
+                objConnection.Close();
+            }
         }
     }
 }
