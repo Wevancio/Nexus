@@ -24,6 +24,11 @@ namespace NexusApp
 
             ModificarColumnasVistaProyectos(usuarioRef);
             ModificarColumnasVistaTareas(usuarioRef, rowCant);
+
+            
+            ModificarColumnasVistaBlocs(usuarioRef);
+            ModificarColumnasVistaDocumentos(usuarioRef);
+            LlenarComboBlocs();
         }
 
         public void ModificarColumnasVistaProyectos(string usuario)
@@ -114,7 +119,51 @@ namespace NexusApp
             dgvProyectos.Columns["fechaCreacion"].DefaultCellStyle.Format = "dd/MM/yyyy";
             rowCant = dgvProyectos.RowCount;
         }
+        public void ModificarColumnasVistaBlocs(string usuario)
+        {
+            clsUsuarios objUsuarios = new clsUsuarios { username = usuario };
+            objUsuarios.GetUsuario_ID();
 
+            clsBlocNotasDAL objBloc = new clsBlocNotasDAL();
+
+            dgvBlocs.AutoGenerateColumns = false;
+            dgvBlocs.Columns.Clear();
+
+            // ID oculto para poder modificar/eliminar después
+            DataGridViewTextBoxColumn colId = new DataGridViewTextBoxColumn();
+            colId.Name = "bloc_id";
+            colId.DataPropertyName = "bloc_id";
+            colId.Visible = false;
+
+            DataGridViewTextBoxColumn colTitulo = new DataGridViewTextBoxColumn();
+            colTitulo.Name = "tituloBloc";
+            colTitulo.HeaderText = "Nombre del Bloc";
+            colTitulo.DataPropertyName = "tituloBloc";
+            colTitulo.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+            dgvBlocs.Columns.Add(colId);
+            dgvBlocs.Columns.Add(colTitulo);
+
+            dgvBlocs.DataSource = objBloc.Listar(objUsuarios.usuario_id);
+        }
+        public void ModificarColumnasVistaDocumentos(string usuario)
+        {
+            clsUsuarios objUsuarios = new clsUsuarios { username = usuario };
+            objUsuarios.GetUsuario_ID();
+
+            clsDocumentosDAL objDoc = new clsDocumentosDAL();
+
+            dgvDocumentos.AutoGenerateColumns = false;
+            dgvDocumentos.Columns.Clear();
+
+            dgvDocumentos.Columns.Add(new DataGridViewTextBoxColumn { Name = "documento_id", DataPropertyName = "documento_id", Visible = false });
+            dgvDocumentos.Columns.Add(new DataGridViewTextBoxColumn { Name = "tituloDocumento", HeaderText = "Documento", DataPropertyName = "tituloDocumento", Width = 150 });
+            dgvDocumentos.Columns.Add(new DataGridViewTextBoxColumn { Name = "urlDoc", HeaderText = "Enlace / Ruta", DataPropertyName = "urlDoc", Width = 250 });
+            dgvDocumentos.Columns.Add(new DataGridViewTextBoxColumn { Name = "fechaSubida", HeaderText = "Fecha", DataPropertyName = "fechaSubida" });
+
+            dgvDocumentos.DataSource = objDoc.ListarPorUsuario(objUsuarios.usuario_id);
+            dgvDocumentos.Columns["fechaSubida"].DefaultCellStyle.Format = "dd/MM/yyyy";
+        }
         public void ModificarColumnasVistaTareas(string usuario, int cantRows)
         {
             //Creacino de objUsuario para definir par+ametro usuario
@@ -338,6 +387,54 @@ namespace NexusApp
         private void btnModificarTareaProyecto_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnAgregarNota_Click(object sender, EventArgs e)
+        {
+            Nota nueva = new Nota();
+            nueva.bloc_id = int.Parse(cmbBloques.SelectedValue.ToString());
+            nueva.tituloNota = txtTitulo.Text;
+            nueva.contenido = txtContenido.Text;
+
+            clsNotas db = new clsNotas();
+            db.Guardar(nueva);
+
+            MessageBox.Show("¡Nota guardada con éxito!");
+            RefrescarGrid();
+            objetoNota.bloc_id = Convert.ToInt32(cmbBloques.SelectedValue);
+        }
+        public void LlenarComboBlocs()
+        {
+            clsUsuarios objU = new clsUsuarios { username = usuarioRef };
+            objU.GetUsuario_ID();
+
+            clsBlocNotas objBloc = new clsBlocNotas();
+            // Este método debe estar en tu clase DAL y devolver un DataTable
+            DataTable dt = objBloc.GetTodosLosBlocs(objU.usuario_id);
+
+            cmbBloques.DataSource = dt;
+            cmbBloques.DisplayMember = "tituloBloc"; // El nombre que verá el usuario
+            cmbBloques.ValueMember = "bloc_id";      // El ID real para la base de datos
+        }
+        private void btnModificarNota_Click(object sender, EventArgs e)
+        {
+            if (dgvNotas.SelectedRows.Count > 0)
+            {
+                Nota notaEditada = new Nota();
+                notaEditada.nota_id = Convert.ToInt32(dgvNotas.CurrentRow.Cells["nota_id"].Value);
+                notaEditada.tituloNota = txtTituloNota.Text; // El TextBox de tu diseño
+                notaEditada.contenido = txtContenidoNota.Text; // El área blanca grande
+
+                clsNotas db = new clsNotas();
+                db.Editar(notaEditada);
+
+                MessageBox.Show("Nota actualizada correctamente.", "Nexus", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                RefrescarGridNotas(); // Método para recargar la lista
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecciona una nota de la lista para modificar.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
     }
 }

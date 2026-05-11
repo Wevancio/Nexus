@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.SqlClient;
 
 namespace NexusApp
 {
     internal class clsBlocNotas : clsConexion
     {
-        public int Bloc_ID { get; set; }
-        public int ID_Usuario { get; set; }
-        public string TituloBloc { get; set; }
+        public int bloc_id { get; set; }
+        public int usuario_id { get; set; }
+        public string tituloBloc { get; set; }
 
         public void Insertar(clsBlocNotas objeto)
         {
@@ -21,16 +16,12 @@ namespace NexusApp
                 string query = "INSERT INTO BlocNotas (usuario_id, tituloBloc) VALUES (@user, @titulo)";
                 SqlCommand cmd = new SqlCommand(query, objConnection);
 
-                cmd.Parameters.AddWithValue("@user", objeto.ID_Usuario);
-                cmd.Parameters.AddWithValue("@titulo", objeto.TituloBloc);
+                cmd.Parameters.AddWithValue("@user", objeto.usuario_id);
+                cmd.Parameters.AddWithValue("@titulo", objeto.tituloBloc);
 
                 cmd.ExecuteNonQuery();
             }
-            finally
-            {
-                objConnection.Close();
-
-            }
+            finally { objConnection.Close(); }
         }
 
         public void Editar(clsBlocNotas objeto)
@@ -41,15 +32,12 @@ namespace NexusApp
                 string query = "UPDATE BlocNotas SET tituloBloc = @titulo WHERE bloc_id = @id";
                 SqlCommand cmd = new SqlCommand(query, objConnection);
 
-                cmd.Parameters.AddWithValue("@titulo", objeto.TituloBloc);
-                cmd.Parameters.AddWithValue("@id", objeto.Bloc_ID);
+                cmd.Parameters.AddWithValue("@titulo", objeto.tituloBloc);
+                cmd.Parameters.AddWithValue("@id", objeto.bloc_id);
 
                 cmd.ExecuteNonQuery();
             }
-            finally
-            {
-                objConnection.Close();
-            }
+            finally { objConnection.Close(); }
         }
     }
 }

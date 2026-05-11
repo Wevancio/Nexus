@@ -45,14 +45,26 @@
             this.dgvProyectos = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.btnEliminarNota = new System.Windows.Forms.Button();
+            this.btnModificarNota = new System.Windows.Forms.Button();
+            this.btnAgregarNota = new System.Windows.Forms.Button();
+            this.dgvNotas = new System.Windows.Forms.DataGridView();
+            this.rtxtContenido = new System.Windows.Forms.RichTextBox();
+            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblAdminControl = new System.Windows.Forms.Label();
+            this.cmbBlocs = new System.Windows.Forms.ComboBox();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTareas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProyectos)).BeginInit();
+            this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNotas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,6 +73,8 @@
             this.tabControl.Controls.Add(this.tabPage1);
             this.tabControl.Controls.Add(this.tabPage2);
             this.tabControl.Controls.Add(this.tabPage3);
+            this.tabControl.Controls.Add(this.tabPage4);
+            this.tabControl.Controls.Add(this.tabPage5);
             this.tabControl.Font = new System.Drawing.Font("Mongolian Baiti", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl.Location = new System.Drawing.Point(-3, 42);
             this.tabControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -251,6 +265,97 @@
             this.tabPage3.Text = "Bloques de Notas";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Location = new System.Drawing.Point(4, 33);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1333, 669);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Documentos";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.cmbBlocs);
+            this.tabPage5.Controls.Add(this.btnEliminarNota);
+            this.tabPage5.Controls.Add(this.btnModificarNota);
+            this.tabPage5.Controls.Add(this.btnAgregarNota);
+            this.tabPage5.Controls.Add(this.dgvNotas);
+            this.tabPage5.Controls.Add(this.rtxtContenido);
+            this.tabPage5.Controls.Add(this.txtNombre);
+            this.tabPage5.Controls.Add(this.label2);
+            this.tabPage5.Location = new System.Drawing.Point(4, 33);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(1333, 669);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Notas";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // btnEliminarNota
+            // 
+            this.btnEliminarNota.Location = new System.Drawing.Point(768, 65);
+            this.btnEliminarNota.Name = "btnEliminarNota";
+            this.btnEliminarNota.Size = new System.Drawing.Size(109, 38);
+            this.btnEliminarNota.TabIndex = 6;
+            this.btnEliminarNota.Text = "Eliminar";
+            this.btnEliminarNota.UseVisualStyleBackColor = true;
+            // 
+            // btnModificarNota
+            // 
+            this.btnModificarNota.Location = new System.Drawing.Point(640, 65);
+            this.btnModificarNota.Name = "btnModificarNota";
+            this.btnModificarNota.Size = new System.Drawing.Size(122, 38);
+            this.btnModificarNota.TabIndex = 5;
+            this.btnModificarNota.Text = "Modificar";
+            this.btnModificarNota.UseVisualStyleBackColor = true;
+            this.btnModificarNota.Click += new System.EventHandler(this.btnModificarNota_Click);
+            // 
+            // btnAgregarNota
+            // 
+            this.btnAgregarNota.Location = new System.Drawing.Point(525, 65);
+            this.btnAgregarNota.Name = "btnAgregarNota";
+            this.btnAgregarNota.Size = new System.Drawing.Size(109, 38);
+            this.btnAgregarNota.TabIndex = 4;
+            this.btnAgregarNota.Text = "Agregar";
+            this.btnAgregarNota.UseVisualStyleBackColor = true;
+            this.btnAgregarNota.Click += new System.EventHandler(this.btnAgregarNota_Click);
+            // 
+            // dgvNotas
+            // 
+            this.dgvNotas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvNotas.Location = new System.Drawing.Point(72, 433);
+            this.dgvNotas.Name = "dgvNotas";
+            this.dgvNotas.RowHeadersWidth = 51;
+            this.dgvNotas.RowTemplate.Height = 24;
+            this.dgvNotas.Size = new System.Drawing.Size(805, 264);
+            this.dgvNotas.TabIndex = 3;
+            // 
+            // rtxtContenido
+            // 
+            this.rtxtContenido.Location = new System.Drawing.Point(72, 117);
+            this.rtxtContenido.Name = "rtxtContenido";
+            this.rtxtContenido.Size = new System.Drawing.Size(805, 282);
+            this.rtxtContenido.TabIndex = 2;
+            this.rtxtContenido.Text = "";
+            // 
+            // txtNombre
+            // 
+            this.txtNombre.Location = new System.Drawing.Point(257, 69);
+            this.txtNombre.Name = "txtNombre";
+            this.txtNombre.Size = new System.Drawing.Size(240, 34);
+            this.txtNombre.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(68, 72);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(166, 24);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Titulo de la Nota";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -294,6 +399,14 @@
             this.lblAdminControl.Text = "Admin Control";
             this.lblAdminControl.Click += new System.EventHandler(this.lblAdminControl_Click);
             // 
+            // cmbBlocs
+            // 
+            this.cmbBlocs.FormattingEnabled = true;
+            this.cmbBlocs.Location = new System.Drawing.Point(979, 69);
+            this.cmbBlocs.Name = "cmbBlocs";
+            this.cmbBlocs.Size = new System.Drawing.Size(225, 32);
+            this.cmbBlocs.TabIndex = 7;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -313,6 +426,9 @@
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTareas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProyectos)).EndInit();
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNotas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -342,5 +458,15 @@
         private System.Windows.Forms.Label lblNuevoProyecto;
         private System.Windows.Forms.MonthCalendar mCalendarProyectos;
         private System.Windows.Forms.MonthCalendar mCalendarTareas;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.RichTextBox rtxtContenido;
+        private System.Windows.Forms.Button btnEliminarNota;
+        private System.Windows.Forms.Button btnModificarNota;
+        private System.Windows.Forms.Button btnAgregarNota;
+        private System.Windows.Forms.DataGridView dgvNotas;
+        private System.Windows.Forms.ComboBox cmbBlocs;
     }
 }
