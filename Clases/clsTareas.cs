@@ -29,7 +29,7 @@ namespace NexusApp
             {
                 GetConnection();
                 // Seleccionamos los campos. 
-                string query = "SELECT * FROM tareas WHERE usuario_id = @usuario_id";
+                string query = "SELECT * FROM tareas WHERE usuario_id = @usuario_id AND proyecto_id = NULL";
 
                 using (SqlCommand cmd = new SqlCommand(query, objConnection))
                 {
@@ -116,11 +116,14 @@ namespace NexusApp
             try
             {
                 GetConnection();
-                string query = "INSERT INTO tareas (usuario_id, tituloTarea) VALUES (@usuario_id, @tituloTarea)";
+                string query = "INSERT INTO tareas (usuario_id, tituloTarea, estatus_id, prioridad_id, fechaLimite) VALUES (@usuario_id, @tituloTarea, @estatus_id, @prioridad_id, @fechaLimite)";
                 using (SqlCommand cmd = new SqlCommand(query, objConnection))
                 {
                     cmd.Parameters.AddWithValue("@usuario_id", usuario_id);
                     cmd.Parameters.AddWithValue("@tituloTarea", tituloTarea);
+                    cmd.Parameters.AddWithValue("@estatus_id", estatus_id);
+                    cmd.Parameters.AddWithValue("@prioridad_id", prioridad_id);
+                    cmd.Parameters.AddWithValue("@fechaLimite", fechaLimite);
 
                     cmd.ExecuteNonQuery();
                 }

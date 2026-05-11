@@ -44,6 +44,13 @@
             this.btnAgregarProyecto = new System.Windows.Forms.Button();
             this.dgvProyectos = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.mCalendarTareasInd = new System.Windows.Forms.MonthCalendar();
+            this.txtTituloTarea = new System.Windows.Forms.TextBox();
+            this.lblHeaderTareasInd = new System.Windows.Forms.Label();
+            this.btnEliminarTareaInd = new System.Windows.Forms.Button();
+            this.btnModificarTareaInd = new System.Windows.Forms.Button();
+            this.btnAgregarTareaInd = new System.Windows.Forms.Button();
+            this.dgvTareasInd = new System.Windows.Forms.DataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.btnEliminarBloc = new System.Windows.Forms.Button();
             this.btnModificarBloc = new System.Windows.Forms.Button();
@@ -73,18 +80,12 @@
             this.lblUsername = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblAdminControl = new System.Windows.Forms.Label();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            this.txtTituloTarea = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTareas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProyectos)).BeginInit();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTareasInd)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBlocs)).BeginInit();
             this.tabPage4.SuspendLayout();
@@ -92,7 +93,6 @@
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNotas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl
@@ -279,13 +279,13 @@
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.monthCalendar1);
+            this.tabPage2.Controls.Add(this.mCalendarTareasInd);
             this.tabPage2.Controls.Add(this.txtTituloTarea);
-            this.tabPage2.Controls.Add(this.label6);
-            this.tabPage2.Controls.Add(this.button1);
-            this.tabPage2.Controls.Add(this.button2);
-            this.tabPage2.Controls.Add(this.button3);
-            this.tabPage2.Controls.Add(this.dataGridView1);
+            this.tabPage2.Controls.Add(this.lblHeaderTareasInd);
+            this.tabPage2.Controls.Add(this.btnEliminarTareaInd);
+            this.tabPage2.Controls.Add(this.btnModificarTareaInd);
+            this.tabPage2.Controls.Add(this.btnAgregarTareaInd);
+            this.tabPage2.Controls.Add(this.dgvTareasInd);
             this.tabPage2.Location = new System.Drawing.Point(4, 33);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tabPage2.Name = "tabPage2";
@@ -294,6 +294,78 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Tareas";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // mCalendarTareasInd
+            // 
+            this.mCalendarTareasInd.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mCalendarTareasInd.Location = new System.Drawing.Point(964, 75);
+            this.mCalendarTareasInd.Name = "mCalendarTareasInd";
+            this.mCalendarTareasInd.TabIndex = 23;
+            // 
+            // txtTituloTarea
+            // 
+            this.txtTituloTarea.Location = new System.Drawing.Point(193, 21);
+            this.txtTituloTarea.Name = "txtTituloTarea";
+            this.txtTituloTarea.Size = new System.Drawing.Size(455, 34);
+            this.txtTituloTarea.TabIndex = 22;
+            // 
+            // lblHeaderTareasInd
+            // 
+            this.lblHeaderTareasInd.AutoSize = true;
+            this.lblHeaderTareasInd.Font = new System.Drawing.Font("Mongolian Baiti", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeaderTareasInd.Location = new System.Drawing.Point(16, 20);
+            this.lblHeaderTareasInd.Name = "lblHeaderTareasInd";
+            this.lblHeaderTareasInd.Size = new System.Drawing.Size(162, 30);
+            this.lblHeaderTareasInd.TabIndex = 21;
+            this.lblHeaderTareasInd.Text = "Nueva Tarea:";
+            // 
+            // btnEliminarTareaInd
+            // 
+            this.btnEliminarTareaInd.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarTareaInd.Location = new System.Drawing.Point(1198, 295);
+            this.btnEliminarTareaInd.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEliminarTareaInd.Name = "btnEliminarTareaInd";
+            this.btnEliminarTareaInd.Size = new System.Drawing.Size(114, 39);
+            this.btnEliminarTareaInd.TabIndex = 19;
+            this.btnEliminarTareaInd.Text = "Eliminar";
+            this.btnEliminarTareaInd.UseVisualStyleBackColor = true;
+            this.btnEliminarTareaInd.Click += new System.EventHandler(this.btnEliminarTareaInd_Click);
+            // 
+            // btnModificarTareaInd
+            // 
+            this.btnModificarTareaInd.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificarTareaInd.Location = new System.Drawing.Point(1059, 295);
+            this.btnModificarTareaInd.Margin = new System.Windows.Forms.Padding(4);
+            this.btnModificarTareaInd.Name = "btnModificarTareaInd";
+            this.btnModificarTareaInd.Size = new System.Drawing.Size(114, 39);
+            this.btnModificarTareaInd.TabIndex = 18;
+            this.btnModificarTareaInd.Text = "Modificar";
+            this.btnModificarTareaInd.UseVisualStyleBackColor = true;
+            this.btnModificarTareaInd.Click += new System.EventHandler(this.btnModificarTareaInd_Click);
+            // 
+            // btnAgregarTareaInd
+            // 
+            this.btnAgregarTareaInd.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarTareaInd.Location = new System.Drawing.Point(920, 295);
+            this.btnAgregarTareaInd.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAgregarTareaInd.Name = "btnAgregarTareaInd";
+            this.btnAgregarTareaInd.Size = new System.Drawing.Size(114, 39);
+            this.btnAgregarTareaInd.TabIndex = 17;
+            this.btnAgregarTareaInd.Text = "Agregar";
+            this.btnAgregarTareaInd.UseVisualStyleBackColor = true;
+            this.btnAgregarTareaInd.Click += new System.EventHandler(this.btnAgregarTareaInd_Click);
+            // 
+            // dgvTareasInd
+            // 
+            this.dgvTareasInd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTareasInd.Location = new System.Drawing.Point(20, 69);
+            this.dgvTareasInd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvTareasInd.Name = "dgvTareasInd";
+            this.dgvTareasInd.RowHeadersWidth = 51;
+            this.dgvTareasInd.RowTemplate.Height = 24;
+            this.dgvTareasInd.Size = new System.Drawing.Size(872, 529);
+            this.dgvTareasInd.TabIndex = 16;
+            this.dgvTareasInd.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTareasInd_CellClick);
             // 
             // tabPage3
             // 
@@ -592,74 +664,6 @@
             this.lblAdminControl.Text = "Admin Control";
             this.lblAdminControl.Click += new System.EventHandler(this.lblAdminControl_Click);
             // 
-            // monthCalendar1
-            // 
-            this.monthCalendar1.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.monthCalendar1.Location = new System.Drawing.Point(964, 75);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 23;
-            // 
-            // txtTituloTarea
-            // 
-            this.txtTituloTarea.Location = new System.Drawing.Point(193, 21);
-            this.txtTituloTarea.Name = "txtTituloTarea";
-            this.txtTituloTarea.Size = new System.Drawing.Size(455, 34);
-            this.txtTituloTarea.TabIndex = 22;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Mongolian Baiti", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(16, 20);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(162, 30);
-            this.label6.TabIndex = 21;
-            this.label6.Text = "Nueva Tarea:";
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(1198, 295);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(114, 39);
-            this.button1.TabIndex = 19;
-            this.button1.Text = "Eliminar";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(1059, 295);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(114, 39);
-            this.button2.TabIndex = 18;
-            this.button2.Text = "Modificar";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(920, 295);
-            this.button3.Margin = new System.Windows.Forms.Padding(4);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(114, 39);
-            this.button3.TabIndex = 17;
-            this.button3.Text = "Agregar";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(20, 69);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(872, 529);
-            this.dataGridView1.TabIndex = 16;
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -681,6 +685,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvProyectos)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTareasInd)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvBlocs)).EndInit();
@@ -691,7 +696,6 @@
             this.tabPage5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNotas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -744,12 +748,12 @@
         private System.Windows.Forms.Button btnEliminarBloc;
         private System.Windows.Forms.Button btnModificarBloc;
         private System.Windows.Forms.Button btnAgregarBloc;
-        private System.Windows.Forms.MonthCalendar monthCalendar1;
+        private System.Windows.Forms.MonthCalendar mCalendarTareasInd;
         private System.Windows.Forms.TextBox txtTituloTarea;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label lblHeaderTareasInd;
+        private System.Windows.Forms.Button btnEliminarTareaInd;
+        private System.Windows.Forms.Button btnModificarTareaInd;
+        private System.Windows.Forms.Button btnAgregarTareaInd;
+        private System.Windows.Forms.DataGridView dgvTareasInd;
     }
 }
