@@ -29,7 +29,7 @@ namespace NexusApp
             {
                 GetConnection();
                 // Seleccionamos los campos. 
-                string query = "SELECT * FROM tareas WHERE usuario_id = @usuario_id AND proyecto_id = NULL";
+                string query = "SELECT * FROM tareas WHERE usuario_id = @usuario_id AND proyecto_id IS NULL";
 
                 using (SqlCommand cmd = new SqlCommand(query, objConnection))
                 {

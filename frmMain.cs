@@ -986,7 +986,7 @@ namespace NexusApp
             //    MessageBox.Show("Asegúrese de llenar todos los campos correctamente para poder crear una nueva tarea", "¡ESPERA!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             //}
             //dgvTareas.DataSource = objTareas.GetTareasIndependientes();
-            InsertarTarea(dgvTareas, 1);
+            InsertarTarea(dgvTareasInd, 1);
         }
 
         private void btnModificarTareaInd_Click(object sender, EventArgs e)
