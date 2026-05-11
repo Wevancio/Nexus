@@ -40,6 +40,21 @@ namespace NexusApp
             }
             finally { objConnection.Close(); }
         }
+        public void Eliminar(int id)
+        {
+            try
+            {
+                GetConnection();
+                string query = "DELETE FROM BlocNotas WHERE bloc_id = @id";
+                SqlCommand cmd = new SqlCommand(query, objConnection);
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                objConnection.Close();
+            }
+        }
         public DataTable GetTodosLosBlocs(int idUsuario)
         {
             try

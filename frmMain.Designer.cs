@@ -68,6 +68,11 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblAdminControl = new System.Windows.Forms.Label();
             this.dgvBlocs = new System.Windows.Forms.DataGridView();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtTituloBloc = new System.Windows.Forms.TextBox();
+            this.btnAgregarBloc = new System.Windows.Forms.Button();
+            this.btnModificarBloc = new System.Windows.Forms.Button();
+            this.btnEliminarBloc = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTareas)).BeginInit();
@@ -272,6 +277,11 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.btnEliminarBloc);
+            this.tabPage3.Controls.Add(this.btnModificarBloc);
+            this.tabPage3.Controls.Add(this.btnAgregarBloc);
+            this.tabPage3.Controls.Add(this.txtTituloBloc);
+            this.tabPage3.Controls.Add(this.label5);
             this.tabPage3.Controls.Add(this.dgvBlocs);
             this.tabPage3.Location = new System.Drawing.Point(4, 33);
             this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -508,12 +518,59 @@
             // dgvBlocs
             // 
             this.dgvBlocs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBlocs.Location = new System.Drawing.Point(5, 50);
+            this.dgvBlocs.Location = new System.Drawing.Point(134, 184);
             this.dgvBlocs.Name = "dgvBlocs";
             this.dgvBlocs.RowHeadersWidth = 51;
             this.dgvBlocs.RowTemplate.Height = 24;
-            this.dgvBlocs.Size = new System.Drawing.Size(240, 150);
+            this.dgvBlocs.Size = new System.Drawing.Size(406, 289);
             this.dgvBlocs.TabIndex = 0;
+            this.dgvBlocs.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBlocs_CellClick);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(80, 35);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(208, 24);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Nuevo Bloc de Notas";
+            // 
+            // txtTituloBloc
+            // 
+            this.txtTituloBloc.Location = new System.Drawing.Point(315, 32);
+            this.txtTituloBloc.Name = "txtTituloBloc";
+            this.txtTituloBloc.Size = new System.Drawing.Size(100, 34);
+            this.txtTituloBloc.TabIndex = 2;
+            // 
+            // btnAgregarBloc
+            // 
+            this.btnAgregarBloc.Location = new System.Drawing.Point(639, 87);
+            this.btnAgregarBloc.Name = "btnAgregarBloc";
+            this.btnAgregarBloc.Size = new System.Drawing.Size(109, 38);
+            this.btnAgregarBloc.TabIndex = 8;
+            this.btnAgregarBloc.Text = "Agregar";
+            this.btnAgregarBloc.UseVisualStyleBackColor = true;
+            this.btnAgregarBloc.Click += new System.EventHandler(this.btnAgregarBloc_Click);
+            // 
+            // btnModificarBloc
+            // 
+            this.btnModificarBloc.Location = new System.Drawing.Point(754, 87);
+            this.btnModificarBloc.Name = "btnModificarBloc";
+            this.btnModificarBloc.Size = new System.Drawing.Size(122, 38);
+            this.btnModificarBloc.TabIndex = 10;
+            this.btnModificarBloc.Text = "Modificar";
+            this.btnModificarBloc.UseVisualStyleBackColor = true;
+            this.btnModificarBloc.Click += new System.EventHandler(this.btnModificarBloc_Click);
+            // 
+            // btnEliminarBloc
+            // 
+            this.btnEliminarBloc.Location = new System.Drawing.Point(882, 87);
+            this.btnEliminarBloc.Name = "btnEliminarBloc";
+            this.btnEliminarBloc.Size = new System.Drawing.Size(109, 38);
+            this.btnEliminarBloc.TabIndex = 11;
+            this.btnEliminarBloc.Text = "Eliminar";
+            this.btnEliminarBloc.UseVisualStyleBackColor = true;
+            this.btnEliminarBloc.Click += new System.EventHandler(this.btnEliminarBloc_Click);
             // 
             // frmMain
             // 
@@ -535,6 +592,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvTareas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProyectos)).EndInit();
             this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDocumentos)).EndInit();
@@ -590,5 +648,10 @@
         private System.Windows.Forms.Button btnAgregarDocs;
         private System.Windows.Forms.DataGridView dgvDocumentos;
         private System.Windows.Forms.DataGridView dgvBlocs;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtTituloBloc;
+        private System.Windows.Forms.Button btnEliminarBloc;
+        private System.Windows.Forms.Button btnModificarBloc;
+        private System.Windows.Forms.Button btnAgregarBloc;
     }
 }

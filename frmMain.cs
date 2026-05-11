@@ -658,5 +658,79 @@ namespace NexusApp
                 txtUrlDoc.Text = dgvDocumentos.CurrentRow.Cells["urlDoc"].Value.ToString();
             }
         }
+
+        private void btnAgregarBloc_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtTituloBloc.Text))
+            {
+                clsBlocNotas obj = new clsBlocNotas();
+
+                // Obtenemos el ID del usuario actual
+                clsUsuarios objU = new clsUsuarios { username = usuarioRef };
+                objU.GetUsuario_ID();
+
+                obj.usuario_id = objU.usuario_id;
+                obj.tituloBloc = txtTituloBloc.Text;
+
+                obj.Insertar(obj); // Usamos el método que ya tienes en la clase
+
+                txtTituloBloc.Clear();
+                ModificarColumnasVistaBlocs(usuarioRef); // Refrescamos el Grid
+                LlenarComboBlocs(); // ¡Importante! Actualizamos el combo de la pestaña Notas
+            }
+        }
+
+        private void btnModificarBloc_Click(object sender, EventArgs e)
+        {
+            if (dgvBlocs.SelectedRows.Count > 0)
+            {
+                clsBlocNotas obj = new clsBlocNotas();
+                obj.bloc_id = Convert.ToInt32(dgvBlocs.CurrentRow.Cells["bloc_id"].Value);
+                obj.tituloBloc = txtTituloBloc.Text;
+
+                obj.Editar(obj);
+
+                ModificarColumnasVistaBlocs(usuarioRef);
+                LlenarComboBlocs();
+                txtTituloBloc.Clear();
+            }
+        }
+
+        private void dgvBlocs_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                txtTituloBloc.Text = dgvBlocs.CurrentRow.Cells["tituloBloc"].Value.ToString();
+            }
+        }
+
+        private void btnEliminarBloc_Click(object sender, EventArgs e)
+        {
+            // Verificamos que haya una fila seleccionada
+            if (dgvBlocs.SelectedRows.Count > 0)
+            {
+                // Cuadro de confirmación
+                DialogResult resultado = MessageBox.Show("¿Estás seguro de eliminar este Bloc? Se perderán todas las notas guardadas en él.", "Confirmar Eliminación",
+                MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+
+                if (resultado == DialogResult.Yes)
+                {
+                    int idABorrar = Convert.ToInt32(dgvBlocs.CurrentRow.Cells["bloc_id"].Value);
+                    clsBlocNotas obj = new clsBlocNotas();
+
+                    obj.Eliminar(idABorrar);
+
+                    ModificarColumnasVistaBlocs(usuarioRef);
+                    LlenarComboBlocs();
+                    txtTituloBloc.Clear();
+
+                    MessageBox.Show("Bloc eliminado correctamente.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Por favor, selecciona un Bloc de la lista.");
+            }
+        }
     }
 }
