@@ -135,6 +135,33 @@ namespace NexusApp
             }
         }
 
+        public void ActualizarTareaDependiente()
+        {
+            try
+            {
+                GetConnection();
+                string query = "UPDATE tareas SET tituloTarea = @tituloTarea, estatus_id = @estatus_id, prioridad_id = @prioridad_id, fechaLimite = @fechaLimite WHERE tarea_id = @tarea_id";
+                using (SqlCommand cmd = new SqlCommand(query, objConnection))
+                {
+                    cmd.Parameters.AddWithValue("@tituloTarea", tituloTarea);
+                    cmd.Parameters.AddWithValue("@estatus_id", estatus_id);
+                    cmd.Parameters.AddWithValue("@prioridad_id", prioridad_id);
+                    cmd.Parameters.AddWithValue("@fechaLimite", fechaLimite);
+                    cmd.Parameters.AddWithValue("@tarea_id", tarea_id);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error... " + ex.ToString());
+            }
+            finally
+            {
+                objConnection.Close();
+            }
+        }
+
         public void ActualizarTituloTarea()
         {
             try

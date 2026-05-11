@@ -330,15 +330,20 @@ namespace NexusApp
                 objProyectos.estatus_id = Convert.ToInt32(dgvProyectos.CurrentRow.Cells["estatus_id"].Value);
                 objProyectos.prioridad_id = Convert.ToInt32(dgvProyectos.CurrentRow.Cells["prioridad_id"].Value);
                 objProyectos.fechaLimite = Convert.ToDateTime(dgvProyectos.CurrentRow.Cells["fechaLimite"].Value);
-                objProyectos.fechaFin = Convert.ToDateTime(dgvProyectos.CurrentRow.Cells["fechaFin"].Value);
+                //objProyectos.fechaFin = Convert.ToDateTime(dgvProyectos.CurrentRow.Cells["fechaFin"].Value);
                 objProyectos.ActualizarProyecto();
 
                 MessageBox.Show("Proyecto actualizado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                objProyectos.GetProyectos();// Actualizar la tabla
+                clsUsuarios objUsuarios = new clsUsuarios();
+                objUsuarios.username = usuarioRef;
+                objUsuarios.GetUsuario_ID();
+
+                objProyectos.usuario_id = objUsuarios.usuario_id;
+                dgvProyectos.DataSource = objProyectos.GetProyectos();// Actualizar la tabla
             }
             else
             {
-                MessageBox.Show("Por favor, seleccione toda la fila del usuario que desea modificar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Por favor, seleccione toda la fila del proyecto que desea modificar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
@@ -354,7 +359,7 @@ namespace NexusApp
             objTareas.usuario_id = objUsuarios.usuario_id;
             try
             {
-                objTareas.proyecto_id = Convert.ToInt32(dgvProyectos.Rows[0].Cells[0].Value);
+                objTareas.proyecto_id = Convert.ToInt32(dgvProyectos.CurrentRow.Cells["proyecto_id"].Value);
                 objTareas.tituloTarea = dgvTareas.CurrentRow.Cells["tituloTarea"].Value.ToString();
                 objTareas.estatus_id = Convert.ToInt32(dgvTareas.CurrentRow.Cells["estatus_id"].Value);
                 objTareas.prioridad_id = Convert.ToInt32(dgvTareas.CurrentRow.Cells["prioridad_id"].Value);
@@ -363,9 +368,9 @@ namespace NexusApp
             }
             catch (InvalidCastException)
             {
-                MessageBox.Show("Asegúrese de llenar todos los campos correctamente para poder crear un nuevo proyecto", "¡ESPERA!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Asegúrese de llenar todos los campos correctamente para poder crear una nueva tarea", "¡ESPERA!", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
-
+            dgvTareas.DataSource = objTareas.GetTareasDependientes();
         }
 
         private void dgvTareas_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -386,7 +391,115 @@ namespace NexusApp
 
         private void btnModificarTareaProyecto_Click(object sender, EventArgs e)
         {
+            // Validamos que haya una fila seleccionada en el DataGridView
+            if (dgvTareas.SelectedRows.Count > 0)
+            {
+                clsTareas objTareas = new clsTareas();
 
+                // Obtenemos el ID de la fila seleccionada
+                objTareas.tarea_id = Convert.ToInt32(dgvTareas.CurrentRow.Cells["tarea_id"].Value);
+
+                // Asignamos los nuevos valores de los TextBoxes
+                objTareas.proyecto_id = Convert.ToInt32(dgvProyectos.CurrentRow.Cells["proyecto_id"].Value);
+                objTareas.tituloTarea = dgvTareas.CurrentRow.Cells["tituloTarea"].Value.ToString();
+                objTareas.estatus_id = Convert.ToInt32(dgvTareas.CurrentRow.Cells["estatus_id"].Value);
+                objTareas.prioridad_id = Convert.ToInt32(dgvTareas.CurrentRow.Cells["prioridad_id"].Value);
+                objTareas.fechaLimite = Convert.ToDateTime(dgvTareas.CurrentRow.Cells["fechaLimite"].Value);
+                objTareas.ActualizarTareaDependiente();
+
+                MessageBox.Show("Tarea actualizada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                clsUsuarios objUsuarios = new clsUsuarios();
+                objUsuarios.username = usuarioRef;
+                objUsuarios.GetUsuario_ID();
+
+                objTareas.usuario_id = objUsuarios.usuario_id;
+                dgvTareas.DataSource = objTareas.GetTareasDependientes();// Actualizar la tabla
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione toda la fila de la tarea que desea modificar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnEliminarTareaProyecto_Click(object sender, EventArgs e)
+        {
+            // Validamos que haya una fila seleccionada en el DataGridView
+            if (dgvTareas.SelectedRows.Count > 0)
+            {
+                clsTareas objTareas = new clsTareas();
+
+                // Obtenemos el ID de la fila seleccionada
+                objTareas.tarea_id = Convert.ToInt32(dgvTareas.CurrentRow.Cells["tarea_id"].Value);
+
+                // Asignamos los nuevos valores de los TextBoxes
+                objTareas.EliminarTarea();
+
+                MessageBox.Show("Tarea eliminada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                clsUsuarios objUsuarios = new clsUsuarios();
+                objUsuarios.username = usuarioRef;
+                objUsuarios.GetUsuario_ID();
+
+                objTareas.usuario_id = objUsuarios.usuario_id;
+                dgvTareas.DataSource = objTareas.GetTareasDependientes();// Actualizar la tabla
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione toda la fila de la tarea que desea eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void btnEliminarProyecto_Click(object sender, EventArgs e)
+        {
+            // Validamos que haya una fila seleccionada en el DataGridView
+            if (dgvProyectos.SelectedRows.Count > 0)
+            {
+                clsProyectos objProyectos = new clsProyectos();
+
+                // Obtenemos el ID de la fila seleccionada
+                objProyectos.proyecto_id = Convert.ToInt32(dgvProyectos.CurrentRow.Cells["proyecto_id"].Value);
+
+                // Asignamos los nuevos valores de los TextBoxes
+                objProyectos.EliminarProyecto();
+
+                MessageBox.Show("Proyecto eliminada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                clsUsuarios objUsuarios = new clsUsuarios();
+                objUsuarios.username = usuarioRef;
+                objUsuarios.GetUsuario_ID();
+
+                objProyectos.usuario_id = objUsuarios.usuario_id;
+                dgvProyectos.DataSource = objProyectos.GetProyectos();// Actualizar la tabla
+            }
+            else
+            {
+                MessageBox.Show("Por favor, seleccione toda la fila del proyecto que desea eliminar.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void dgvProyectos_SelectionChanged(object sender, EventArgs e)
+        {
+            int cantRows = rowCant;
+            clsUsuarios objUsuarios = new clsUsuarios();
+            objUsuarios.username = usuarioRef;
+            objUsuarios.GetUsuario_ID();
+
+            clsProyectos objProyectos = new clsProyectos();
+            objProyectos.usuario_id = objUsuarios.usuario_id;
+            clsTareas objTareas = new clsTareas();
+            objTareas.usuario_id = objUsuarios.usuario_id;
+
+            if (cantRows > 0)
+            {
+                try
+                {
+                    objTareas.proyecto_id = Convert.ToInt32(dgvProyectos.CurrentRow.Cells["proyecto_id"].Value);
+                    dgvTareas.DataSource = objTareas.GetTareasDependientes();
+                }
+                catch (InvalidCastException)
+                {
+
+                }
+            }
+            //dgvTareas.Columns["fechaCreacion"].DefaultCellStyle.Format = "dd/MM/yyyy";
         }
 
         private void btnAgregarNota_Click(object sender, EventArgs e)

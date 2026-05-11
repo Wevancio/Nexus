@@ -159,6 +159,7 @@
             this.btnEliminarTareaProyecto.TabIndex = 11;
             this.btnEliminarTareaProyecto.Text = "Eliminar";
             this.btnEliminarTareaProyecto.UseVisualStyleBackColor = true;
+            this.btnEliminarTareaProyecto.Click += new System.EventHandler(this.btnEliminarTareaProyecto_Click);
             // 
             // btnModificarTareaProyecto
             // 
@@ -206,6 +207,7 @@
             this.btnEliminarProyecto.TabIndex = 7;
             this.btnEliminarProyecto.Text = "Eliminar";
             this.btnEliminarProyecto.UseVisualStyleBackColor = true;
+            this.btnEliminarProyecto.Click += new System.EventHandler(this.btnEliminarProyecto_Click);
             // 
             // btnModificarProyecto
             // 
@@ -242,6 +244,7 @@
             this.dgvProyectos.Size = new System.Drawing.Size(872, 265);
             this.dgvProyectos.TabIndex = 0;
             this.dgvProyectos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProyectos_CellClick);
+            this.dgvProyectos.SelectionChanged += new System.EventHandler(this.dgvProyectos_SelectionChanged);
             // 
             // tabPage2
             // 
