@@ -306,5 +306,28 @@ namespace NexusApp
                 objConnection.Close();
             }
         }
+
+        public void EliminarProyecto()
+        {
+            try
+            {
+                GetConnection();
+                string query = "DELETE FROM proyectos WHERE proyecto_id = @proyecto_id";
+                using (SqlCommand cmd = new SqlCommand(query, objConnection))
+                {
+                    cmd.Parameters.AddWithValue("@proyecto_id", proyecto_id);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ha ocurrido un error... " + ex.ToString());
+            }
+            finally
+            {
+                objConnection.Close();
+            }
+        }
     }
 }

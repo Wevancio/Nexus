@@ -145,6 +145,7 @@
             this.btnEliminarTareaProyecto.TabIndex = 11;
             this.btnEliminarTareaProyecto.Text = "Eliminar";
             this.btnEliminarTareaProyecto.UseVisualStyleBackColor = true;
+            this.btnEliminarTareaProyecto.Click += new System.EventHandler(this.btnEliminarTareaProyecto_Click);
             // 
             // btnModificarTareaProyecto
             // 
@@ -192,6 +193,7 @@
             this.btnEliminarProyecto.TabIndex = 7;
             this.btnEliminarProyecto.Text = "Eliminar";
             this.btnEliminarProyecto.UseVisualStyleBackColor = true;
+            this.btnEliminarProyecto.Click += new System.EventHandler(this.btnEliminarProyecto_Click);
             // 
             // btnModificarProyecto
             // 
