@@ -290,6 +290,8 @@ namespace NexusApp
 
         private void lblAdminControl_Click(object sender, EventArgs e)
         {
+            Forms.frmUsuarios frmUsuarios = new Forms.frmUsuarios();
+            frmUsuarios.ShowDialog();
 
         }
 
