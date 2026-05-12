@@ -45,6 +45,22 @@ namespace NexusApp
             }
             finally { objConnection.Close(); }
         }
+
+        public void Eliminar()
+        {
+            try
+            {
+                GetConnection();
+                string query = "DELETE FROM notas WHERE nota_id = @nota_id";
+                SqlCommand cmd = new SqlCommand(query, objConnection);
+
+                cmd.Parameters.AddWithValue("@nota_id", nota_id);
+
+                cmd.ExecuteNonQuery();
+            }
+            finally { objConnection.Close(); }
+        }
+
         public DataTable Listar(int idBloc)
         {
             try

@@ -1024,14 +1024,26 @@ namespace NexusApp
                 DataGridViewRow fila = dgvNotas.Rows[e.RowIndex];
                 txtTituloNota.Text = fila.Cells["tituloNota"].Value.ToString();
                 rtxtContenido.Text = fila.Cells["contenido"].Value.ToString();
-
-              
             }
         }
 
         private void btnEliminarNota_Click(object sender, EventArgs e)
         {
+            clsNotas objNotas = new clsNotas();
 
+            objNotas.nota_id = Convert.ToInt32(dgvNotas.CurrentRow.Cells["nota_id"].Value);
+            objNotas.Eliminar();
+
+            if (!string.IsNullOrEmpty(txtTituloNota.Text))
+            {
+                txtTituloNota.Text = string.Empty;
+            }
+            if (!string.IsNullOrEmpty(rtxtContenido.Text))
+            {
+                rtxtContenido.Text = string.Empty;
+            }
+
+            ModificarColumnasVistaNotas(usuarioRef);
         }
     }
 }
