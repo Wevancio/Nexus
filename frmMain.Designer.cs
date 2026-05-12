@@ -61,6 +61,7 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.dgvDocumentos = new System.Windows.Forms.DataGridView();
             this.btnEliminarDocs = new System.Windows.Forms.Button();
+            this.btnModificarDocs = new System.Windows.Forms.Button();
             this.btnAgregarDocs = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.txtTituloDoc = new System.Windows.Forms.TextBox();
@@ -77,7 +78,6 @@
             this.lblUsername = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblAdminControl = new System.Windows.Forms.Label();
-            this.btnModificarDocs = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTareas)).BeginInit();
@@ -101,11 +101,11 @@
             this.tabControl.Controls.Add(this.tabPage4);
             this.tabControl.Controls.Add(this.tabPage5);
             this.tabControl.Font = new System.Drawing.Font("Mongolian Baiti", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl.Location = new System.Drawing.Point(-3, 42);
-            this.tabControl.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabControl.Location = new System.Drawing.Point(-2, 34);
+            this.tabControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(1341, 706);
+            this.tabControl.Size = new System.Drawing.Size(1006, 574);
             this.tabControl.TabIndex = 0;
             // 
             // tabPage1
@@ -123,11 +123,11 @@
             this.tabPage1.Controls.Add(this.btnModificarProyecto);
             this.tabPage1.Controls.Add(this.btnAgregarProyecto);
             this.tabPage1.Controls.Add(this.dgvProyectos);
-            this.tabPage1.Location = new System.Drawing.Point(4, 33);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage1.Location = new System.Drawing.Point(4, 28);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage1.Size = new System.Drawing.Size(1333, 669);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage1.Size = new System.Drawing.Size(998, 542);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Proyectos";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -135,22 +135,25 @@
             // mCalendarTareas
             // 
             this.mCalendarTareas.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mCalendarTareas.Location = new System.Drawing.Point(963, 399);
+            this.mCalendarTareas.Location = new System.Drawing.Point(722, 324);
+            this.mCalendarTareas.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.mCalendarTareas.Name = "mCalendarTareas";
             this.mCalendarTareas.TabIndex = 16;
             // 
             // mCalendarProyectos
             // 
             this.mCalendarProyectos.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mCalendarProyectos.Location = new System.Drawing.Point(964, 75);
+            this.mCalendarProyectos.Location = new System.Drawing.Point(723, 61);
+            this.mCalendarProyectos.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.mCalendarProyectos.Name = "mCalendarProyectos";
             this.mCalendarProyectos.TabIndex = 15;
             // 
             // txtTituloProyecto
             // 
-            this.txtTituloProyecto.Location = new System.Drawing.Point(237, 21);
+            this.txtTituloProyecto.Location = new System.Drawing.Point(178, 17);
+            this.txtTituloProyecto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtTituloProyecto.Name = "txtTituloProyecto";
-            this.txtTituloProyecto.Size = new System.Drawing.Size(455, 34);
+            this.txtTituloProyecto.Size = new System.Drawing.Size(342, 29);
             this.txtTituloProyecto.TabIndex = 14;
             this.txtTituloProyecto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtTituloProyecto_KeyDown);
             // 
@@ -158,9 +161,10 @@
             // 
             this.lblNuevoProyecto.AutoSize = true;
             this.lblNuevoProyecto.Font = new System.Drawing.Font("Mongolian Baiti", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblNuevoProyecto.Location = new System.Drawing.Point(16, 20);
+            this.lblNuevoProyecto.Location = new System.Drawing.Point(12, 16);
+            this.lblNuevoProyecto.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblNuevoProyecto.Name = "lblNuevoProyecto";
-            this.lblNuevoProyecto.Size = new System.Drawing.Size(201, 30);
+            this.lblNuevoProyecto.Size = new System.Drawing.Size(159, 24);
             this.lblNuevoProyecto.TabIndex = 13;
             this.lblNuevoProyecto.Text = "Nuevo Proyecto:";
             // 
@@ -168,19 +172,19 @@
             // 
             this.lblHeaderTareas.AutoSize = true;
             this.lblHeaderTareas.Font = new System.Drawing.Font("Mongolian Baiti", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeaderTareas.Location = new System.Drawing.Point(16, 347);
+            this.lblHeaderTareas.Location = new System.Drawing.Point(12, 282);
+            this.lblHeaderTareas.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblHeaderTareas.Name = "lblHeaderTareas";
-            this.lblHeaderTareas.Size = new System.Drawing.Size(182, 30);
+            this.lblHeaderTareas.Size = new System.Drawing.Size(146, 24);
             this.lblHeaderTareas.TabIndex = 12;
             this.lblHeaderTareas.Text = "Lista de Tareas";
             // 
             // btnEliminarTareaProyecto
             // 
             this.btnEliminarTareaProyecto.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarTareaProyecto.Location = new System.Drawing.Point(1198, 619);
-            this.btnEliminarTareaProyecto.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEliminarTareaProyecto.Location = new System.Drawing.Point(898, 503);
             this.btnEliminarTareaProyecto.Name = "btnEliminarTareaProyecto";
-            this.btnEliminarTareaProyecto.Size = new System.Drawing.Size(114, 39);
+            this.btnEliminarTareaProyecto.Size = new System.Drawing.Size(86, 32);
             this.btnEliminarTareaProyecto.TabIndex = 11;
             this.btnEliminarTareaProyecto.Text = "Eliminar";
             this.btnEliminarTareaProyecto.UseVisualStyleBackColor = true;
@@ -189,10 +193,9 @@
             // btnModificarTareaProyecto
             // 
             this.btnModificarTareaProyecto.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificarTareaProyecto.Location = new System.Drawing.Point(1059, 619);
-            this.btnModificarTareaProyecto.Margin = new System.Windows.Forms.Padding(4);
+            this.btnModificarTareaProyecto.Location = new System.Drawing.Point(794, 503);
             this.btnModificarTareaProyecto.Name = "btnModificarTareaProyecto";
-            this.btnModificarTareaProyecto.Size = new System.Drawing.Size(114, 39);
+            this.btnModificarTareaProyecto.Size = new System.Drawing.Size(86, 32);
             this.btnModificarTareaProyecto.TabIndex = 10;
             this.btnModificarTareaProyecto.Text = "Modificar";
             this.btnModificarTareaProyecto.UseVisualStyleBackColor = true;
@@ -201,10 +204,9 @@
             // btnAgregarTareaProyecto
             // 
             this.btnAgregarTareaProyecto.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarTareaProyecto.Location = new System.Drawing.Point(920, 619);
-            this.btnAgregarTareaProyecto.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAgregarTareaProyecto.Location = new System.Drawing.Point(690, 503);
             this.btnAgregarTareaProyecto.Name = "btnAgregarTareaProyecto";
-            this.btnAgregarTareaProyecto.Size = new System.Drawing.Size(114, 39);
+            this.btnAgregarTareaProyecto.Size = new System.Drawing.Size(86, 32);
             this.btnAgregarTareaProyecto.TabIndex = 9;
             this.btnAgregarTareaProyecto.Text = "Agregar";
             this.btnAgregarTareaProyecto.UseVisualStyleBackColor = true;
@@ -213,12 +215,12 @@
             // dgvTareas
             // 
             this.dgvTareas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTareas.Location = new System.Drawing.Point(21, 393);
-            this.dgvTareas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvTareas.Location = new System.Drawing.Point(16, 319);
+            this.dgvTareas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvTareas.Name = "dgvTareas";
             this.dgvTareas.RowHeadersWidth = 51;
             this.dgvTareas.RowTemplate.Height = 24;
-            this.dgvTareas.Size = new System.Drawing.Size(872, 265);
+            this.dgvTareas.Size = new System.Drawing.Size(654, 215);
             this.dgvTareas.TabIndex = 8;
             this.dgvTareas.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTareas_CellClick);
             this.dgvTareas.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTareas_CellValueChanged);
@@ -227,10 +229,9 @@
             // btnEliminarProyecto
             // 
             this.btnEliminarProyecto.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarProyecto.Location = new System.Drawing.Point(1198, 295);
-            this.btnEliminarProyecto.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEliminarProyecto.Location = new System.Drawing.Point(898, 240);
             this.btnEliminarProyecto.Name = "btnEliminarProyecto";
-            this.btnEliminarProyecto.Size = new System.Drawing.Size(114, 39);
+            this.btnEliminarProyecto.Size = new System.Drawing.Size(86, 32);
             this.btnEliminarProyecto.TabIndex = 7;
             this.btnEliminarProyecto.Text = "Eliminar";
             this.btnEliminarProyecto.UseVisualStyleBackColor = true;
@@ -239,10 +240,9 @@
             // btnModificarProyecto
             // 
             this.btnModificarProyecto.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificarProyecto.Location = new System.Drawing.Point(1059, 295);
-            this.btnModificarProyecto.Margin = new System.Windows.Forms.Padding(4);
+            this.btnModificarProyecto.Location = new System.Drawing.Point(794, 240);
             this.btnModificarProyecto.Name = "btnModificarProyecto";
-            this.btnModificarProyecto.Size = new System.Drawing.Size(114, 39);
+            this.btnModificarProyecto.Size = new System.Drawing.Size(86, 32);
             this.btnModificarProyecto.TabIndex = 6;
             this.btnModificarProyecto.Text = "Modificar";
             this.btnModificarProyecto.UseVisualStyleBackColor = true;
@@ -251,10 +251,9 @@
             // btnAgregarProyecto
             // 
             this.btnAgregarProyecto.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarProyecto.Location = new System.Drawing.Point(920, 295);
-            this.btnAgregarProyecto.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAgregarProyecto.Location = new System.Drawing.Point(690, 240);
             this.btnAgregarProyecto.Name = "btnAgregarProyecto";
-            this.btnAgregarProyecto.Size = new System.Drawing.Size(114, 39);
+            this.btnAgregarProyecto.Size = new System.Drawing.Size(86, 32);
             this.btnAgregarProyecto.TabIndex = 5;
             this.btnAgregarProyecto.Text = "Agregar";
             this.btnAgregarProyecto.UseVisualStyleBackColor = true;
@@ -263,12 +262,12 @@
             // dgvProyectos
             // 
             this.dgvProyectos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProyectos.Location = new System.Drawing.Point(20, 69);
-            this.dgvProyectos.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvProyectos.Location = new System.Drawing.Point(15, 56);
+            this.dgvProyectos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvProyectos.Name = "dgvProyectos";
             this.dgvProyectos.RowHeadersWidth = 51;
             this.dgvProyectos.RowTemplate.Height = 24;
-            this.dgvProyectos.Size = new System.Drawing.Size(872, 265);
+            this.dgvProyectos.Size = new System.Drawing.Size(654, 215);
             this.dgvProyectos.TabIndex = 0;
             this.dgvProyectos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProyectos_CellClick);
             this.dgvProyectos.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProyectos_CellValueChanged);
@@ -284,11 +283,11 @@
             this.tabPage2.Controls.Add(this.btnModificarTareaInd);
             this.tabPage2.Controls.Add(this.btnAgregarTareaInd);
             this.tabPage2.Controls.Add(this.dgvTareasInd);
-            this.tabPage2.Location = new System.Drawing.Point(4, 33);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage2.Location = new System.Drawing.Point(4, 28);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage2.Size = new System.Drawing.Size(1333, 669);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage2.Size = new System.Drawing.Size(998, 542);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Tareas";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -296,34 +295,36 @@
             // mCalendarTareasInd
             // 
             this.mCalendarTareasInd.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.mCalendarTareasInd.Location = new System.Drawing.Point(964, 75);
+            this.mCalendarTareasInd.Location = new System.Drawing.Point(723, 61);
+            this.mCalendarTareasInd.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
             this.mCalendarTareasInd.Name = "mCalendarTareasInd";
             this.mCalendarTareasInd.TabIndex = 23;
             // 
             // txtTituloTarea
             // 
-            this.txtTituloTarea.Location = new System.Drawing.Point(193, 21);
+            this.txtTituloTarea.Location = new System.Drawing.Point(145, 17);
+            this.txtTituloTarea.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtTituloTarea.Name = "txtTituloTarea";
-            this.txtTituloTarea.Size = new System.Drawing.Size(455, 34);
+            this.txtTituloTarea.Size = new System.Drawing.Size(342, 29);
             this.txtTituloTarea.TabIndex = 22;
             // 
             // lblHeaderTareasInd
             // 
             this.lblHeaderTareasInd.AutoSize = true;
             this.lblHeaderTareasInd.Font = new System.Drawing.Font("Mongolian Baiti", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeaderTareasInd.Location = new System.Drawing.Point(16, 20);
+            this.lblHeaderTareasInd.Location = new System.Drawing.Point(12, 16);
+            this.lblHeaderTareasInd.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblHeaderTareasInd.Name = "lblHeaderTareasInd";
-            this.lblHeaderTareasInd.Size = new System.Drawing.Size(162, 30);
+            this.lblHeaderTareasInd.Size = new System.Drawing.Size(130, 24);
             this.lblHeaderTareasInd.TabIndex = 21;
             this.lblHeaderTareasInd.Text = "Nueva Tarea:";
             // 
             // btnEliminarTareaInd
             // 
             this.btnEliminarTareaInd.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarTareaInd.Location = new System.Drawing.Point(1198, 295);
-            this.btnEliminarTareaInd.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEliminarTareaInd.Location = new System.Drawing.Point(898, 240);
             this.btnEliminarTareaInd.Name = "btnEliminarTareaInd";
-            this.btnEliminarTareaInd.Size = new System.Drawing.Size(114, 39);
+            this.btnEliminarTareaInd.Size = new System.Drawing.Size(86, 32);
             this.btnEliminarTareaInd.TabIndex = 19;
             this.btnEliminarTareaInd.Text = "Eliminar";
             this.btnEliminarTareaInd.UseVisualStyleBackColor = true;
@@ -332,10 +333,9 @@
             // btnModificarTareaInd
             // 
             this.btnModificarTareaInd.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModificarTareaInd.Location = new System.Drawing.Point(1059, 295);
-            this.btnModificarTareaInd.Margin = new System.Windows.Forms.Padding(4);
+            this.btnModificarTareaInd.Location = new System.Drawing.Point(794, 240);
             this.btnModificarTareaInd.Name = "btnModificarTareaInd";
-            this.btnModificarTareaInd.Size = new System.Drawing.Size(114, 39);
+            this.btnModificarTareaInd.Size = new System.Drawing.Size(86, 32);
             this.btnModificarTareaInd.TabIndex = 18;
             this.btnModificarTareaInd.Text = "Modificar";
             this.btnModificarTareaInd.UseVisualStyleBackColor = true;
@@ -344,10 +344,9 @@
             // btnAgregarTareaInd
             // 
             this.btnAgregarTareaInd.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarTareaInd.Location = new System.Drawing.Point(920, 295);
-            this.btnAgregarTareaInd.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAgregarTareaInd.Location = new System.Drawing.Point(690, 240);
             this.btnAgregarTareaInd.Name = "btnAgregarTareaInd";
-            this.btnAgregarTareaInd.Size = new System.Drawing.Size(114, 39);
+            this.btnAgregarTareaInd.Size = new System.Drawing.Size(86, 32);
             this.btnAgregarTareaInd.TabIndex = 17;
             this.btnAgregarTareaInd.Text = "Agregar";
             this.btnAgregarTareaInd.UseVisualStyleBackColor = true;
@@ -356,12 +355,12 @@
             // dgvTareasInd
             // 
             this.dgvTareasInd.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTareasInd.Location = new System.Drawing.Point(20, 69);
-            this.dgvTareasInd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgvTareasInd.Location = new System.Drawing.Point(15, 56);
+            this.dgvTareasInd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvTareasInd.Name = "dgvTareasInd";
             this.dgvTareasInd.RowHeadersWidth = 51;
             this.dgvTareasInd.RowTemplate.Height = 24;
-            this.dgvTareasInd.Size = new System.Drawing.Size(872, 529);
+            this.dgvTareasInd.Size = new System.Drawing.Size(654, 430);
             this.dgvTareasInd.TabIndex = 16;
             this.dgvTareasInd.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTareasInd_CellClick);
             // 
@@ -373,20 +372,21 @@
             this.tabPage3.Controls.Add(this.txtTituloBloc);
             this.tabPage3.Controls.Add(this.label5);
             this.tabPage3.Controls.Add(this.dgvBlocs);
-            this.tabPage3.Location = new System.Drawing.Point(4, 33);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tabPage3.Location = new System.Drawing.Point(4, 28);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tabPage3.Size = new System.Drawing.Size(1333, 669);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage3.Size = new System.Drawing.Size(998, 542);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Bloques de Notas";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // btnEliminarBloc
             // 
-            this.btnEliminarBloc.Location = new System.Drawing.Point(882, 87);
+            this.btnEliminarBloc.Location = new System.Drawing.Point(662, 71);
+            this.btnEliminarBloc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnEliminarBloc.Name = "btnEliminarBloc";
-            this.btnEliminarBloc.Size = new System.Drawing.Size(109, 38);
+            this.btnEliminarBloc.Size = new System.Drawing.Size(91, 31);
             this.btnEliminarBloc.TabIndex = 11;
             this.btnEliminarBloc.Text = "Eliminar";
             this.btnEliminarBloc.UseVisualStyleBackColor = true;
@@ -394,9 +394,10 @@
             // 
             // btnModificarBloc
             // 
-            this.btnModificarBloc.Location = new System.Drawing.Point(754, 87);
+            this.btnModificarBloc.Location = new System.Drawing.Point(566, 71);
+            this.btnModificarBloc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnModificarBloc.Name = "btnModificarBloc";
-            this.btnModificarBloc.Size = new System.Drawing.Size(122, 38);
+            this.btnModificarBloc.Size = new System.Drawing.Size(92, 31);
             this.btnModificarBloc.TabIndex = 10;
             this.btnModificarBloc.Text = "Modificar";
             this.btnModificarBloc.UseVisualStyleBackColor = true;
@@ -404,9 +405,10 @@
             // 
             // btnAgregarBloc
             // 
-            this.btnAgregarBloc.Location = new System.Drawing.Point(639, 87);
+            this.btnAgregarBloc.Location = new System.Drawing.Point(479, 71);
+            this.btnAgregarBloc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAgregarBloc.Name = "btnAgregarBloc";
-            this.btnAgregarBloc.Size = new System.Drawing.Size(109, 38);
+            this.btnAgregarBloc.Size = new System.Drawing.Size(82, 31);
             this.btnAgregarBloc.TabIndex = 8;
             this.btnAgregarBloc.Text = "Agregar";
             this.btnAgregarBloc.UseVisualStyleBackColor = true;
@@ -414,28 +416,31 @@
             // 
             // txtTituloBloc
             // 
-            this.txtTituloBloc.Location = new System.Drawing.Point(308, 87);
+            this.txtTituloBloc.Location = new System.Drawing.Point(231, 71);
+            this.txtTituloBloc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtTituloBloc.Name = "txtTituloBloc";
-            this.txtTituloBloc.Size = new System.Drawing.Size(306, 34);
+            this.txtTituloBloc.Size = new System.Drawing.Size(230, 29);
             this.txtTituloBloc.TabIndex = 2;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(73, 90);
+            this.label5.Location = new System.Drawing.Point(55, 73);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(208, 24);
+            this.label5.Size = new System.Drawing.Size(174, 20);
             this.label5.TabIndex = 1;
             this.label5.Text = "Nuevo Bloc de Notas";
             // 
             // dgvBlocs
             // 
             this.dgvBlocs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBlocs.Location = new System.Drawing.Point(77, 138);
+            this.dgvBlocs.Location = new System.Drawing.Point(58, 112);
+            this.dgvBlocs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvBlocs.Name = "dgvBlocs";
             this.dgvBlocs.RowHeadersWidth = 51;
             this.dgvBlocs.RowTemplate.Height = 24;
-            this.dgvBlocs.Size = new System.Drawing.Size(914, 494);
+            this.dgvBlocs.Size = new System.Drawing.Size(686, 401);
             this.dgvBlocs.TabIndex = 0;
             this.dgvBlocs.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBlocs_CellClick);
             // 
@@ -447,10 +452,11 @@
             this.tabPage4.Controls.Add(this.btnAgregarDocs);
             this.tabPage4.Controls.Add(this.label3);
             this.tabPage4.Controls.Add(this.txtTituloDoc);
-            this.tabPage4.Location = new System.Drawing.Point(4, 33);
+            this.tabPage4.Location = new System.Drawing.Point(4, 28);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1333, 669);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage4.Size = new System.Drawing.Size(998, 542);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Documentos";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -458,29 +464,43 @@
             // dgvDocumentos
             // 
             this.dgvDocumentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDocumentos.Location = new System.Drawing.Point(59, 128);
+            this.dgvDocumentos.Location = new System.Drawing.Point(44, 104);
+            this.dgvDocumentos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvDocumentos.Name = "dgvDocumentos";
             this.dgvDocumentos.RowHeadersWidth = 51;
             this.dgvDocumentos.RowTemplate.Height = 24;
-            this.dgvDocumentos.Size = new System.Drawing.Size(884, 493);
+            this.dgvDocumentos.Size = new System.Drawing.Size(663, 401);
             this.dgvDocumentos.TabIndex = 11;
             this.dgvDocumentos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDocumentos_CellClick);
             // 
             // btnEliminarDocs
             // 
-            this.btnEliminarDocs.Location = new System.Drawing.Point(834, 70);
+            this.btnEliminarDocs.Location = new System.Drawing.Point(626, 57);
+            this.btnEliminarDocs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnEliminarDocs.Name = "btnEliminarDocs";
-            this.btnEliminarDocs.Size = new System.Drawing.Size(109, 38);
+            this.btnEliminarDocs.Size = new System.Drawing.Size(90, 31);
             this.btnEliminarDocs.TabIndex = 10;
             this.btnEliminarDocs.Text = "Eliminar";
             this.btnEliminarDocs.UseVisualStyleBackColor = true;
             this.btnEliminarDocs.Click += new System.EventHandler(this.btnEliminarDocs_Click);
             // 
+            // btnModificarDocs
+            // 
+            this.btnModificarDocs.Location = new System.Drawing.Point(530, 57);
+            this.btnModificarDocs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnModificarDocs.Name = "btnModificarDocs";
+            this.btnModificarDocs.Size = new System.Drawing.Size(92, 31);
+            this.btnModificarDocs.TabIndex = 9;
+            this.btnModificarDocs.Text = "Modificar";
+            this.btnModificarDocs.UseVisualStyleBackColor = true;
+            this.btnModificarDocs.Click += new System.EventHandler(this.btnModificarDocs_Click);
+            // 
             // btnAgregarDocs
             // 
-            this.btnAgregarDocs.Location = new System.Drawing.Point(591, 70);
+            this.btnAgregarDocs.Location = new System.Drawing.Point(443, 57);
+            this.btnAgregarDocs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAgregarDocs.Name = "btnAgregarDocs";
-            this.btnAgregarDocs.Size = new System.Drawing.Size(109, 38);
+            this.btnAgregarDocs.Size = new System.Drawing.Size(82, 31);
             this.btnAgregarDocs.TabIndex = 7;
             this.btnAgregarDocs.Text = "Agregar";
             this.btnAgregarDocs.UseVisualStyleBackColor = true;
@@ -489,17 +509,19 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(63, 77);
+            this.label3.Location = new System.Drawing.Point(47, 63);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(66, 24);
+            this.label3.Size = new System.Drawing.Size(56, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "Titulo";
             // 
             // txtTituloDoc
             // 
-            this.txtTituloDoc.Location = new System.Drawing.Point(156, 74);
+            this.txtTituloDoc.Location = new System.Drawing.Point(117, 60);
+            this.txtTituloDoc.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtTituloDoc.Name = "txtTituloDoc";
-            this.txtTituloDoc.Size = new System.Drawing.Size(401, 34);
+            this.txtTituloDoc.Size = new System.Drawing.Size(302, 29);
             this.txtTituloDoc.TabIndex = 0;
             // 
             // tabPage5
@@ -512,10 +534,11 @@
             this.tabPage5.Controls.Add(this.rtxtContenido);
             this.tabPage5.Controls.Add(this.txtTitulo);
             this.tabPage5.Controls.Add(this.label2);
-            this.tabPage5.Location = new System.Drawing.Point(4, 33);
+            this.tabPage5.Location = new System.Drawing.Point(4, 28);
+            this.tabPage5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1333, 669);
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tabPage5.Size = new System.Drawing.Size(998, 542);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Notas";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -524,26 +547,29 @@
             // cmbBloques
             // 
             this.cmbBloques.FormattingEnabled = true;
-            this.cmbBloques.Location = new System.Drawing.Point(979, 69);
+            this.cmbBloques.Location = new System.Drawing.Point(734, 56);
+            this.cmbBloques.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbBloques.Name = "cmbBloques";
-            this.cmbBloques.Size = new System.Drawing.Size(225, 32);
+            this.cmbBloques.Size = new System.Drawing.Size(170, 27);
             this.cmbBloques.TabIndex = 7;
             this.cmbBloques.SelectedIndexChanged += new System.EventHandler(this.cmbBloques_SelectedIndexChanged);
             // 
             // btnEliminarNota
             // 
-            this.btnEliminarNota.Location = new System.Drawing.Point(768, 65);
+            this.btnEliminarNota.Location = new System.Drawing.Point(576, 53);
+            this.btnEliminarNota.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnEliminarNota.Name = "btnEliminarNota";
-            this.btnEliminarNota.Size = new System.Drawing.Size(109, 38);
+            this.btnEliminarNota.Size = new System.Drawing.Size(85, 31);
             this.btnEliminarNota.TabIndex = 6;
             this.btnEliminarNota.Text = "Eliminar";
             this.btnEliminarNota.UseVisualStyleBackColor = true;
             // 
             // btnModificarNota
             // 
-            this.btnModificarNota.Location = new System.Drawing.Point(640, 65);
+            this.btnModificarNota.Location = new System.Drawing.Point(480, 53);
+            this.btnModificarNota.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnModificarNota.Name = "btnModificarNota";
-            this.btnModificarNota.Size = new System.Drawing.Size(122, 38);
+            this.btnModificarNota.Size = new System.Drawing.Size(92, 31);
             this.btnModificarNota.TabIndex = 5;
             this.btnModificarNota.Text = "Modificar";
             this.btnModificarNota.UseVisualStyleBackColor = true;
@@ -551,9 +577,10 @@
             // 
             // btnAgregarNota
             // 
-            this.btnAgregarNota.Location = new System.Drawing.Point(525, 65);
+            this.btnAgregarNota.Location = new System.Drawing.Point(394, 53);
+            this.btnAgregarNota.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnAgregarNota.Name = "btnAgregarNota";
-            this.btnAgregarNota.Size = new System.Drawing.Size(109, 38);
+            this.btnAgregarNota.Size = new System.Drawing.Size(82, 31);
             this.btnAgregarNota.TabIndex = 4;
             this.btnAgregarNota.Text = "Agregar";
             this.btnAgregarNota.UseVisualStyleBackColor = true;
@@ -562,34 +589,38 @@
             // dgvNotas
             // 
             this.dgvNotas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvNotas.Location = new System.Drawing.Point(72, 433);
+            this.dgvNotas.Location = new System.Drawing.Point(54, 352);
+            this.dgvNotas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvNotas.Name = "dgvNotas";
             this.dgvNotas.RowHeadersWidth = 51;
             this.dgvNotas.RowTemplate.Height = 24;
-            this.dgvNotas.Size = new System.Drawing.Size(1132, 264);
+            this.dgvNotas.Size = new System.Drawing.Size(849, 214);
             this.dgvNotas.TabIndex = 3;
             // 
             // rtxtContenido
             // 
-            this.rtxtContenido.Location = new System.Drawing.Point(72, 117);
+            this.rtxtContenido.Location = new System.Drawing.Point(54, 95);
+            this.rtxtContenido.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rtxtContenido.Name = "rtxtContenido";
-            this.rtxtContenido.Size = new System.Drawing.Size(1132, 282);
+            this.rtxtContenido.Size = new System.Drawing.Size(850, 230);
             this.rtxtContenido.TabIndex = 2;
             this.rtxtContenido.Text = "";
             // 
             // txtTitulo
             // 
-            this.txtTitulo.Location = new System.Drawing.Point(257, 69);
+            this.txtTitulo.Location = new System.Drawing.Point(193, 56);
+            this.txtTitulo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtTitulo.Name = "txtTitulo";
-            this.txtTitulo.Size = new System.Drawing.Size(240, 34);
+            this.txtTitulo.Size = new System.Drawing.Size(181, 29);
             this.txtTitulo.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(68, 72);
+            this.label2.Location = new System.Drawing.Point(51, 58);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(166, 24);
+            this.label2.Size = new System.Drawing.Size(139, 20);
             this.label2.TabIndex = 0;
             this.label2.Text = "Titulo de la Nota";
             // 
@@ -598,9 +629,10 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.label1.Location = new System.Drawing.Point(5, 7);
+            this.label1.Location = new System.Drawing.Point(4, 6);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 32);
+            this.label1.Size = new System.Drawing.Size(79, 26);
             this.label1.TabIndex = 1;
             this.label1.Text = "Nexus";
             // 
@@ -608,18 +640,19 @@
             // 
             this.lblUsername.AutoSize = true;
             this.lblUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.Location = new System.Drawing.Point(1165, 18);
+            this.lblUsername.Location = new System.Drawing.Point(874, 15);
+            this.lblUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(147, 29);
+            this.lblUsername.Size = new System.Drawing.Size(114, 24);
             this.lblUsername.TabIndex = 2;
             this.lblUsername.Text = "userpotro.lvr";
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(1101, 7);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(826, 6);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(59, 50);
+            this.pictureBox1.Size = new System.Drawing.Size(44, 41);
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             // 
@@ -629,37 +662,28 @@
             this.lblAdminControl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblAdminControl.Font = new System.Drawing.Font("Mongolian Baiti", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAdminControl.ForeColor = System.Drawing.Color.MediumBlue;
-            this.lblAdminControl.Location = new System.Drawing.Point(947, 25);
+            this.lblAdminControl.Location = new System.Drawing.Point(710, 20);
+            this.lblAdminControl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAdminControl.Name = "lblAdminControl";
-            this.lblAdminControl.Size = new System.Drawing.Size(133, 21);
+            this.lblAdminControl.Size = new System.Drawing.Size(103, 16);
             this.lblAdminControl.TabIndex = 4;
             this.lblAdminControl.Text = "Admin Control";
             this.lblAdminControl.Click += new System.EventHandler(this.lblAdminControl_Click);
             // 
-            // btnModificarDocs
-            // 
-            this.btnModificarDocs.Location = new System.Drawing.Point(706, 70);
-            this.btnModificarDocs.Name = "btnModificarDocs";
-            this.btnModificarDocs.Size = new System.Drawing.Size(122, 38);
-            this.btnModificarDocs.TabIndex = 9;
-            this.btnModificarDocs.Text = "Modificar";
-            this.btnModificarDocs.UseVisualStyleBackColor = true;
-            this.btnModificarDocs.Click += new System.EventHandler(this.btnModificarDocs_Click);
-            // 
             // frmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1339, 750);
+            this.ClientSize = new System.Drawing.Size(1004, 609);
             this.Controls.Add(this.lblAdminControl);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tabControl);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frmMain";
+            this.Text = "Nexus App";
             this.tabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();

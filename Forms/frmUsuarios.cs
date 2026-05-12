@@ -104,7 +104,7 @@ namespace NexusApp.Forms
             if (e.RowIndex >= 0)
             {
                 // Obtenemos la fila a la que se le hizo clic
-                DataGridViewRow fila = dgvTablaUsuarios.Rows[e.RowIndex];
+                DataGridViewRow fila = dgvTablaUsuarios.Rows[e.RowIndex];   
                 txtUsuarioID.Text = fila.Cells["usuario_id"].Value.ToString();
                 txtEmail.Text = fila.Cells["email"].Value.ToString();
                 txtContraseña.Text = fila.Cells["contrasena"].Value.ToString();
