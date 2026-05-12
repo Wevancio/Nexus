@@ -165,7 +165,7 @@ namespace NexusApp
                 dgvDocumentos.Columns["documento_id"].Visible = false;
             }
             dgvDocumentos.Columns.Add(new DataGridViewTextBoxColumn { Name = "tituloDocumento", HeaderText = "Documento", DataPropertyName = "tituloDocumento", Width = 150 });
-            dgvDocumentos.Columns.Add(new DataGridViewTextBoxColumn { Name = "tipoDoc", HeaderText = "Tipo", DataPropertyName = "tipoArchivo", Width = 60 });
+            dgvDocumentos.Columns.Add(new DataGridViewTextBoxColumn { Name = "tipoArchivo", HeaderText = "Tipo", DataPropertyName = "tipoArchivo", Width = 60 });
             dgvDocumentos.Columns.Add(new DataGridViewTextBoxColumn { Name = "tamanoDoc", HeaderText = "Tamaño", DataPropertyName = "tamano", Width = 80 });
             dgvDocumentos.Columns.Add(new DataGridViewTextBoxColumn { Name = "urlDoc", HeaderText = "Enlace / Ruta", DataPropertyName = "urlDoc", AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill });
             dgvDocumentos.Columns.Add(new DataGridViewTextBoxColumn { Name = "fechaSubida", HeaderText = "Fecha", DataPropertyName = "fechaSubida", Width = 90 });
@@ -173,6 +173,7 @@ namespace NexusApp
             dgvDocumentos.DataSource = objDocumentos.GetDocumentos();
             dgvDocumentos.Columns["fechaSubida"].DefaultCellStyle.Format = "dd/MM/yyyy";
         }
+
         public void ModificarColumnasVistaNotas(string usuario)
         {
             clsUsuarios objUsuarios = new clsUsuarios { username = usuario };
@@ -184,20 +185,25 @@ namespace NexusApp
             dgvNotas.AutoGenerateColumns = false;
             dgvNotas.Columns.Clear();
 
-            dgvNotas.Columns.Add(new DataGridViewTextBoxColumn { Name = "documento_id", DataPropertyName = "documento_id", Visible = false });
-            if (dgvNotas.Columns["documento_id"].Visible == true)
+            dgvNotas.Columns.Add(new DataGridViewTextBoxColumn { Name = "nota_id", DataPropertyName = "nota_id", Visible = false });
+            if (dgvNotas.Columns["nota_id"].Visible == true)
             {
-                dgvNotas.Columns["documento_id"].Visible = false;
+                dgvNotas.Columns["nota_id"].Visible = false;
             }
-            dgvNotas.Columns.Add(new DataGridViewTextBoxColumn { Name = "tituloDocumento", HeaderText = "Documento", DataPropertyName = "tituloDocumento", Width = 150 });
-            dgvNotas.Columns.Add(new DataGridViewTextBoxColumn { Name = "tipoDoc", HeaderText = "Tipo", DataPropertyName = "tipoArchivo", Width = 60 });
-            dgvNotas.Columns.Add(new DataGridViewTextBoxColumn { Name = "tamanoDoc", HeaderText = "Tamaño", DataPropertyName = "tamano", Width = 80 });
-            dgvNotas.Columns.Add(new DataGridViewTextBoxColumn { Name = "urlDoc", HeaderText = "Enlace / Ruta", DataPropertyName = "urlDoc", AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill });
-            dgvNotas.Columns.Add(new DataGridViewTextBoxColumn { Name = "fechaSubida", HeaderText = "Fecha", DataPropertyName = "fechaSubida", Width = 90 });
+            dgvNotas.Columns.Add(new DataGridViewTextBoxColumn { Name = "tituloNota", HeaderText = "Nota", DataPropertyName = "tituloNota", Width = 150 });
+            dgvNotas.Columns.Add(new DataGridViewTextBoxColumn { Name = "contenido", HeaderText = "Contenido", DataPropertyName = "contenido", Width = 60 });
+            dgvNotas.Columns.Add(new DataGridViewTextBoxColumn { Name = "fechaCreacion", HeaderText = "Fecha Creacion", DataPropertyName = "fechaCreacion", Width = 80 });
+            //dgvNotas.Columns.Add(new DataGridViewTextBoxColumn { Name = "urlDoc", HeaderText = "Enlace / Ruta", DataPropertyName = "urlDoc", AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill });
+            dgvNotas.Columns.Add(new DataGridViewTextBoxColumn { Name = "fechaModificacion", HeaderText = "Modificación", DataPropertyName = "fechaModificacion", Width = 90 });
 
-            RefrescarGridNotas();
-            dgvNotas.Columns["fechaSubida"].DefaultCellStyle.Format = "dd/MM/yyyy";
+            clsNotas obj = new clsNotas();
+            int idBloc = Convert.ToInt32(cmbBloques.SelectedValue);
+            dgvNotas.DataSource = obj.Listar(idBloc);
+
+            dgvNotas.Columns["fechaCreacion"].DefaultCellStyle.Format = "dd/MM/yyyy";
+            dgvNotas.Columns["fechaModificacion"].DefaultCellStyle.Format = "dd/MM/yyyy";
         }
+
         public void ModificarColumnasVistaTareas(string usuario, int cantRows, DataGridView dgv, int tipo)
         {
             //Creacino de objUsuario para definir par+ametro usuario
@@ -986,10 +992,8 @@ namespace NexusApp
             {
                 try
                 {
-                    clsNotas obj = new clsNotas();
-                    int idBloc = Convert.ToInt32(cmbBloques.SelectedValue);
 
-                    dgvNotas.DataSource = obj.Listar(idBloc);
+                    ModificarColumnasVistaNotas(usuarioRef);
                 }
                 catch (InvalidCastException)
                 {
