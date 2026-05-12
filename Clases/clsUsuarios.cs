@@ -111,7 +111,7 @@ namespace NexusApp.Clases
             {
                 GetConnection();
                 // Seleccionamos los campos. (Es buena práctica no mostrar la contraseña en las tablas, pero la incluyo por si la necesitas).
-                string query = "SELECT usuario_id, email, contrasena, username, fechaCreacion FROM usuarios";
+                string query = "SELECT usuario_id, email, contrasena, username, fechaCreacion,tipoUsuario_id FROM usuarios";
                 using (SqlCommand cmd = new SqlCommand(query, objConnection))
                 {
                     using (SqlDataAdapter da = new SqlDataAdapter(cmd))

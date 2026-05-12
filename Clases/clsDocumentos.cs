@@ -11,7 +11,7 @@ internal class clsDocumentos : clsConexion
     public string urlDoc { get; set; }
     // Nuevas propiedades para cumplir con lo que pidió el equipo
     public string tipoDoc { get; set; }
-    public string tamanoDoc { get; set; }
+    public long tamanoDoc { get; set; }
 
     public void Insertar()
     {
@@ -19,7 +19,7 @@ internal class clsDocumentos : clsConexion
         {
             GetConnection();
             // Actualizamos el query para incluir las nuevas columnas
-            string query = "INSERT INTO Documentos (usuario_id, tituloDocumento, urlDoc, tipoDoc, tamanoDoc) " +
+            string query = "INSERT INTO Documentos (usuario_id, tituloDocumento, urlDoc, tipoArchivo, tamano) " +
                            "VALUES (@user, @tit, @url, @tipo, @tamano)";
             SqlCommand cmd = new SqlCommand(query, objConnection);
 
