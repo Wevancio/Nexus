@@ -19,7 +19,7 @@ internal class clsDocumentos : clsConexion
         {
             GetConnection();
             // Actualizamos el query para incluir las nuevas columnas
-            string query = "INSERT INTO Documentos (usuario_id, tituloDocumento, urlDoc, tipoArchivo, tamano) " +
+            string query = "INSERT INTO documentos (usuario_id, tituloDocumento, urlDoc, tipoArchivo, tamano) " +
                            "VALUES (@user, @tit, @url, @tipo, @tamano)";
             SqlCommand cmd = new SqlCommand(query, objConnection);
 
@@ -39,7 +39,7 @@ internal class clsDocumentos : clsConexion
         {
             GetConnection(); // Asegúrate de que este método herede de clsConexion
                              // Usamos el usuario_id que ya tiene la instancia de la clase
-            string query = "SELECT documento_id, tituloDocumento, urlDoc FROM Documentos WHERE usuario_id = @user";
+            string query = "SELECT documento_id, tipoArchivo, tamano, fechaSubida, tituloDocumento, urlDoc FROM documentos WHERE usuario_id = @user";
             SqlCommand cmd = new SqlCommand(query, objConnection);
             cmd.Parameters.AddWithValue("@user", this.usuario_id);
 

@@ -160,14 +160,43 @@ namespace NexusApp
             dgvDocumentos.Columns.Clear();
 
             dgvDocumentos.Columns.Add(new DataGridViewTextBoxColumn { Name = "documento_id", DataPropertyName = "documento_id", Visible = false });
+            if (dgvDocumentos.Columns["documento_id"].Visible == true)
+            {
+                dgvDocumentos.Columns["documento_id"].Visible = false;
+            }
             dgvDocumentos.Columns.Add(new DataGridViewTextBoxColumn { Name = "tituloDocumento", HeaderText = "Documento", DataPropertyName = "tituloDocumento", Width = 150 });
-            dgvDocumentos.Columns.Add(new DataGridViewTextBoxColumn { Name = "tipoDoc", HeaderText = "Tipo", DataPropertyName = "tipoDoc", Width = 60 });
-            dgvDocumentos.Columns.Add(new DataGridViewTextBoxColumn { Name = "tamanoDoc", HeaderText = "Tamaño", DataPropertyName = "tamanoDoc", Width = 80 });
+            dgvDocumentos.Columns.Add(new DataGridViewTextBoxColumn { Name = "tipoDoc", HeaderText = "Tipo", DataPropertyName = "tipoArchivo", Width = 60 });
+            dgvDocumentos.Columns.Add(new DataGridViewTextBoxColumn { Name = "tamanoDoc", HeaderText = "Tamaño", DataPropertyName = "tamano", Width = 80 });
             dgvDocumentos.Columns.Add(new DataGridViewTextBoxColumn { Name = "urlDoc", HeaderText = "Enlace / Ruta", DataPropertyName = "urlDoc", AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill });
             dgvDocumentos.Columns.Add(new DataGridViewTextBoxColumn { Name = "fechaSubida", HeaderText = "Fecha", DataPropertyName = "fechaSubida", Width = 90 });
 
             dgvDocumentos.DataSource = objDocumentos.GetDocumentos();
             dgvDocumentos.Columns["fechaSubida"].DefaultCellStyle.Format = "dd/MM/yyyy";
+        }
+        public void ModificarColumnasVistaNotas(string usuario)
+        {
+            clsUsuarios objUsuarios = new clsUsuarios { username = usuario };
+            objUsuarios.GetUsuario_ID();
+
+            clsNotas objNotas = new clsNotas();
+            //objNotas.usuario_id = objUsuarios.usuario_id;
+
+            dgvNotas.AutoGenerateColumns = false;
+            dgvNotas.Columns.Clear();
+
+            dgvNotas.Columns.Add(new DataGridViewTextBoxColumn { Name = "documento_id", DataPropertyName = "documento_id", Visible = false });
+            if (dgvNotas.Columns["documento_id"].Visible == true)
+            {
+                dgvNotas.Columns["documento_id"].Visible = false;
+            }
+            dgvNotas.Columns.Add(new DataGridViewTextBoxColumn { Name = "tituloDocumento", HeaderText = "Documento", DataPropertyName = "tituloDocumento", Width = 150 });
+            dgvNotas.Columns.Add(new DataGridViewTextBoxColumn { Name = "tipoDoc", HeaderText = "Tipo", DataPropertyName = "tipoArchivo", Width = 60 });
+            dgvNotas.Columns.Add(new DataGridViewTextBoxColumn { Name = "tamanoDoc", HeaderText = "Tamaño", DataPropertyName = "tamano", Width = 80 });
+            dgvNotas.Columns.Add(new DataGridViewTextBoxColumn { Name = "urlDoc", HeaderText = "Enlace / Ruta", DataPropertyName = "urlDoc", AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill });
+            dgvNotas.Columns.Add(new DataGridViewTextBoxColumn { Name = "fechaSubida", HeaderText = "Fecha", DataPropertyName = "fechaSubida", Width = 90 });
+
+            RefrescarGridNotas();
+            dgvNotas.Columns["fechaSubida"].DefaultCellStyle.Format = "dd/MM/yyyy";
         }
         public void ModificarColumnasVistaTareas(string usuario, int cantRows, DataGridView dgv, int tipo)
         {
@@ -952,14 +981,19 @@ namespace NexusApp
         public void RefrescarGridNotas()
         {
             //MessageBox.Show(cmbBloques.SelectedText.ToString());
+
             if (cmbBloques.SelectedValue != null)
             {
                 try
                 {
                     clsNotas obj = new clsNotas();
-                    int idBloc = Convert.ToInt32(cmbBloques.SelectedIndex);
+                    int idBloc = Convert.ToInt32(cmbBloques.SelectedValue);
 
                     dgvNotas.DataSource = obj.Listar(idBloc);
+                }
+                catch (InvalidCastException)
+                {
+
                 }
                 catch (Exception ex)
                 {
