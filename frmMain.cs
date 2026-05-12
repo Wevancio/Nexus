@@ -604,7 +604,7 @@ namespace NexusApp
         {
             clsNotas nueva = new clsNotas();
             nueva.bloc_id = int.Parse(cmbBloques.SelectedValue.ToString());
-            nueva.tituloNota = txtTitulo.Text;
+            nueva.tituloNota = txtTituloNota.Text;
             nueva.contenido = rtxtContenido.Text;
 
             clsNotas db = new clsNotas();
@@ -633,7 +633,7 @@ namespace NexusApp
                 clsNotas nota = new clsNotas();
 
                 nota.nota_id = Convert.ToInt32(dgvNotas.CurrentRow.Cells["nota_id"].Value);
-                nota.tituloNota = txtTitulo.Text;
+                nota.tituloNota = txtTituloNota.Text;
                 nota.contenido = rtxtContenido.Text;
 
                 nota.Editar(nota);
@@ -1013,6 +1013,25 @@ namespace NexusApp
         private void cmbBloques_SelectedIndexChanged(object sender, EventArgs e)
         {
             RefrescarGridNotas();
+        }
+
+        private void dgvNotas_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Validamos que el clic no haya sido en el encabezado de las columnas (RowIndex -1)
+            if (e.RowIndex >= 0)
+            {
+              
+                DataGridViewRow fila = dgvNotas.Rows[e.RowIndex];
+                txtTituloNota.Text = fila.Cells["tituloNota"].Value.ToString();
+                rtxtContenido.Text = fila.Cells["contenido"].Value.ToString();
+
+              
+            }
+        }
+
+        private void btnEliminarNota_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

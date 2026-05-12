@@ -49,18 +49,22 @@
             // dgvTablaUsuarios
             // 
             this.dgvTablaUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTablaUsuarios.Location = new System.Drawing.Point(29, 47);
+            this.dgvTablaUsuarios.Location = new System.Drawing.Point(38, 58);
+            this.dgvTablaUsuarios.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvTablaUsuarios.Name = "dgvTablaUsuarios";
+            this.dgvTablaUsuarios.RowHeadersWidth = 51;
             this.dgvTablaUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTablaUsuarios.Size = new System.Drawing.Size(408, 246);
+            this.dgvTablaUsuarios.Size = new System.Drawing.Size(544, 303);
             this.dgvTablaUsuarios.TabIndex = 1;
             this.dgvTablaUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTablaUsuarios_CellClick);
+            this.dgvTablaUsuarios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTablaUsuarios_CellContentClick);
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(499, 266);
+            this.btnAgregar.Location = new System.Drawing.Point(665, 327);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btnAgregar.Size = new System.Drawing.Size(100, 28);
             this.btnAgregar.TabIndex = 2;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
@@ -68,9 +72,10 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(590, 266);
+            this.btnModificar.Location = new System.Drawing.Point(787, 327);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(75, 23);
+            this.btnModificar.Size = new System.Drawing.Size(100, 28);
             this.btnModificar.TabIndex = 3;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
@@ -78,9 +83,10 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(680, 266);
+            this.btnEliminar.Location = new System.Drawing.Point(907, 327);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btnEliminar.Size = new System.Drawing.Size(100, 28);
             this.btnEliminar.TabIndex = 4;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
@@ -88,75 +94,84 @@
             // 
             // txtUsuarioID
             // 
-            this.txtUsuarioID.Location = new System.Drawing.Point(496, 63);
+            this.txtUsuarioID.Location = new System.Drawing.Point(661, 78);
+            this.txtUsuarioID.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtUsuarioID.Name = "txtUsuarioID";
             this.txtUsuarioID.ReadOnly = true;
-            this.txtUsuarioID.Size = new System.Drawing.Size(79, 20);
+            this.txtUsuarioID.Size = new System.Drawing.Size(104, 22);
             this.txtUsuarioID.TabIndex = 5;
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(496, 115);
+            this.txtUsuario.Location = new System.Drawing.Point(661, 142);
+            this.txtUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(159, 20);
+            this.txtUsuario.Size = new System.Drawing.Size(211, 22);
             this.txtUsuario.TabIndex = 6;
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(496, 169);
+            this.txtEmail.Location = new System.Drawing.Point(661, 208);
+            this.txtEmail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(159, 20);
+            this.txtEmail.Size = new System.Drawing.Size(211, 22);
             this.txtEmail.TabIndex = 7;
             // 
             // txtContraseña
             // 
-            this.txtContraseña.Location = new System.Drawing.Point(496, 225);
+            this.txtContraseña.Location = new System.Drawing.Point(661, 277);
+            this.txtContraseña.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.Size = new System.Drawing.Size(100, 20);
+            this.txtContraseña.Size = new System.Drawing.Size(132, 22);
             this.txtContraseña.TabIndex = 8;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(493, 47);
+            this.label1.Location = new System.Drawing.Point(657, 58);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 13);
+            this.label1.Size = new System.Drawing.Size(70, 16);
             this.label1.TabIndex = 9;
             this.label1.Text = "Usuario ID";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(493, 99);
+            this.label2.Location = new System.Drawing.Point(657, 122);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 13);
+            this.label2.Size = new System.Drawing.Size(54, 16);
             this.label2.TabIndex = 10;
             this.label2.Text = "Usuario";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(493, 153);
+            this.label3.Location = new System.Drawing.Point(657, 188);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 13);
+            this.label3.Size = new System.Drawing.Size(41, 16);
             this.label3.TabIndex = 11;
             this.label3.Text = "Email";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(493, 209);
+            this.label4.Location = new System.Drawing.Point(657, 257);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 13);
+            this.label4.Size = new System.Drawing.Size(76, 16);
             this.label4.TabIndex = 12;
             this.label4.Text = "Contraseña";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(26, 31);
+            this.label5.Location = new System.Drawing.Point(35, 38);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(90, 13);
+            this.label5.Size = new System.Drawing.Size(115, 16);
             this.label5.TabIndex = 13;
             this.label5.Text = "Registro Usuarios";
             // 
@@ -166,25 +181,27 @@
             this.cmbTipoUsuario.Items.AddRange(new object[] {
             "Administrador",
             "Usuario"});
-            this.cmbTipoUsuario.Location = new System.Drawing.Point(634, 63);
+            this.cmbTipoUsuario.Location = new System.Drawing.Point(845, 78);
+            this.cmbTipoUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cmbTipoUsuario.Name = "cmbTipoUsuario";
-            this.cmbTipoUsuario.Size = new System.Drawing.Size(121, 21);
+            this.cmbTipoUsuario.Size = new System.Drawing.Size(160, 24);
             this.cmbTipoUsuario.TabIndex = 14;
             // 
             // lblTipoUsuario
             // 
             this.lblTipoUsuario.AutoSize = true;
-            this.lblTipoUsuario.Location = new System.Drawing.Point(631, 47);
+            this.lblTipoUsuario.Location = new System.Drawing.Point(841, 58);
+            this.lblTipoUsuario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTipoUsuario.Name = "lblTipoUsuario";
-            this.lblTipoUsuario.Size = new System.Drawing.Size(67, 13);
+            this.lblTipoUsuario.Size = new System.Drawing.Size(85, 16);
             this.lblTipoUsuario.TabIndex = 15;
             this.lblTipoUsuario.Text = "Tipo Usuario";
             // 
             // frmUsuarios
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(787, 329);
+            this.ClientSize = new System.Drawing.Size(1049, 405);
             this.Controls.Add(this.lblTipoUsuario);
             this.Controls.Add(this.cmbTipoUsuario);
             this.Controls.Add(this.label5);
@@ -200,6 +217,7 @@
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.dgvTablaUsuarios);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frmUsuarios";
             this.Text = "Usuarios";
             this.Load += new System.EventHandler(this.frmUsuarios_Load);

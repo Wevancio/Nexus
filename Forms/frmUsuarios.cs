@@ -115,5 +115,10 @@ namespace NexusApp.Forms
                 // txtId.Text = fila.Cells["usuario_id"].Value.ToString();
             }
         }
+
+        private void dgvTablaUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
