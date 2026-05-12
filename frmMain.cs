@@ -890,7 +890,7 @@ namespace NexusApp
                     objProyectos.usuario_id = objUsuarios.usuario_id;
                     dgvProyectos.DataSource = objProyectos.GetProyectos();// Actualizar la tabla
                 }
-                else if (estadoID != 3 && Convert.ToDateTime(dgvProyectos.CurrentRow.Cells["fechaFin"].Value) != null)
+                else if (estadoID != 3 && dgvProyectos.CurrentRow.Cells["fechaFin"].Value.ToString() != "")
                 {
                     objProyectos.proyecto_id = Convert.ToInt32(dgvProyectos.CurrentRow.Cells["proyecto_id"].Value);
                     objProyectos.estatus_id = Convert.ToInt32(dgvProyectos.CurrentRow.Cells["estatus_id"].Value);
