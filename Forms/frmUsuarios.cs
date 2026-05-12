@@ -97,5 +97,23 @@ namespace NexusApp.Forms
         {
             CargarDatos();
         }
+
+        private void dgvTablaUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Validamos que el clic no haya sido en el encabezado de las columnas (RowIndex -1)
+            if (e.RowIndex >= 0)
+            {
+                // Obtenemos la fila a la que se le hizo clic
+                DataGridViewRow fila = dgvTablaUsuarios.Rows[e.RowIndex];
+                txtUsuarioID.Text = fila.Cells["usuario_id"].Value.ToString();
+                txtEmail.Text = fila.Cells["email"].Value.ToString();
+                txtContraseña.Text = fila.Cells["contrasena"].Value.ToString();
+                txtUsuario.Text = fila.Cells["username"].Value.ToString();
+                cmbTipoUsuario.SelectedValue = Convert.ToInt32(fila.Cells["tipoUsuario_id"].Value); 
+
+                // Opcional: Si tienes una variable global o un TextBox oculto para el ID, puedes guardarlo aquí
+                // txtId.Text = fila.Cells["usuario_id"].Value.ToString();
+            }
+        }
     }
 }

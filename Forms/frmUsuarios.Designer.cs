@@ -51,8 +51,10 @@
             this.dgvTablaUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTablaUsuarios.Location = new System.Drawing.Point(29, 47);
             this.dgvTablaUsuarios.Name = "dgvTablaUsuarios";
+            this.dgvTablaUsuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTablaUsuarios.Size = new System.Drawing.Size(408, 246);
             this.dgvTablaUsuarios.TabIndex = 1;
+            this.dgvTablaUsuarios.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTablaUsuarios_CellClick);
             // 
             // btnAgregar
             // 
@@ -88,6 +90,7 @@
             // 
             this.txtUsuarioID.Location = new System.Drawing.Point(496, 63);
             this.txtUsuarioID.Name = "txtUsuarioID";
+            this.txtUsuarioID.ReadOnly = true;
             this.txtUsuarioID.Size = new System.Drawing.Size(79, 20);
             this.txtUsuarioID.TabIndex = 5;
             // 
