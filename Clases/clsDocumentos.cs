@@ -1,16 +1,38 @@
 ﻿using NexusApp;
+using System;
 using System.Data;
 using System.Data.SqlClient;
 
 internal class clsDocumentos : clsConexion
 {
-    // Propiedades (Asegúrate de que se llamen así)
     public int documento_id { get; set; }
     public int usuario_id { get; set; }
     public string tituloDocumento { get; set; }
     public string urlDoc { get; set; }
+    // Nuevas propiedades para cumplir con lo que pidió el equipo
+    public string tipoDoc { get; set; }
+    public string tamanoDoc { get; set; }
 
-    // Corrigiendo el método GetDocumentos que pide el frmMain
+    public void Insertar()
+    {
+        try
+        {
+            GetConnection();
+            // Actualizamos el query para incluir las nuevas columnas
+            string query = "INSERT INTO Documentos (usuario_id, tituloDocumento, urlDoc, tipoDoc, tamanoDoc) " +
+                           "VALUES (@user, @tit, @url, @tipo, @tamano)";
+            SqlCommand cmd = new SqlCommand(query, objConnection);
+
+            cmd.Parameters.AddWithValue("@user", this.usuario_id);
+            cmd.Parameters.AddWithValue("@tit", this.tituloDocumento);
+            cmd.Parameters.AddWithValue("@url", this.urlDoc);
+            cmd.Parameters.AddWithValue("@tipo", this.tipoDoc);
+            cmd.Parameters.AddWithValue("@tamano", this.tamanoDoc);
+
+            cmd.ExecuteNonQuery();
+        }
+        finally { objConnection.Close(); }
+    }
     public DataTable GetDocumentos()
     {
         try
@@ -28,23 +50,6 @@ internal class clsDocumentos : clsConexion
         }
         finally { objConnection.Close(); }
     }
-
-    public void Insertar() // Sin parámetros, usa las propiedades de la clase
-    {
-        try
-        {
-            GetConnection();
-            string query = "INSERT INTO Documentos (usuario_id, tituloDocumento, urlDoc) VALUES (@user, @tit, @url)";
-            SqlCommand cmd = new SqlCommand(query, objConnection);
-            cmd.Parameters.AddWithValue("@user", this.usuario_id);
-            cmd.Parameters.AddWithValue("@tit", this.tituloDocumento);
-            cmd.Parameters.AddWithValue("@url", this.urlDoc);
-            cmd.ExecuteNonQuery();
-        }
-        finally { objConnection.Close(); }
-    }
-
-    // Agrega el método Eliminar si no lo tienes
     public void Eliminar(int id)
     {
         try
@@ -57,20 +62,22 @@ internal class clsDocumentos : clsConexion
         }
         finally { objConnection.Close(); }
     }
-    public void Editar(clsDocumentos objeto)
+    public void EditarNombre(clsDocumentos objeto)
     {
         try
         {
             GetConnection();
-            // Asegúrate de que los nombres de las columnas coincidan con tu BD: documento_id, tituloDocumento, urlDoc
-            string query = "UPDATE Documentos SET tituloDocumento = @titulo, urlDoc = @url WHERE documento_id = @id";
+            string query = "UPDATE Documentos SET tituloDocumento = @tit WHERE documento_id = @id";
             SqlCommand cmd = new SqlCommand(query, objConnection);
 
-            cmd.Parameters.AddWithValue("@titulo", objeto.tituloDocumento);
-            cmd.Parameters.AddWithValue("@url", objeto.urlDoc);
+            cmd.Parameters.AddWithValue("@tit", objeto.tituloDocumento);
             cmd.Parameters.AddWithValue("@id", objeto.documento_id);
 
             cmd.ExecuteNonQuery();
+        }
+        catch (Exception ex)
+        {
+            throw new Exception("Error en la base de datos al renombrar: " + ex.Message);
         }
         finally
         {

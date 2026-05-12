@@ -61,11 +61,8 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.dgvDocumentos = new System.Windows.Forms.DataGridView();
             this.btnEliminarDocs = new System.Windows.Forms.Button();
-            this.btnModificarDocs = new System.Windows.Forms.Button();
             this.btnAgregarDocs = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtUrlDoc = new System.Windows.Forms.TextBox();
             this.txtTituloDoc = new System.Windows.Forms.TextBox();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.cmbBloques = new System.Windows.Forms.ComboBox();
@@ -80,6 +77,7 @@
             this.lblUsername = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblAdminControl = new System.Windows.Forms.Label();
+            this.btnModificarDocs = new System.Windows.Forms.Button();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTareas)).BeginInit();
@@ -416,15 +414,15 @@
             // 
             // txtTituloBloc
             // 
-            this.txtTituloBloc.Location = new System.Drawing.Point(315, 32);
+            this.txtTituloBloc.Location = new System.Drawing.Point(308, 87);
             this.txtTituloBloc.Name = "txtTituloBloc";
-            this.txtTituloBloc.Size = new System.Drawing.Size(100, 34);
+            this.txtTituloBloc.Size = new System.Drawing.Size(306, 34);
             this.txtTituloBloc.TabIndex = 2;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(80, 35);
+            this.label5.Location = new System.Drawing.Point(73, 90);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(208, 24);
             this.label5.TabIndex = 1;
@@ -433,11 +431,11 @@
             // dgvBlocs
             // 
             this.dgvBlocs.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvBlocs.Location = new System.Drawing.Point(134, 184);
+            this.dgvBlocs.Location = new System.Drawing.Point(77, 138);
             this.dgvBlocs.Name = "dgvBlocs";
             this.dgvBlocs.RowHeadersWidth = 51;
             this.dgvBlocs.RowTemplate.Height = 24;
-            this.dgvBlocs.Size = new System.Drawing.Size(406, 289);
+            this.dgvBlocs.Size = new System.Drawing.Size(914, 494);
             this.dgvBlocs.TabIndex = 0;
             this.dgvBlocs.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBlocs_CellClick);
             // 
@@ -447,9 +445,7 @@
             this.tabPage4.Controls.Add(this.btnEliminarDocs);
             this.tabPage4.Controls.Add(this.btnModificarDocs);
             this.tabPage4.Controls.Add(this.btnAgregarDocs);
-            this.tabPage4.Controls.Add(this.label4);
             this.tabPage4.Controls.Add(this.label3);
-            this.tabPage4.Controls.Add(this.txtUrlDoc);
             this.tabPage4.Controls.Add(this.txtTituloDoc);
             this.tabPage4.Location = new System.Drawing.Point(4, 33);
             this.tabPage4.Name = "tabPage4";
@@ -472,7 +468,7 @@
             // 
             // btnEliminarDocs
             // 
-            this.btnEliminarDocs.Location = new System.Drawing.Point(834, 41);
+            this.btnEliminarDocs.Location = new System.Drawing.Point(834, 70);
             this.btnEliminarDocs.Name = "btnEliminarDocs";
             this.btnEliminarDocs.Size = new System.Drawing.Size(109, 38);
             this.btnEliminarDocs.TabIndex = 10;
@@ -480,19 +476,9 @@
             this.btnEliminarDocs.UseVisualStyleBackColor = true;
             this.btnEliminarDocs.Click += new System.EventHandler(this.btnEliminarDocs_Click);
             // 
-            // btnModificarDocs
-            // 
-            this.btnModificarDocs.Location = new System.Drawing.Point(706, 41);
-            this.btnModificarDocs.Name = "btnModificarDocs";
-            this.btnModificarDocs.Size = new System.Drawing.Size(122, 38);
-            this.btnModificarDocs.TabIndex = 9;
-            this.btnModificarDocs.Text = "Modificar";
-            this.btnModificarDocs.UseVisualStyleBackColor = true;
-            this.btnModificarDocs.Click += new System.EventHandler(this.btnModificarDocs_Click);
-            // 
             // btnAgregarDocs
             // 
-            this.btnAgregarDocs.Location = new System.Drawing.Point(591, 41);
+            this.btnAgregarDocs.Location = new System.Drawing.Point(591, 70);
             this.btnAgregarDocs.Name = "btnAgregarDocs";
             this.btnAgregarDocs.Size = new System.Drawing.Size(109, 38);
             this.btnAgregarDocs.TabIndex = 7;
@@ -500,34 +486,18 @@
             this.btnAgregarDocs.UseVisualStyleBackColor = true;
             this.btnAgregarDocs.Click += new System.EventHandler(this.btnAgregarDocs_Click);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(55, 69);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 24);
-            this.label4.TabIndex = 3;
-            this.label4.Text = "URL";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(55, 29);
+            this.label3.Location = new System.Drawing.Point(63, 77);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 24);
             this.label3.TabIndex = 2;
             this.label3.Text = "Titulo";
             // 
-            // txtUrlDoc
-            // 
-            this.txtUrlDoc.Location = new System.Drawing.Point(148, 66);
-            this.txtUrlDoc.Name = "txtUrlDoc";
-            this.txtUrlDoc.Size = new System.Drawing.Size(401, 34);
-            this.txtUrlDoc.TabIndex = 1;
-            // 
             // txtTituloDoc
             // 
-            this.txtTituloDoc.Location = new System.Drawing.Point(148, 26);
+            this.txtTituloDoc.Location = new System.Drawing.Point(156, 74);
             this.txtTituloDoc.Name = "txtTituloDoc";
             this.txtTituloDoc.Size = new System.Drawing.Size(401, 34);
             this.txtTituloDoc.TabIndex = 0;
@@ -558,6 +528,7 @@
             this.cmbBloques.Name = "cmbBloques";
             this.cmbBloques.Size = new System.Drawing.Size(225, 32);
             this.cmbBloques.TabIndex = 7;
+            this.cmbBloques.SelectedIndexChanged += new System.EventHandler(this.cmbBloques_SelectedIndexChanged);
             // 
             // btnEliminarNota
             // 
@@ -595,14 +566,14 @@
             this.dgvNotas.Name = "dgvNotas";
             this.dgvNotas.RowHeadersWidth = 51;
             this.dgvNotas.RowTemplate.Height = 24;
-            this.dgvNotas.Size = new System.Drawing.Size(805, 264);
+            this.dgvNotas.Size = new System.Drawing.Size(1132, 264);
             this.dgvNotas.TabIndex = 3;
             // 
             // rtxtContenido
             // 
             this.rtxtContenido.Location = new System.Drawing.Point(72, 117);
             this.rtxtContenido.Name = "rtxtContenido";
-            this.rtxtContenido.Size = new System.Drawing.Size(805, 282);
+            this.rtxtContenido.Size = new System.Drawing.Size(1132, 282);
             this.rtxtContenido.TabIndex = 2;
             this.rtxtContenido.Text = "";
             // 
@@ -664,6 +635,16 @@
             this.lblAdminControl.TabIndex = 4;
             this.lblAdminControl.Text = "Admin Control";
             this.lblAdminControl.Click += new System.EventHandler(this.lblAdminControl_Click);
+            // 
+            // btnModificarDocs
+            // 
+            this.btnModificarDocs.Location = new System.Drawing.Point(706, 70);
+            this.btnModificarDocs.Name = "btnModificarDocs";
+            this.btnModificarDocs.Size = new System.Drawing.Size(122, 38);
+            this.btnModificarDocs.TabIndex = 9;
+            this.btnModificarDocs.Text = "Modificar";
+            this.btnModificarDocs.UseVisualStyleBackColor = true;
+            this.btnModificarDocs.Click += new System.EventHandler(this.btnModificarDocs_Click);
             // 
             // frmMain
             // 
@@ -735,12 +716,9 @@
         private System.Windows.Forms.Button btnAgregarNota;
         private System.Windows.Forms.DataGridView dgvNotas;
         private System.Windows.Forms.ComboBox cmbBloques;
-        private System.Windows.Forms.TextBox txtUrlDoc;
         private System.Windows.Forms.TextBox txtTituloDoc;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnEliminarDocs;
-        private System.Windows.Forms.Button btnModificarDocs;
         private System.Windows.Forms.Button btnAgregarDocs;
         private System.Windows.Forms.DataGridView dgvDocumentos;
         private System.Windows.Forms.DataGridView dgvBlocs;
@@ -756,5 +734,6 @@
         private System.Windows.Forms.Button btnModificarTareaInd;
         private System.Windows.Forms.Button btnAgregarTareaInd;
         private System.Windows.Forms.DataGridView dgvTareasInd;
+        private System.Windows.Forms.Button btnModificarDocs;
     }
 }
