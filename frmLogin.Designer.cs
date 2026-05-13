@@ -69,6 +69,7 @@
             this.btnLogin.TabIndex = 1;
             this.btnLogin.Text = "Entrar";
             this.btnLogin.UseVisualStyleBackColor = true;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // txtEmailLogin
             // 
@@ -215,7 +216,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1062, 601);
+            this.ClientSize = new System.Drawing.Size(1073, 612);
             this.Controls.Add(this.gBxLogin);
             this.Controls.Add(this.gBxRegistro);
             this.Name = "frmLogin";

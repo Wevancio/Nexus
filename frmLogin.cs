@@ -33,5 +33,10 @@ namespace NexusApp
             frmMain.ShowDialog();
             this.Hide();
         }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
